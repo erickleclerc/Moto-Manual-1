@@ -1,0 +1,185 @@
+{
+    "name": "VRInputActions",
+    "maps": [
+        {
+            "name": "Motorcycle Controls",
+            "id": "bf505325-f42b-4040-8407-4deb3105d717",
+            "actions": [
+                {
+                    "name": "Grab Handle Bars",
+                    "type": "Button",
+                    "id": "28d22e18-8ae2-4ebc-9902-bf885ab1cd4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Front Brake Grabbing",
+                    "type": "Button",
+                    "id": "8b44e71d-ae4d-4117-bc2f-1581efe6842f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Clutch Grabbing",
+                    "type": "Button",
+                    "id": "763eac74-33cf-4d08-b4e7-50617cee55c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Kills Switch Starter",
+                    "type": "Button",
+                    "id": "47fd1a14-a5f4-45f7-a044-bd1461df4a38",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Turn Signals",
+                    "type": "Button",
+                    "id": "403b8080-c4c6-4808-92ef-36017b44d31f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Horn Button",
+                    "type": "Button",
+                    "id": "412e4716-5ae0-4114-9191-7ebe313e5563",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back Brake Press",
+                    "type": "Button",
+                    "id": "01333e13-96bb-41a4-84a4-6c26d9a6626a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shifter Pedal",
+                    "type": "Button",
+                    "id": "cc30a282-7568-4dcd-924c-905434b77dc8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7b03b731-fd19-4b1f-bbd5-65d368290cd1",
+                    "path": "<OculusTouchController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab Handle Bars",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95c267cf-e64a-4cf0-8a8e-1163455530d5",
+                    "path": "<OculusTouchController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab Handle Bars",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f48ee7e-8d1f-42b9-b99a-6ec1e8c211bb",
+                    "path": "<OculusTouchController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Front Brake Grabbing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abd09180-342d-4e42-9cf0-943e18fe23b9",
+                    "path": "<OculusTouchController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clutch Grabbing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c595ae9-6bed-4578-a732-3f0eac048cf2",
+                    "path": "<OculusTouchController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kills Switch Starter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f490bb24-854e-4fe4-85f1-5c5c7a111a73",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Signals",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c60e3bb2-4f84-43ec-912b-8ddbafaeb4a1",
+                    "path": "<OculusTouchController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horn Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be20080d-398b-4064-baa8-3701c962f206",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back Brake Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34771b38-e778-4d1b-b5d2-348dcfd8017e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shifter Pedal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

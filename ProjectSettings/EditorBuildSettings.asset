@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f8cb445c27bca8d4fa9b1f06a74423d1
+  - enabled: 1
+    path: Assets/Scenes/ParkingLot.unity
+    guid: 18fa5453520c5994b8f9833de005b2a5
+  - enabled: 1
+    path: Assets/Scenes/Streets.unity
+    guid: 77affc875d35da343878cb2a4d4270a1
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2767f4529f92c524387e1d2d98c92a3b, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 710b5a9f1a04f5e4d9638d2436487053, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8f22cf59cd3b8a74e840e801567987b0, type: 2}
