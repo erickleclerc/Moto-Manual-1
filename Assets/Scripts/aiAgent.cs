@@ -22,7 +22,7 @@ public class aiAgent : MonoBehaviour
     //navmesh must also be created
     private NavMeshAgent agent;
     Animator anim;
-    private bool isWalking;
+    //private bool isWalking;
     private bool canHangAround;
 
 
@@ -35,7 +35,7 @@ public class aiAgent : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         agent.SetDestination(pointOne.position);
-        isWalking = false;
+        //isWalking = false;
         canHangAround = true;
     }
 
@@ -48,7 +48,7 @@ public class aiAgent : MonoBehaviour
     {
         if (currentState == State.MoveToPointOne)
         {
-            isWalking = true;
+            //isWalking = true;
 
             anim.SetBool("Walking", true);
             anim.SetBool("Idle", false);
@@ -64,7 +64,7 @@ public class aiAgent : MonoBehaviour
 
         if (currentState == State.TravellingToPointTwo)
         {
-            isWalking = true;
+           // isWalking = true;
 
             anim.SetBool("Walking", true);
             anim.SetBool("Idle", false);
@@ -88,7 +88,7 @@ public class aiAgent : MonoBehaviour
 
         if (currentState == State.HangAround && canHangAround == true)
         {
-            isWalking = false;
+            //isWalking = false;
 
             StartCoroutine(RelaxingInPlace());
         }
