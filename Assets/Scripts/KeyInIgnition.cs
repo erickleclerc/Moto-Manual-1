@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class KeyInIgnition : MonoBehaviour
 {
-    private bool isAttached = false;
+    private bool isAttached;
 
     public Vector3 offset;
+
+
+    private void Start()
+    {
+        isAttached = false;
+    }
 
     void Update()
     {

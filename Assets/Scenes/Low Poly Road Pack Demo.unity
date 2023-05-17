@@ -25746,6 +25746,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationSpeed: 10
+  head: {fileID: 352502397}
+  zRotation: 0
+  rotationDifference: 0
+  rotationSensitivity: 10
 --- !u!1001 &1210793830
 PrefabInstance:
   m_ObjectHideFlags: 0

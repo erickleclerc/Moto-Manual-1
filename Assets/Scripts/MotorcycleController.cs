@@ -18,6 +18,15 @@ public class MotorcycleController : MonoBehaviour
     //Moving forward and backward
     [SerializeField] private float accelerationSpeed = 10f;
 
+    //Leaning steering
+    [SerializeField] private GameObject head;
+    private float initialZRotation;
+    public float zRotation;
+    public float rotationDifference;
+    public float rotationSensitivity = 1f;
+    private float angularDifference;
+
+
     //Clutch
     private bool isClutchIn = false;
 
@@ -38,6 +47,7 @@ public class MotorcycleController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        initialZRotation = head.transform.eulerAngles.x;
 
     }
 
@@ -82,13 +92,30 @@ public class MotorcycleController : MonoBehaviour
                 float brakingMagnitude = Mathf.Clamp(accelerationSpeed, 0, currentSpeed);
 
                 // Apply the deceleration force
-                rb.AddForce(brakingDirection * brakingMagnitude *1.5f, ForceMode.Acceleration);
+                rb.AddForce(brakingDirection * brakingMagnitude * 1.5f, ForceMode.Acceleration);
             }
         }
 
+        //Turning based on Leaning
+        //zRotation = head.transform.eulerAngles.x;
+        //rotationDifference = zRotation - initialZRotation;
+        //if (rb.velocity.magnitude > 0)
+        //{
+        //    //transform.Rotate(0, -rotationDifference * rotationSensitivity, 0);//Turn more when leaning more
 
-        //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
-        if (VRInputActions.MotorcycleControls.ClutchGrabbing.IsPressed())
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationDifference, 0f), rotationSensitivity * Time.deltaTime);
+
+        //}
+
+        //angularDifference = Vector3.Angle(Vector3.up, transform.up);
+        //if (rb.velocity.magnitude > 0 && angularDifference > 5)
+        //{
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, angularDifference, 0f), rotationSensitivity * Time.deltaTime);
+        //}
+
+
+            //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
+            if (VRInputActions.MotorcycleControls.ClutchGrabbing.IsPressed())
         {
             isClutchIn = true;
         }
