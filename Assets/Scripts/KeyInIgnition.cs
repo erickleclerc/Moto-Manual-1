@@ -8,19 +8,12 @@ public class KeyInIgnition : MonoBehaviour
 
     public Vector3 offset;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (isAttached)
-        {
-            transform.localPosition = offset;
-        }
+       // if (isAttached)
+        //{
+        //    transform.localPosition = offset;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,14 +22,14 @@ public class KeyInIgnition : MonoBehaviour
         {
             Debug.Log("Key in ignition");
 
-            transform.SetParent(other.gameObject.transform);
-            //transform.position = other.transform.position;
-
+            transform.SetParent(other.gameObject.transform, true);
+           // transform.localScale = Vector3.one;
+            
             isAttached = true;
             
-            //transform.rotation = transform.parent.rotation * Quaternion.Euler(0, 90, 0); ;
+            //transform.localRotation = Quaternion.Euler(90, 00, 0); 
 
-            
+            // I want the this gameObject to keep its position and rotation, but be a child of the ignition gameObject
         }
     }
 }

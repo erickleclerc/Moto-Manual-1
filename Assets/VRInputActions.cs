@@ -65,12 +65,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Turn Signals"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""403b8080-c4c6-4808-92ef-36017b44d31f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Horn Button"",
@@ -94,6 +94,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Shifter Pedal"",
                     ""type"": ""Button"",
                     ""id"": ""cc30a282-7568-4dcd-924c-905434b77dc8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throttle"",
+                    ""type"": ""Button"",
+                    ""id"": ""5623b560-779c-437d-8378-905008ba24e3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -159,7 +168,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f490bb24-854e-4fe4-85f1-5c5c7a111a73"",
-                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstickTouched"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstick/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -181,7 +190,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be20080d-398b-4064-baa8-3701c962f206"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -197,6 +206,28 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shifter Pedal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6420d5e9-f7a9-4eb6-9831-b18d15544d30"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86ed7b2d-c19e-4097-81f6-b8bbd443e164"",
+                    ""path"": ""<OculusTouchController>/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -215,6 +246,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_HornButton = m_MotorcycleControls.FindAction("Horn Button", throwIfNotFound: true);
         m_MotorcycleControls_BackBrakePress = m_MotorcycleControls.FindAction("Back Brake Press", throwIfNotFound: true);
         m_MotorcycleControls_ShifterPedal = m_MotorcycleControls.FindAction("Shifter Pedal", throwIfNotFound: true);
+        m_MotorcycleControls_Throttle = m_MotorcycleControls.FindAction("Throttle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +314,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_HornButton;
     private readonly InputAction m_MotorcycleControls_BackBrakePress;
     private readonly InputAction m_MotorcycleControls_ShifterPedal;
+    private readonly InputAction m_MotorcycleControls_Throttle;
     public struct MotorcycleControlsActions
     {
         private @VRInputActions m_Wrapper;
@@ -294,6 +327,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @HornButton => m_Wrapper.m_MotorcycleControls_HornButton;
         public InputAction @BackBrakePress => m_Wrapper.m_MotorcycleControls_BackBrakePress;
         public InputAction @ShifterPedal => m_Wrapper.m_MotorcycleControls_ShifterPedal;
+        public InputAction @Throttle => m_Wrapper.m_MotorcycleControls_Throttle;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -327,6 +361,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @ShifterPedal.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedal;
                 @ShifterPedal.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedal;
                 @ShifterPedal.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedal;
+                @Throttle.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
+                @Throttle.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
+                @Throttle.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
             }
             m_Wrapper.m_MotorcycleControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -355,6 +392,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @ShifterPedal.started += instance.OnShifterPedal;
                 @ShifterPedal.performed += instance.OnShifterPedal;
                 @ShifterPedal.canceled += instance.OnShifterPedal;
+                @Throttle.started += instance.OnThrottle;
+                @Throttle.performed += instance.OnThrottle;
+                @Throttle.canceled += instance.OnThrottle;
             }
         }
     }
@@ -369,5 +409,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnHornButton(InputAction.CallbackContext context);
         void OnBackBrakePress(InputAction.CallbackContext context);
         void OnShifterPedal(InputAction.CallbackContext context);
+        void OnThrottle(InputAction.CallbackContext context);
     }
 }

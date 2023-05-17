@@ -27,6 +27,8 @@ public class GrabInteraction : MonoBehaviour
                 heldObject.transform.parent = null;
                 heldObject.isKinematic = false;
 
+
+                                                                        //REMOVE VELOCITY?
                 heldObject.velocity = velocity;
                 heldObject = null;
 
@@ -37,6 +39,7 @@ public class GrabInteraction : MonoBehaviour
 
     private void FixedUpdate()
     {
+                                                                    //REMOVE VELOCITY?
         if (heldObject != null)  //holding onto something
         {
             Vector3 displacement = heldObject.transform.position - previousPosition;

@@ -43,12 +43,12 @@
                 },
                 {
                     "name": "Turn Signals",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "403b8080-c4c6-4808-92ef-36017b44d31f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Horn Button",
@@ -72,6 +72,15 @@
                     "name": "Shifter Pedal",
                     "type": "Button",
                     "id": "cc30a282-7568-4dcd-924c-905434b77dc8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Throttle",
+                    "type": "Button",
+                    "id": "5623b560-779c-437d-8378-905008ba24e3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -137,7 +146,7 @@
                 {
                     "name": "",
                     "id": "f490bb24-854e-4fe4-85f1-5c5c7a111a73",
-                    "path": "<OculusTouchController>{LeftHand}/thumbstickTouched",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstick/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -159,7 +168,7 @@
                 {
                     "name": "",
                     "id": "be20080d-398b-4064-baa8-3701c962f206",
-                    "path": "",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -175,6 +184,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shifter Pedal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6420d5e9-f7a9-4eb6-9831-b18d15544d30",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86ed7b2d-c19e-4097-81f6-b8bbd443e164",
+                    "path": "<OculusTouchController>/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
