@@ -47,12 +47,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Clutch Grabbing"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""763eac74-33cf-4d08-b4e7-50617cee55c5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Kills Switch Starter"",
@@ -91,9 +91,18 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shifter Pedal"",
+                    ""name"": ""Shifter Pedal Up"",
                     ""type"": ""Button"",
                     ""id"": ""cc30a282-7568-4dcd-924c-905434b77dc8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shifter Pedal Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d19fd33-d965-4fca-b6a2-efe87e84e26f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -145,8 +154,30 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""71d9b74e-1fea-4be7-9b49-2046aa24b1ac"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Front Brake Grabbing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""abd09180-342d-4e42-9cf0-943e18fe23b9"",
                     ""path"": ""<OculusTouchController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Clutch Grabbing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c5c41fa-b8ec-46da-ac7d-2b64c22882e0"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -190,7 +221,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be20080d-398b-4064-baa8-3701c962f206"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -201,11 +232,11 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""34771b38-e778-4d1b-b5d2-348dcfd8017e"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shifter Pedal"",
+                    ""action"": ""Shifter Pedal Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -230,6 +261,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c115f10-7612-43b2-8b02-0b49349d16a9"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shifter Pedal Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -245,7 +287,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_TurnSignals = m_MotorcycleControls.FindAction("Turn Signals", throwIfNotFound: true);
         m_MotorcycleControls_HornButton = m_MotorcycleControls.FindAction("Horn Button", throwIfNotFound: true);
         m_MotorcycleControls_BackBrakePress = m_MotorcycleControls.FindAction("Back Brake Press", throwIfNotFound: true);
-        m_MotorcycleControls_ShifterPedal = m_MotorcycleControls.FindAction("Shifter Pedal", throwIfNotFound: true);
+        m_MotorcycleControls_ShifterPedalUp = m_MotorcycleControls.FindAction("Shifter Pedal Up", throwIfNotFound: true);
+        m_MotorcycleControls_ShifterPedalDown = m_MotorcycleControls.FindAction("Shifter Pedal Down", throwIfNotFound: true);
         m_MotorcycleControls_Throttle = m_MotorcycleControls.FindAction("Throttle", throwIfNotFound: true);
     }
 
@@ -313,7 +356,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_TurnSignals;
     private readonly InputAction m_MotorcycleControls_HornButton;
     private readonly InputAction m_MotorcycleControls_BackBrakePress;
-    private readonly InputAction m_MotorcycleControls_ShifterPedal;
+    private readonly InputAction m_MotorcycleControls_ShifterPedalUp;
+    private readonly InputAction m_MotorcycleControls_ShifterPedalDown;
     private readonly InputAction m_MotorcycleControls_Throttle;
     public struct MotorcycleControlsActions
     {
@@ -326,7 +370,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @TurnSignals => m_Wrapper.m_MotorcycleControls_TurnSignals;
         public InputAction @HornButton => m_Wrapper.m_MotorcycleControls_HornButton;
         public InputAction @BackBrakePress => m_Wrapper.m_MotorcycleControls_BackBrakePress;
-        public InputAction @ShifterPedal => m_Wrapper.m_MotorcycleControls_ShifterPedal;
+        public InputAction @ShifterPedalUp => m_Wrapper.m_MotorcycleControls_ShifterPedalUp;
+        public InputAction @ShifterPedalDown => m_Wrapper.m_MotorcycleControls_ShifterPedalDown;
         public InputAction @Throttle => m_Wrapper.m_MotorcycleControls_Throttle;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
         public void Enable() { Get().Enable(); }
@@ -358,9 +403,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @BackBrakePress.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnBackBrakePress;
                 @BackBrakePress.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnBackBrakePress;
                 @BackBrakePress.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnBackBrakePress;
-                @ShifterPedal.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedal;
-                @ShifterPedal.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedal;
-                @ShifterPedal.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedal;
+                @ShifterPedalUp.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedalUp;
+                @ShifterPedalUp.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedalUp;
+                @ShifterPedalUp.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedalUp;
+                @ShifterPedalDown.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedalDown;
+                @ShifterPedalDown.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedalDown;
+                @ShifterPedalDown.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnShifterPedalDown;
                 @Throttle.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
                 @Throttle.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
                 @Throttle.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
@@ -389,9 +437,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @BackBrakePress.started += instance.OnBackBrakePress;
                 @BackBrakePress.performed += instance.OnBackBrakePress;
                 @BackBrakePress.canceled += instance.OnBackBrakePress;
-                @ShifterPedal.started += instance.OnShifterPedal;
-                @ShifterPedal.performed += instance.OnShifterPedal;
-                @ShifterPedal.canceled += instance.OnShifterPedal;
+                @ShifterPedalUp.started += instance.OnShifterPedalUp;
+                @ShifterPedalUp.performed += instance.OnShifterPedalUp;
+                @ShifterPedalUp.canceled += instance.OnShifterPedalUp;
+                @ShifterPedalDown.started += instance.OnShifterPedalDown;
+                @ShifterPedalDown.performed += instance.OnShifterPedalDown;
+                @ShifterPedalDown.canceled += instance.OnShifterPedalDown;
                 @Throttle.started += instance.OnThrottle;
                 @Throttle.performed += instance.OnThrottle;
                 @Throttle.canceled += instance.OnThrottle;
@@ -408,7 +459,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnTurnSignals(InputAction.CallbackContext context);
         void OnHornButton(InputAction.CallbackContext context);
         void OnBackBrakePress(InputAction.CallbackContext context);
-        void OnShifterPedal(InputAction.CallbackContext context);
+        void OnShifterPedalUp(InputAction.CallbackContext context);
+        void OnShifterPedalDown(InputAction.CallbackContext context);
         void OnThrottle(InputAction.CallbackContext context);
     }
 }
