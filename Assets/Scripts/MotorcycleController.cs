@@ -26,6 +26,8 @@ public class MotorcycleController : MonoBehaviour
     public float rotationSensitivity = 1f;
     private float angularDifference;
 
+    private float angularSensitivity;
+
 
     //Clutch
     private bool isClutchIn = false;
@@ -36,6 +38,10 @@ public class MotorcycleController : MonoBehaviour
     private int currentGear = 1;
     private int minGear = 0; //0 is first gear, 1 is neutral
     private int maxGear = 6;
+
+
+
+    
 
     private void Awake()
     {
@@ -53,6 +59,30 @@ public class MotorcycleController : MonoBehaviour
 
     void Update()
     {
+       
+        ////The lean angle on the local z axis is the rotation of the head
+        //zRotation = head.transform.eulerAngles.z;
+        ////Debug.Log($"Z Rotation: {zRotation}");
+        //if (rb.velocity.magnitude > 0 && zRotation > 5 && zRotation < 65)
+        //{
+        //    angularSensitivity = zRotation;
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, -90, 0f), rotationSensitivity * Time.deltaTime);
+
+        //    //Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, -1, 0f), zRotation * Time.deltaTime);
+        //}
+        //else if (rb.velocity.magnitude > 0 && zRotation > 295 && zRotation < 355)
+        //{
+        //    angularSensitivity = zRotation - 290;
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 90, 0f), angularSensitivity * Time.deltaTime);
+        //}
+
+
+        //rotate this gameObject in the direction of the head's tilt on the z axis smoothly
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, zRotation, 0f), rotationSensitivity * Time.deltaTime);
+
+
+
+
 
         //Throttle is also A key on keyboard and B button on Oculus controller for now
         if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
