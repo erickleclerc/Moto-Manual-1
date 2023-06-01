@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GrabInteraction : MonoBehaviour
@@ -10,6 +8,9 @@ public class GrabInteraction : MonoBehaviour
 
     Vector3 previousPosition;
     Vector3 velocity;
+
+
+
     private void Awake()
     {
         VRInputActions = new VRInputActions();
@@ -22,14 +23,11 @@ public class GrabInteraction : MonoBehaviour
 
         if (heldObject != null)  //holding onto something
         {
-            if (VRInputActions.MotorcycleControls.GrabHandleBars.WasPressedThisFrame())
+            if (VRInputActions.MotorcycleControls.GrabHandleBars.WasReleasedThisFrame())
             {
-                heldObject.transform.parent = null;
-                heldObject.isKinematic = false;
 
+                //heldObject.transform.parent = null;
 
-                                                                        //REMOVE VELOCITY?
-                heldObject.velocity = velocity;
                 heldObject = null;
 
                 wasDropped = true;
@@ -37,19 +35,7 @@ public class GrabInteraction : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-                                                                    //REMOVE VELOCITY?
-        if (heldObject != null)  //holding onto something
-        {
-            Vector3 displacement = heldObject.transform.position - previousPosition;
-
-            velocity = displacement / Time.deltaTime;
-
-            previousPosition = heldObject.transform.position;
-        }
-
-    }
+    
     private void OnTriggerStay(Collider otherObject)
     {
         if (wasDropped == true)
@@ -60,9 +46,19 @@ public class GrabInteraction : MonoBehaviour
         if (heldObject == null)
         {
             Rigidbody rb = otherObject.GetComponent<Rigidbody>();
-            //Debug.Log(otherObject.gameObject.name);
+            Debug.Log(otherObject.gameObject.name);
 
             if (rb != null && otherObject.gameObject.CompareTag("Key") || rb != null && otherObject.gameObject.CompareTag("Helmet"))
+            {
+                if (VRInputActions.MotorcycleControls.GrabHandleBars.WasPressedThisFrame())
+                {
+                    otherObject.transform.parent = transform;
+                    rb.isKinematic = true;
+
+                    heldObject = rb;
+                }
+            }
+            if (rb != null && otherObject.gameObject.CompareTag("HandleBar"))
             {
                 if (VRInputActions.MotorcycleControls.GrabHandleBars.WasPressedThisFrame())
                 {

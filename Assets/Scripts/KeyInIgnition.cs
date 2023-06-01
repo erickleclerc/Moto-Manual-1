@@ -5,9 +5,10 @@ using UnityEngine;
 public class KeyInIgnition : MonoBehaviour
 {
     private bool isAttached;
+    public GameObject ignition;
+
 
     public Vector3 offset;
-
 
     private void Start()
     {
@@ -16,10 +17,14 @@ public class KeyInIgnition : MonoBehaviour
 
     void Update()
     {
-       // if (isAttached)
-        //{
-        //    transform.localPosition = offset;
-        //}
+        if (isAttached)
+        {
+
+            transform.parent = ignition.transform;
+           // transform.position = ignition.transform.position + offset;
+            //transform.rotation = Quaternion.Euler(65, -90, -90);
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,14 +33,21 @@ public class KeyInIgnition : MonoBehaviour
         {
             Debug.Log("Key in ignition");
 
-            transform.SetParent(other.gameObject.transform, true);
-           // transform.localScale = Vector3.one;
-            
+            //transform.SetParent(other.gameObject.transform, true);
+
+            //ignition = other.GetComponent<GameObject>();
+
+
+            //ftransform.position = other.gameObject.transform.position;
+            //set the parent of this game object to the ignition gameObject
+            //transform.parent = other.gameObject.transform;
+            //transform.localPosition = Vector3.zero;
+
+
             isAttached = true;
-            
+
             //transform.localRotation = Quaternion.Euler(90, 00, 0); 
 
-            // I want the this gameObject to keep its position and rotation, but be a child of the ignition gameObject
         }
     }
 }

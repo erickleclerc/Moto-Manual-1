@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttachHelmet : MonoBehaviour
 {
-    private bool isAttached = false;
+    public bool isAttached = false;
 
     public Vector3 offset;
 

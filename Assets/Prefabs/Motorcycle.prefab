@@ -372,6 +372,38 @@ Transform:
   m_Father: {fileID: 5958634296314615340}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &778431664219397205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7937662693077597295}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Ignition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7937662693077597295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778431664219397205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1859808336528265408}
+  m_Father: {fileID: 4356769305040117206}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038728787573631522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1859808336528265408}
+  - {fileID: 7937662693077597295}
   m_Father: {fileID: 7062280376229055259}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1166,7 +1198,7 @@ GameObject:
   - component: {fileID: 1859808336528265409}
   m_Layer: 0
   m_Name: Ignition Opening
-  m_TagString: Ignition
+  m_TagString: Test
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,11 +1211,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859808336528265411}
   m_LocalRotation: {x: 0.17955185, y: -0, z: -0, w: 0.98374856}
-  m_LocalPosition: {x: 0.000393, y: 0.005795, z: -0.003982}
-  m_LocalScale: {x: 0.00013969118, y: 0.000016621854, z: 0.00013969118}
+  m_LocalPosition: {x: 0.00039300046, y: 0.0057949983, z: -0.0039820024}
+  m_LocalScale: {x: 0.00013969117, y: 0.000016621854, z: 0.00013969118}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4356769305040117206}
+  m_Father: {fileID: 7937662693077597295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20.687, y: 0, z: 0}
 --- !u!33 &1859808336528265415

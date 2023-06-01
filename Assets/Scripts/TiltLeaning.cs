@@ -4,8 +4,8 @@ public class TiltLeaning : MonoBehaviour
 {
     public float maxTiltAngle = 45f;        // Maximum angle the motorcycle can lean
     public float maxTurnAngle = 30f;        // Maximum angle the motorcycle can turn
-    public float rotationSpeed = 1f;       // Speed of rotation when tilting
-    public float turnIntensity = 1f;        // Intensity of the turn
+    public float rotationSpeed = .5f;       // Speed of rotation when tilting
+    public float turnIntensity = .5f;        // Intensity of the turn
 
     private float currentTiltAngle = 0f;    // Current angle of motorcycle tilt
     private float currentTurnAngle = 0f;    // Current angle of motorcycle turn
@@ -31,14 +31,16 @@ public class TiltLeaning : MonoBehaviour
         float desiredTiltAngle = Mathf.Clamp(headTiltAngle, -maxTiltAngle, maxTiltAngle);
 
 
-        if (rb.velocity.magnitude > 0)
+        if (rb.velocity.magnitude > 5)
         {
             // Smoothly rotate the motorcycle towards the desired tilt angle
             currentTiltAngle = Mathf.Lerp(currentTiltAngle, desiredTiltAngle, rotationSpeed * Time.deltaTime);
 
             // Apply the rotation to the motorcycle
-            //CHANGE TO ROTATE TOWARDS***********************
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle), rotationSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle);
+            //NEEDS TO BE FIXED*********
+
 
             // Calculate the desired turn angle based on the head tilt angle and turn intensity
             float desiredTurnAngle = Mathf.Clamp(headTiltAngle * turnIntensity, -maxTurnAngle, maxTurnAngle);

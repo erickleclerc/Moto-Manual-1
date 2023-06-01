@@ -12,6 +12,7 @@ TagManager:
   - Helmet
   - Ignition
   - OtherVehicle
+  - HandleBar
   layers:
   - Default
   - TransparentFX
