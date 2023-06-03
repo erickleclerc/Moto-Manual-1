@@ -45,7 +45,7 @@
                     "name": "Turn Signals",
                     "type": "Value",
                     "id": "403b8080-c4c6-4808-92ef-36017b44d31f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -94,6 +94,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Turn Signals Off",
+                    "type": "Button",
+                    "id": "87d4aad7-f6c5-4a0f-8b2a-c9c6583a6093",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Headlight",
+                    "type": "Value",
+                    "id": "5f3e53d6-8a0b-427e-8486-e13b61976490",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -248,6 +266,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shifter Pedal Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "142e0877-c204-4ea3-b7ef-884a6dbf274f",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Signals Off",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7a77fa3-8ce2-429a-a39f-660311dc8b9b",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Headlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

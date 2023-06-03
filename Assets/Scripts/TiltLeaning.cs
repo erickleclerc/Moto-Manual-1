@@ -38,7 +38,9 @@ public class TiltLeaning : MonoBehaviour
 
             // Apply the rotation to the motorcycle
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle), rotationSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle);
+            //transform.rotation = Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle), rotationSpeed * Time.deltaTime);
             //NEEDS TO BE FIXED*********
 
 

@@ -67,7 +67,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Turn Signals"",
                     ""type"": ""Value"",
                     ""id"": ""403b8080-c4c6-4808-92ef-36017b44d31f"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -116,6 +116,24 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Turn Signals Off"",
+                    ""type"": ""Button"",
+                    ""id"": ""87d4aad7-f6c5-4a0f-8b2a-c9c6583a6093"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Headlight"",
+                    ""type"": ""Value"",
+                    ""id"": ""5f3e53d6-8a0b-427e-8486-e13b61976490"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -272,6 +290,28 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Shifter Pedal Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""142e0877-c204-4ea3-b7ef-884a6dbf274f"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstickClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn Signals Off"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7a77fa3-8ce2-429a-a39f-660311dc8b9b"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Headlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -290,6 +330,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_ShifterPedalUp = m_MotorcycleControls.FindAction("Shifter Pedal Up", throwIfNotFound: true);
         m_MotorcycleControls_ShifterPedalDown = m_MotorcycleControls.FindAction("Shifter Pedal Down", throwIfNotFound: true);
         m_MotorcycleControls_Throttle = m_MotorcycleControls.FindAction("Throttle", throwIfNotFound: true);
+        m_MotorcycleControls_TurnSignalsOff = m_MotorcycleControls.FindAction("Turn Signals Off", throwIfNotFound: true);
+        m_MotorcycleControls_Headlight = m_MotorcycleControls.FindAction("Headlight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -359,6 +401,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_ShifterPedalUp;
     private readonly InputAction m_MotorcycleControls_ShifterPedalDown;
     private readonly InputAction m_MotorcycleControls_Throttle;
+    private readonly InputAction m_MotorcycleControls_TurnSignalsOff;
+    private readonly InputAction m_MotorcycleControls_Headlight;
     public struct MotorcycleControlsActions
     {
         private @VRInputActions m_Wrapper;
@@ -373,6 +417,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @ShifterPedalUp => m_Wrapper.m_MotorcycleControls_ShifterPedalUp;
         public InputAction @ShifterPedalDown => m_Wrapper.m_MotorcycleControls_ShifterPedalDown;
         public InputAction @Throttle => m_Wrapper.m_MotorcycleControls_Throttle;
+        public InputAction @TurnSignalsOff => m_Wrapper.m_MotorcycleControls_TurnSignalsOff;
+        public InputAction @Headlight => m_Wrapper.m_MotorcycleControls_Headlight;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -412,6 +458,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @Throttle.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
                 @Throttle.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
                 @Throttle.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnThrottle;
+                @TurnSignalsOff.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTurnSignalsOff;
+                @TurnSignalsOff.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTurnSignalsOff;
+                @TurnSignalsOff.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTurnSignalsOff;
+                @Headlight.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnHeadlight;
+                @Headlight.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnHeadlight;
+                @Headlight.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnHeadlight;
             }
             m_Wrapper.m_MotorcycleControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -446,6 +498,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @Throttle.started += instance.OnThrottle;
                 @Throttle.performed += instance.OnThrottle;
                 @Throttle.canceled += instance.OnThrottle;
+                @TurnSignalsOff.started += instance.OnTurnSignalsOff;
+                @TurnSignalsOff.performed += instance.OnTurnSignalsOff;
+                @TurnSignalsOff.canceled += instance.OnTurnSignalsOff;
+                @Headlight.started += instance.OnHeadlight;
+                @Headlight.performed += instance.OnHeadlight;
+                @Headlight.canceled += instance.OnHeadlight;
             }
         }
     }
@@ -462,5 +520,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnShifterPedalUp(InputAction.CallbackContext context);
         void OnShifterPedalDown(InputAction.CallbackContext context);
         void OnThrottle(InputAction.CallbackContext context);
+        void OnTurnSignalsOff(InputAction.CallbackContext context);
+        void OnHeadlight(InputAction.CallbackContext context);
     }
 }

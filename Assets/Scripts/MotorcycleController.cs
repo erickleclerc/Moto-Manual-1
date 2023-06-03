@@ -16,7 +16,7 @@ public class MotorcycleController : MonoBehaviour
 
 
     //Moving forward and backward
-    [SerializeField] private float accelerationSpeed = 10f;
+    [SerializeField] private float accelerationSpeed = 5f;
 
     //Leaning steering
     [SerializeField] private GameObject head;
@@ -41,7 +41,18 @@ public class MotorcycleController : MonoBehaviour
 
 
 
-    
+
+    [Header  ("Lights")]
+    [Space(5)]
+    //Light
+    [SerializeField] private Light headlight;
+    [SerializeField] private Light[] brakelight;
+    private Light rightSignalLight;
+    private Light leftSignalLight;
+    [SerializeField] private Material brakeLightMaterial;
+
+    private float headlightAxis;
+
 
     private void Awake()
     {
@@ -107,7 +118,21 @@ public class MotorcycleController : MonoBehaviour
 
                 // Apply the deceleration force
                 rb.AddForce(brakingDirection * brakingMagnitude, ForceMode.Acceleration);
+
+                if (rb.velocity.magnitude < 0.1f)
+                {
+                    rb.velocity = Vector3.zero; 
+                }
             }
+
+            //Brake Light
+           brakeLightMaterial.EnableKeyword("_EMISSION");
+           brakeLightMaterial.SetColor("_EmissionColor", Color.red);
+            brakelight[0].enabled = true;
+            brakelight[1].enabled = true;
+     
+
+         
         }
         else if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.IsPressed() && VRInputActions.MotorcycleControls.BackBrakePress.IsPressed()) //enhanced braking
         {
@@ -123,25 +148,23 @@ public class MotorcycleController : MonoBehaviour
 
                 // Apply the deceleration force
                 rb.AddForce(brakingDirection * brakingMagnitude * 1.5f, ForceMode.Acceleration);
+
+                if (rb.velocity.magnitude < 0.1f)
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
         }
 
-        //Turning based on Leaning
-        //zRotation = head.transform.eulerAngles.x;
-        //rotationDifference = zRotation - initialZRotation;
-        //if (rb.velocity.magnitude > 0)
-        //{
-        //    //transform.Rotate(0, -rotationDifference * rotationSensitivity, 0);//Turn more when leaning more
-
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationDifference, 0f), rotationSensitivity * Time.deltaTime);
-
-        //}
-
-        //angularDifference = Vector3.Angle(Vector3.up, transform.up);
-        //if (rb.velocity.magnitude > 0 && angularDifference > 5)
-        //{
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, angularDifference, 0f), rotationSensitivity * Time.deltaTime);
-        //}
+        //Front Brake is also the S Key and right trigger on Oculus controller or Back Brake is also the D key and USB car pedal
+        if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.WasReleasedThisFrame() || VRInputActions.MotorcycleControls.BackBrakePress.WasReleasedThisFrame())
+        {
+            //turn off brake light
+            brakeLightMaterial.DisableKeyword("_EMISSION");
+            brakeLightMaterial.SetColor("_EmissionColor", Color.red);
+            brakelight[0].enabled = false;
+            brakelight[1].enabled = false;
+        }
 
 
             //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
@@ -175,4 +198,11 @@ public class MotorcycleController : MonoBehaviour
         Debug.Log(isClutchIn);
         Debug.Log($"Current gear is {currentGear}");
     }
+
+
+
+
+
+    //Turn on Heaedlight using the L key on keyboard or Y axis on left Oculus joystick controller
+
 }
