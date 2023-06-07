@@ -27,13 +27,13 @@
                     "name": "Clutch Grabbing",
                     "type": "Value",
                     "id": "763eac74-33cf-4d08-b4e7-50617cee55c5",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Kills Switch Starter",
+                    "name": "Fuel Injection1",
                     "type": "Button",
                     "id": "47fd1a14-a5f4-45f7-a044-bd1461df4a38",
                     "expectedControlType": "Button",
@@ -108,6 +108,15 @@
                     "name": "Headlight",
                     "type": "Value",
                     "id": "5f3e53d6-8a0b-427e-8486-e13b61976490",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Kill Switch",
+                    "type": "Value",
+                    "id": "02ae93e0-add8-4761-ac67-55dfcd3745c0",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -188,7 +197,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Kills Switch Starter",
+                    "action": "Fuel Injection1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -207,6 +216,17 @@
                     "name": "",
                     "id": "c60e3bb2-4f84-43ec-912b-8ddbafaeb4a1",
                     "path": "<OculusTouchController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horn Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "323e376a-dd7e-4acc-a0d7-e63946b0fcbf",
+                    "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -288,6 +308,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Headlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a6f43ca2-4808-4dba-90f1-346efeaae0e6",
+                    "path": "<OculusTouchController>/thumbstick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kill Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

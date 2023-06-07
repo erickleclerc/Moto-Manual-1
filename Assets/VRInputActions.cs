@@ -49,13 +49,13 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Clutch Grabbing"",
                     ""type"": ""Value"",
                     ""id"": ""763eac74-33cf-4d08-b4e7-50617cee55c5"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Kills Switch Starter"",
+                    ""name"": ""Fuel Injection1"",
                     ""type"": ""Button"",
                     ""id"": ""47fd1a14-a5f4-45f7-a044-bd1461df4a38"",
                     ""expectedControlType"": ""Button"",
@@ -130,6 +130,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Headlight"",
                     ""type"": ""Value"",
                     ""id"": ""5f3e53d6-8a0b-427e-8486-e13b61976490"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Kill Switch"",
+                    ""type"": ""Value"",
+                    ""id"": ""02ae93e0-add8-4761-ac67-55dfcd3745c0"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -210,7 +219,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Kills Switch Starter"",
+                    ""action"": ""Fuel Injection1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -229,6 +238,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""c60e3bb2-4f84-43ec-912b-8ddbafaeb4a1"",
                     ""path"": ""<OculusTouchController>{LeftHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horn Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""323e376a-dd7e-4acc-a0d7-e63946b0fcbf"",
+                    ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -312,6 +332,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Headlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6f43ca2-4808-4dba-90f1-346efeaae0e6"",
+                    ""path"": ""<OculusTouchController>/thumbstick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Kill Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -323,7 +354,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_GrabHandleBars = m_MotorcycleControls.FindAction("Grab Handle Bars", throwIfNotFound: true);
         m_MotorcycleControls_FrontBrakeGrabbing = m_MotorcycleControls.FindAction("Front Brake Grabbing", throwIfNotFound: true);
         m_MotorcycleControls_ClutchGrabbing = m_MotorcycleControls.FindAction("Clutch Grabbing", throwIfNotFound: true);
-        m_MotorcycleControls_KillsSwitchStarter = m_MotorcycleControls.FindAction("Kills Switch Starter", throwIfNotFound: true);
+        m_MotorcycleControls_FuelInjection1 = m_MotorcycleControls.FindAction("Fuel Injection1", throwIfNotFound: true);
         m_MotorcycleControls_TurnSignals = m_MotorcycleControls.FindAction("Turn Signals", throwIfNotFound: true);
         m_MotorcycleControls_HornButton = m_MotorcycleControls.FindAction("Horn Button", throwIfNotFound: true);
         m_MotorcycleControls_BackBrakePress = m_MotorcycleControls.FindAction("Back Brake Press", throwIfNotFound: true);
@@ -332,6 +363,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_Throttle = m_MotorcycleControls.FindAction("Throttle", throwIfNotFound: true);
         m_MotorcycleControls_TurnSignalsOff = m_MotorcycleControls.FindAction("Turn Signals Off", throwIfNotFound: true);
         m_MotorcycleControls_Headlight = m_MotorcycleControls.FindAction("Headlight", throwIfNotFound: true);
+        m_MotorcycleControls_KillSwitch = m_MotorcycleControls.FindAction("Kill Switch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -394,7 +426,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_GrabHandleBars;
     private readonly InputAction m_MotorcycleControls_FrontBrakeGrabbing;
     private readonly InputAction m_MotorcycleControls_ClutchGrabbing;
-    private readonly InputAction m_MotorcycleControls_KillsSwitchStarter;
+    private readonly InputAction m_MotorcycleControls_FuelInjection1;
     private readonly InputAction m_MotorcycleControls_TurnSignals;
     private readonly InputAction m_MotorcycleControls_HornButton;
     private readonly InputAction m_MotorcycleControls_BackBrakePress;
@@ -403,6 +435,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_Throttle;
     private readonly InputAction m_MotorcycleControls_TurnSignalsOff;
     private readonly InputAction m_MotorcycleControls_Headlight;
+    private readonly InputAction m_MotorcycleControls_KillSwitch;
     public struct MotorcycleControlsActions
     {
         private @VRInputActions m_Wrapper;
@@ -410,7 +443,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @GrabHandleBars => m_Wrapper.m_MotorcycleControls_GrabHandleBars;
         public InputAction @FrontBrakeGrabbing => m_Wrapper.m_MotorcycleControls_FrontBrakeGrabbing;
         public InputAction @ClutchGrabbing => m_Wrapper.m_MotorcycleControls_ClutchGrabbing;
-        public InputAction @KillsSwitchStarter => m_Wrapper.m_MotorcycleControls_KillsSwitchStarter;
+        public InputAction @FuelInjection1 => m_Wrapper.m_MotorcycleControls_FuelInjection1;
         public InputAction @TurnSignals => m_Wrapper.m_MotorcycleControls_TurnSignals;
         public InputAction @HornButton => m_Wrapper.m_MotorcycleControls_HornButton;
         public InputAction @BackBrakePress => m_Wrapper.m_MotorcycleControls_BackBrakePress;
@@ -419,6 +452,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @Throttle => m_Wrapper.m_MotorcycleControls_Throttle;
         public InputAction @TurnSignalsOff => m_Wrapper.m_MotorcycleControls_TurnSignalsOff;
         public InputAction @Headlight => m_Wrapper.m_MotorcycleControls_Headlight;
+        public InputAction @KillSwitch => m_Wrapper.m_MotorcycleControls_KillSwitch;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -437,9 +471,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @ClutchGrabbing.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnClutchGrabbing;
                 @ClutchGrabbing.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnClutchGrabbing;
                 @ClutchGrabbing.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnClutchGrabbing;
-                @KillsSwitchStarter.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillsSwitchStarter;
-                @KillsSwitchStarter.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillsSwitchStarter;
-                @KillsSwitchStarter.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillsSwitchStarter;
+                @FuelInjection1.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnFuelInjection1;
+                @FuelInjection1.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnFuelInjection1;
+                @FuelInjection1.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnFuelInjection1;
                 @TurnSignals.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTurnSignals;
                 @TurnSignals.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTurnSignals;
                 @TurnSignals.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTurnSignals;
@@ -464,6 +498,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @Headlight.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnHeadlight;
                 @Headlight.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnHeadlight;
                 @Headlight.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnHeadlight;
+                @KillSwitch.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillSwitch;
+                @KillSwitch.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillSwitch;
+                @KillSwitch.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillSwitch;
             }
             m_Wrapper.m_MotorcycleControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -477,9 +514,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @ClutchGrabbing.started += instance.OnClutchGrabbing;
                 @ClutchGrabbing.performed += instance.OnClutchGrabbing;
                 @ClutchGrabbing.canceled += instance.OnClutchGrabbing;
-                @KillsSwitchStarter.started += instance.OnKillsSwitchStarter;
-                @KillsSwitchStarter.performed += instance.OnKillsSwitchStarter;
-                @KillsSwitchStarter.canceled += instance.OnKillsSwitchStarter;
+                @FuelInjection1.started += instance.OnFuelInjection1;
+                @FuelInjection1.performed += instance.OnFuelInjection1;
+                @FuelInjection1.canceled += instance.OnFuelInjection1;
                 @TurnSignals.started += instance.OnTurnSignals;
                 @TurnSignals.performed += instance.OnTurnSignals;
                 @TurnSignals.canceled += instance.OnTurnSignals;
@@ -504,6 +541,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @Headlight.started += instance.OnHeadlight;
                 @Headlight.performed += instance.OnHeadlight;
                 @Headlight.canceled += instance.OnHeadlight;
+                @KillSwitch.started += instance.OnKillSwitch;
+                @KillSwitch.performed += instance.OnKillSwitch;
+                @KillSwitch.canceled += instance.OnKillSwitch;
             }
         }
     }
@@ -513,7 +553,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnGrabHandleBars(InputAction.CallbackContext context);
         void OnFrontBrakeGrabbing(InputAction.CallbackContext context);
         void OnClutchGrabbing(InputAction.CallbackContext context);
-        void OnKillsSwitchStarter(InputAction.CallbackContext context);
+        void OnFuelInjection1(InputAction.CallbackContext context);
         void OnTurnSignals(InputAction.CallbackContext context);
         void OnHornButton(InputAction.CallbackContext context);
         void OnBackBrakePress(InputAction.CallbackContext context);
@@ -522,5 +562,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnThrottle(InputAction.CallbackContext context);
         void OnTurnSignalsOff(InputAction.CallbackContext context);
         void OnHeadlight(InputAction.CallbackContext context);
+        void OnKillSwitch(InputAction.CallbackContext context);
     }
 }

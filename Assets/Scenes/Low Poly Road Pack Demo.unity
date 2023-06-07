@@ -6058,7 +6058,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289674895}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -15505,7 +15505,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666092480}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -17971,7 +17971,7 @@ GameObject:
   - component: {fileID: 784034226}
   - component: {fileID: 784034227}
   m_Layer: 0
-  m_Name: Light Controls
+  m_Name: Light & Horn Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18010,6 +18010,8 @@ MonoBehaviour:
   - {fileID: 2036585457}
   - {fileID: 289674898}
   - {fileID: 1171366837}
+  bikeAudioSource: {fileID: 1633593449}
+  hornAudioClip: {fileID: 8300000, guid: f817493d9e36b2f44894fe6e0de6af06, type: 3}
 --- !u!1001 &787515268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19569,6 +19571,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 494338, guid: ea8ec36c7f9b40f4faa40bf80afec5a3, type: 3}
   m_PrefabInstance: {fileID: 868554925}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &872896579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 872896581}
+  - component: {fileID: 872896580}
+  m_Layer: 0
+  m_Name: listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &872896580
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872896579}
+  m_Enabled: 1
+--- !u!4 &872896581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872896579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.42966715, y: 0.7307543, z: -4.6621847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &874730981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26260,7 +26302,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171366836}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -33635,6 +33677,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 33c35a610a1b27a498b19d491c59f1a2, type: 2}
+    - target: {fileID: 5335295130845053097, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4fe61d9cf29f1a147a34d8245133247b, type: 2}
     - target: {fileID: 5629927799773056866, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_Name
       value: Front Lights
@@ -37723,6 +37769,11 @@ Transform:
   m_Father: {fileID: 366752987}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1633593449 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3205914311453551500, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+  m_PrefabInstance: {fileID: 1482435826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1634407133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47055,7 +47106,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036585453}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0

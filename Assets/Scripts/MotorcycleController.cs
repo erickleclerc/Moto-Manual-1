@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.UIElements;
 using UnityEngine.XR;
 
 public class MotorcycleController : MonoBehaviour
@@ -20,12 +21,10 @@ public class MotorcycleController : MonoBehaviour
 
     //Leaning steering
     [SerializeField] private GameObject head;
-    private float initialZRotation;
     public float zRotation;
     public float rotationDifference;
     public float rotationSensitivity = 1f;
     private float angularDifference;
-
     private float angularSensitivity;
 
 
@@ -34,24 +33,17 @@ public class MotorcycleController : MonoBehaviour
 
 
     //Gears
-
     private int currentGear = 1;
     private int minGear = 0; //0 is first gear, 1 is neutral
     private int maxGear = 6;
 
-
-
-
+    
+    //Headlight + Brake Lights
     [Header  ("Lights")]
     [Space(5)]
-    //Light
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] brakelight;
-    private Light rightSignalLight;
-    private Light leftSignalLight;
     [SerializeField] private Material brakeLightMaterial;
-
-    private float headlightAxis;
 
 
     private void Awake()
@@ -64,37 +56,10 @@ public class MotorcycleController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        initialZRotation = head.transform.eulerAngles.x;
-
     }
 
     void Update()
     {
-       
-        ////The lean angle on the local z axis is the rotation of the head
-        //zRotation = head.transform.eulerAngles.z;
-        ////Debug.Log($"Z Rotation: {zRotation}");
-        //if (rb.velocity.magnitude > 0 && zRotation > 5 && zRotation < 65)
-        //{
-        //    angularSensitivity = zRotation;
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, -90, 0f), rotationSensitivity * Time.deltaTime);
-
-        //    //Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, -1, 0f), zRotation * Time.deltaTime);
-        //}
-        //else if (rb.velocity.magnitude > 0 && zRotation > 295 && zRotation < 355)
-        //{
-        //    angularSensitivity = zRotation - 290;
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 90, 0f), angularSensitivity * Time.deltaTime);
-        //}
-
-
-        //rotate this gameObject in the direction of the head's tilt on the z axis smoothly
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, zRotation, 0f), rotationSensitivity * Time.deltaTime);
-
-
-
-
-
         //Throttle is also A key on keyboard and B button on Oculus controller for now
         if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
         {
@@ -103,7 +68,8 @@ public class MotorcycleController : MonoBehaviour
             //include wheel rotation
         }
 
-        //Front Brake is also the S Key and right trigger on Oculus controller or Back Brake is also the D key and USB car pedal
+        #region Braking
+        //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
         if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.IsPressed() || VRInputActions.MotorcycleControls.BackBrakePress.IsPressed())
         {
             // Check if the motorcycle is moving forward
@@ -130,13 +96,10 @@ public class MotorcycleController : MonoBehaviour
            brakeLightMaterial.SetColor("_EmissionColor", Color.red);
             brakelight[0].enabled = true;
             brakelight[1].enabled = true;
-     
-
-         
         }
         else if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.IsPressed() && VRInputActions.MotorcycleControls.BackBrakePress.IsPressed()) //enhanced braking
         {
-            // Check if the motorcycle is moving forward
+            //the motorcycle is moving forward
             if (rb.velocity.magnitude > 0)
             {
                 // Calculate the braking force direction opposite to the motorcycle's velocity
@@ -156,7 +119,7 @@ public class MotorcycleController : MonoBehaviour
             }
         }
 
-        //Front Brake is also the S Key and right trigger on Oculus controller or Back Brake is also the D key and USB car pedal
+        //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
         if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.WasReleasedThisFrame() || VRInputActions.MotorcycleControls.BackBrakePress.WasReleasedThisFrame())
         {
             //turn off brake light
@@ -165,18 +128,22 @@ public class MotorcycleController : MonoBehaviour
             brakelight[0].enabled = false;
             brakelight[1].enabled = false;
         }
+        #endregion
 
-
-            //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
-            if (VRInputActions.MotorcycleControls.ClutchGrabbing.IsPressed())
+        #region Clutch
+        //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
+        if (VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() > 0.5f)
         {
             isClutchIn = true;
+            
         }
-        else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.WasReleasedThisFrame()))
+        else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() < 0.5f))
         {
             isClutchIn = false;
         }
+        #endregion
 
+        #region Shifting
         //Shifting Up with Clutch In. Also up arrow on keyboard 
         if (VRInputActions.MotorcycleControls.ShifterPedalUp.WasPressedThisFrame() && isClutchIn)
         {
@@ -194,15 +161,7 @@ public class MotorcycleController : MonoBehaviour
                 currentGear--;
             }
         }
-
-        Debug.Log(isClutchIn);
-        Debug.Log($"Current gear is {currentGear}");
+        Debug.Log($"Clutch is: {isClutchIn} Current gear is {currentGear}");
+        #endregion
     }
-
-
-
-
-
-    //Turn on Heaedlight using the L key on keyboard or Y axis on left Oculus joystick controller
-
 }

@@ -7,6 +7,8 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
 
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] turnLights;
+    [SerializeField] private AudioSource bikeAudioSource;
+    [SerializeField] private AudioClip hornAudioClip;
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
     void Update()
     {
         //Headlight
-        yAxisJoystick = (float)VRInputActions.MotorcycleControls.Headlight.ReadValue<float>();
+        //yAxisJoystick = (float)VRInputActions.MotorcycleControls.Headlight.ReadValue<float>();
         //Debug.Log($"Y Axis is {yAxisJoystick}");
         if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() > 0.5f)
         {
@@ -51,6 +53,17 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
             {
                 turnLights[i].enabled = false;
             }
+        }
+
+        //Horn is A button on Oculus Touch, H key on keyboard
+        if (VRInputActions.MotorcycleControls.HornButton.IsPressed())
+        {
+            bikeAudioSource.PlayOneShot(hornAudioClip);
+            Debug.Log("Horn");
+        }
+        else if (VRInputActions.MotorcycleControls.HornButton.WasReleasedThisFrame())
+        {
+            bikeAudioSource.Stop();
         }
     }
 }
