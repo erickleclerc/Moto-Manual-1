@@ -18,7 +18,8 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
 
     void Update()
     {
-        //Headlight
+
+        #region Headlight
         //yAxisJoystick = (float)VRInputActions.MotorcycleControls.Headlight.ReadValue<float>();
         //Debug.Log($"Y Axis is {yAxisJoystick}");
         if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() > 0.5f)
@@ -29,8 +30,9 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
         {
             headlight.enabled = true;
         }
+        #endregion
 
-        //Turn Signals
+        #region TurnSignals
         if (VRInputActions.MotorcycleControls.TurnSignals.ReadValue<float>() > 0.5f)
         {
             //right side lights
@@ -54,7 +56,9 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
                 turnLights[i].enabled = false;
             }
         }
+        #endregion
 
+        #region Horn
         //Horn is A button on Oculus Touch, H key on keyboard
         if (VRInputActions.MotorcycleControls.HornButton.IsPressed())
         {
@@ -65,5 +69,6 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
         {
             bikeAudioSource.Stop();
         }
+        #endregion
     }
 }

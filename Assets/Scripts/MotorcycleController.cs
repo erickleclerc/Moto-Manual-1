@@ -15,6 +15,11 @@ public class MotorcycleController : MonoBehaviour
     VRInputActions VRInputActions;
     private Rigidbody rb;
 
+    //Kill Switch
+    private bool isKillSwitchOn = false;
+    private bool isFuelInjected = false;
+    [SerializeField] private GameObject killSwitchObject;
+
 
     //Moving forward and backward
     [SerializeField] private float accelerationSpeed = 5f;
@@ -163,5 +168,27 @@ public class MotorcycleController : MonoBehaviour
         }
         Debug.Log($"Clutch is: {isClutchIn} Current gear is {currentGear}");
         #endregion
+
+        #region KillSwitch & Fuel Injection
+        if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() > 0.5f)
+        {
+            isKillSwitchOn = false;
+
+            killSwitchObject.transform.localEulerAngles = new Vector3(-14.418f,-10.407f, 6.069f);
+
+        }
+        else if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() < -0.5f)
+        {
+            isKillSwitchOn = true;
+            killSwitchObject.transform.localEulerAngles = new Vector3 (16.803f, 2.182f, -6.273f);
+        }
+
+        if (VRInputActions.MotorcycleControls.FuelInjection1.ReadValue<float>() > 0.5f || isKillSwitchOn == true)
+        {
+            isFuelInjected = true;
+        }
+
+        #endregion
+
     }
 }

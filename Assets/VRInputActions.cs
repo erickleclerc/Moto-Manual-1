@@ -56,12 +56,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Fuel Injection1"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""47fd1a14-a5f4-45f7-a044-bd1461df4a38"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Turn Signals"",
@@ -324,6 +324,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""cf94f89d-1121-4550-8255-3aa36420dcef"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn Signals Off"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a7a77fa3-8ce2-429a-a39f-660311dc8b9b"",
                     ""path"": ""<OculusTouchController>{LeftHand}/thumbstick/x"",
                     ""interactions"": """",
@@ -335,8 +346,19 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1724565b-0c60-4d09-a1ae-cb52cecedb09"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Headlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a6f43ca2-4808-4dba-90f1-346efeaae0e6"",
-                    ""path"": ""<OculusTouchController>/thumbstick/x"",
+                    ""path"": ""<OculusTouchController>{RightHand}/thumbstick/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FlashingSignals : MonoBehaviour
@@ -9,8 +7,6 @@ public class FlashingSignals : MonoBehaviour
 
     private Light signal;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         signal = GetComponent<Light>();
@@ -20,7 +16,5 @@ public class FlashingSignals : MonoBehaviour
     void Update()
     {
         signal.intensity = Mathf.PingPong(Time.time * flashSpeed, flashIntensity);  
-
-        //signa
     }
 }

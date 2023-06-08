@@ -13,6 +13,7 @@ TagManager:
   - Ignition
   - OtherVehicle
   - HandleBar
+  - Throttle
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Head
-  - 
+  - Glow
   - 
   - 
   - 
