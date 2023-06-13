@@ -40,16 +40,17 @@ public class TiltLeaning : MonoBehaviour
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle), rotationSpeed * Time.deltaTime);
             //transform.rotation = Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, currentTurnAngle, currentTiltAngle), rotationSpeed * Time.deltaTime);
+          // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z), rotationSpeed * Time.deltaTime);
             //NEEDS TO BE FIXED*********
+
+            transform.rotation = Quaternion.Euler(0, 0, currentTiltAngle);
 
 
             // Calculate the desired turn angle based on the head tilt angle and turn intensity
             float desiredTurnAngle = Mathf.Clamp(headTiltAngle * turnIntensity, -maxTurnAngle, maxTurnAngle);
 
-            // Smoothly rotate the motorcycle towards the desired turn angle
-            currentTurnAngle = Mathf.Lerp(currentTurnAngle, desiredTurnAngle, rotationSpeed * Time.deltaTime);
         }
+       
     }
 
     private float GetHeadTiltAngle()
