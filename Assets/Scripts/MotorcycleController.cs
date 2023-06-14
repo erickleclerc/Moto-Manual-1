@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -22,7 +23,8 @@ public class MotorcycleController : MonoBehaviour
 
 
     //Moving forward and backward
-    [SerializeField] private float accelerationSpeed = 5f;
+    [SerializeField] private float accelerationSpeed = 10f;
+    [SerializeField] private ThrottleSpeed throttleSpeed;
 
     //Leaning steering
     [SerializeField] private GameObject head;
@@ -35,14 +37,15 @@ public class MotorcycleController : MonoBehaviour
 
     //Clutch
     private bool isClutchIn = false;
-
+    
 
     //Gears
     private int currentGear = 1;
     private int minGear = 0; //0 is first gear, 1 is neutral
     private int maxGear = 6;
+    [SerializeField] private TextMeshProUGUI gearText;
 
-    
+
     //Headlight + Brake Lights
     [Header  ("Lights")]
     [Space(5)]
@@ -65,6 +68,7 @@ public class MotorcycleController : MonoBehaviour
 
     void Update()
     {
+        #region Throttling
         //Throttle is also A key on keyboard and B button on Oculus controller for now
         if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
         {
@@ -72,6 +76,12 @@ public class MotorcycleController : MonoBehaviour
 
             //include wheel rotation
         }
+
+        //Accelerating by rolling the throttle
+        {
+            rb.AddForce(transform.forward * accelerationSpeed * throttleSpeed.clampedValue, ForceMode.Acceleration);
+        }
+        #endregion
 
         #region Braking
         //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
@@ -167,6 +177,43 @@ public class MotorcycleController : MonoBehaviour
             }
         }
         Debug.Log($"Clutch is: {isClutchIn} Current gear is {currentGear}");
+
+
+        //Display Gear & Change Acceleration Speed
+        switch (currentGear)
+        {
+            case 0:
+                gearText.text = "1";
+                accelerationSpeed = 30f;
+                break;
+            case 1:
+                gearText.text = "N";
+                accelerationSpeed = 0f; 
+                break;
+            case 2:
+                gearText.text = "2";
+                accelerationSpeed = 35f;
+                break;
+            case 3:
+                gearText.text = "3";
+                accelerationSpeed = 40f;
+                break;
+            case 4:
+                gearText.text = "4";
+                accelerationSpeed = 45f;
+                break;
+            case 5:
+                gearText.text = "5";
+                accelerationSpeed = 50f;
+                break;
+            case 6:
+                gearText.text = "6";
+                accelerationSpeed = 55f;
+                break;
+            default:
+                break;
+        }
+
         #endregion
 
         #region KillSwitch & Fuel Injection
@@ -181,7 +228,7 @@ public class MotorcycleController : MonoBehaviour
         {
             isKillSwitchOn = true;
             killSwitchObject.transform.localEulerAngles = new Vector3 (16.803f, 2.182f, -6.273f);
-        }
+        }   
 
         if (VRInputActions.MotorcycleControls.FuelInjection1.ReadValue<float>() > 0.5f || isKillSwitchOn == true)
         {

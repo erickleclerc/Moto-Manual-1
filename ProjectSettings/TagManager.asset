@@ -14,6 +14,8 @@ TagManager:
   - OtherVehicle
   - HandleBar
   - Throttle
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX

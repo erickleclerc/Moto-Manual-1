@@ -45,7 +45,6 @@ public class TiltLeaning : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0, 0, currentTiltAngle);
 
-
             // Calculate the desired turn angle based on the head tilt angle and turn intensity
             float desiredTurnAngle = Mathf.Clamp(headTiltAngle * turnIntensity, -maxTurnAngle, maxTurnAngle);
 

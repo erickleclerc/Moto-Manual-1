@@ -8,6 +8,8 @@ public class AttachHelmet : MonoBehaviour
 
     public Vector3 offset;
 
+    [SerializeField] private GameManager gameManager;
+
     private void Update()
     {
         if (isAttached)
@@ -27,6 +29,8 @@ public class AttachHelmet : MonoBehaviour
             transform.rotation = transform.parent.rotation * Quaternion.Euler(0, 90, 0); ;
 
             isAttached = true;
+
+            gameManager.stateIsComplete = true;  
         }
     }
 }
