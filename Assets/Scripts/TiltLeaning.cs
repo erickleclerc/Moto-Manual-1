@@ -5,14 +5,10 @@ public class TiltLeaning : MonoBehaviour
     public float maxTiltAngle = 45f;        // Maximum angle the motorcycle can lean
     public float rotationSpeed = .5f;       // Speed of rotation when tilting
 
-    private float currentTiltAngle = 0f;    // Current angle of motorcycle tilt
-
     private Rigidbody rb;
 
     public GameObject head;
     private float headZRotation;
-
-    float tiltedAngle;
 
     private void Start()
     {
@@ -21,18 +17,16 @@ public class TiltLeaning : MonoBehaviour
 
     private void Update()
     {
+        float headAngle = GetHeadTiltAngle();
 
-
-        float controllerAngle = GetHeadTiltAngle();
-
-        if (controllerAngle > 180)
+        if (headAngle > 180)
         {
-            controllerAngle = controllerAngle - 360;
+            headAngle = headAngle - 360;
         }
 
-        float desiredTiltAngle = Mathf.Clamp(controllerAngle, -maxTiltAngle, maxTiltAngle);
+        float desiredTiltAngle = Mathf.Clamp(headAngle, -maxTiltAngle, maxTiltAngle);
 
-
+        
         Quaternion roll = Quaternion.AngleAxis(desiredTiltAngle, Vector3.forward);
         Quaternion yaw = Quaternion.AngleAxis(-desiredTiltAngle, Vector3.up);
 
@@ -54,29 +48,13 @@ public class TiltLeaning : MonoBehaviour
             transform.rotation = upright;
 
 
-          
         }
-
-
-
-        // transform.rotation = rigRotation;
-
-
     }
 
     private float GetHeadTiltAngle()
     {
         headZRotation = head.transform.eulerAngles.z;
-        //if (headZRotation > 0f && headZRotation < 100)
-        //{
-        //        tiltedAngle = headZRotation;
-        //}
-        //else if (headZRotation > 100f )
-        //{
-        //     tiltedAngle = headZRotation - 360f;
-           
-        //}
-        ////return tiltedAngle;
+      
 
         return headZRotation;
     }

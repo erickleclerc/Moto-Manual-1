@@ -33511,7 +33511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1208784559, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_AngularDrag
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1208784560, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: gearText
