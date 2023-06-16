@@ -33509,6 +33509,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1208784559, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1208784560, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: gearText
       value: 
@@ -33519,7 +33523,15 @@ PrefabInstance:
       objectReference: {fileID: 1198824510}
     - target: {fileID: 1208784565, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208784565, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: maxTiltAngle
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208784565, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: rotationSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3687030862615326362, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_Enabled
@@ -33547,7 +33559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478793527809171336, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.89
+      value: 175.2
       objectReference: {fileID: 0}
     - target: {fileID: 8478793527809171336, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33555,7 +33567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478793527809171336, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.77
+      value: -309.4
       objectReference: {fileID: 0}
     - target: {fileID: 8478793527809171336, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_LocalRotation.w
