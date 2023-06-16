@@ -28,7 +28,7 @@ public class TiltLeaning : MonoBehaviour
 
         
         Quaternion roll = Quaternion.AngleAxis(desiredTiltAngle, Vector3.forward);
-        Quaternion yaw = Quaternion.AngleAxis(-desiredTiltAngle, Vector3.up);
+        Quaternion yaw = Quaternion.AngleAxis(-headAngle*2, Vector3.up);
 
         // Tilt and lean, yaw ALWAYS come before roll in Quaternions
         Quaternion rigRotation = yaw * roll;
@@ -43,10 +43,9 @@ public class TiltLeaning : MonoBehaviour
         }
         else
         {
-            // Keep the bike upright when moving under 5km/h
+            // Keep the bike upright when moving under 2km/h
             Quaternion upright = Quaternion.AngleAxis(0, Vector3.forward);
-            transform.rotation = upright;
-
+            transform.rotation = Quaternion.Slerp(transform.rotation, upright, rotationSpeed * Time.deltaTime);
 
         }
     }
