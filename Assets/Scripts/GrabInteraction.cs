@@ -23,7 +23,7 @@ public class GrabInteraction : MonoBehaviour
 
         if (heldObject != null)  //holding onto something
         {
-            if (VRInputActions.MotorcycleControls.GrabHandleBars.WasReleasedThisFrame())
+            if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.WasReleasedThisFrame())
             {
 
                 //heldObject.transform.parent = null;
@@ -50,7 +50,7 @@ public class GrabInteraction : MonoBehaviour
 
             if (rb != null && otherObject.gameObject.CompareTag("Key") || rb != null && otherObject.gameObject.CompareTag("Helmet"))
             {
-                if (VRInputActions.MotorcycleControls.GrabHandleBars.WasPressedThisFrame())
+                if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.WasPressedThisFrame())
                 {
                     otherObject.transform.parent = transform;
                     rb.isKinematic = true;
@@ -60,7 +60,7 @@ public class GrabInteraction : MonoBehaviour
             }
             if (rb != null && otherObject.gameObject.CompareTag("HandleBar"))
             {
-                if (VRInputActions.MotorcycleControls.GrabHandleBars.WasPressedThisFrame())
+                if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.WasPressedThisFrame())
                 {
                     otherObject.transform.parent = transform;
                     rb.isKinematic = true;

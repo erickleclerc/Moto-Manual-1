@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -15,16 +16,23 @@ public class MotorcycleController : MonoBehaviour
 
     VRInputActions VRInputActions;
     private Rigidbody rb;
+    [SerializeField] Animator animatorLeftHand, animationRightHand;
+    
 
     //Kill Switch
-    private bool isKillSwitchOn = false;
-    private bool isFuelInjected = false;
+    public bool isKeyIn = false;
+    [SerializeField] private bool isKillSwitchReady = false;
+    [SerializeField] private bool isFuelInjected = false;
+    [SerializeField] public bool isReadyToRide = false;
     [SerializeField] private GameObject killSwitchObject;
 
 
     //Moving forward and backward
+    [SerializeField] private TextMeshProUGUI speedometerText;
     [SerializeField] private float accelerationSpeed = 10f;
     [SerializeField] private ThrottleSpeed throttleSpeed;
+    private float frontBrakingMultiplier;
+    private float backBrakingMultiplier;
 
     //Leaning steering
     [SerializeField] private GameObject head;
@@ -36,8 +44,8 @@ public class MotorcycleController : MonoBehaviour
 
 
     //Clutch
-    private bool isClutchIn = false;
-    
+    [SerializeField] private bool isClutchIn = false;
+
 
     //Gears
     private int currentGear = 1;
@@ -47,7 +55,7 @@ public class MotorcycleController : MonoBehaviour
 
 
     //Headlight + Brake Lights
-    [Header  ("Lights")]
+    [Header("Lights")]
     [Space(5)]
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] brakelight;
@@ -64,29 +72,99 @@ public class MotorcycleController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gearText.gameObject.SetActive(false);
+        speedometerText.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        #region Throttling
-        //Throttle is also A key on keyboard and B button on Oculus controller for now
-        if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
+        #region KillSwitch & Fuel Injection
+        if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() > 0.5f)
         {
-            rb.AddForce(transform.forward * accelerationSpeed, ForceMode.Acceleration);
+            isKillSwitchReady = false;
 
-            //include wheel rotation
+            killSwitchObject.transform.localEulerAngles = new Vector3(-14.418f, -10.407f, 6.069f);
+
+        }
+                                                                                            // also R on keyboard
+        else if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() < -0.5f || VRInputActions.MotorcycleControls.KillSwitchKeyboard.IsPressed())
+        {
+            isKillSwitchReady = true;
+            killSwitchObject.transform.localEulerAngles = new Vector3(16.803f, 2.182f, -6.273f);
         }
 
-        //Accelerating by rolling the throttle
+        //Kill Switch must be ready first
+        if (isKillSwitchReady == true)
         {
-            rb.AddForce(transform.forward * accelerationSpeed * throttleSpeed.clampedValue, ForceMode.Acceleration);
+            //also T key on keyboard
+            if (VRInputActions.MotorcycleControls.FuelInjection.ReadValue<float>() > 0.5f && isKillSwitchReady == true)
+            {
+                isFuelInjected = true;
+            }
+        }
+
+        #endregion
+
+        #region Ready to Ride
+        //Ready to ride
+        if (isKeyIn == true && isKillSwitchReady == true && isFuelInjected == true)
+        {
+            isReadyToRide = true;
+            gearText.gameObject.SetActive(true);
+            speedometerText.gameObject.SetActive(true);
+        }
+        #endregion
+
+        #region Gripping Anim
+        if (VRInputActions.MotorcycleControls.GrabHandleBarsLeft.ReadValue<float>() > 0.2f)
+        {
+            animatorLeftHand.SetBool("isGripping", true);
+        }
+        else
+        {
+            animatorLeftHand.SetBool("isGripping", false);
+        }
+
+        if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.ReadValue<float>() > 0.2f)
+        {
+            animationRightHand.SetBool("isGripping", true);
+        }
+        else
+        {
+            animationRightHand.SetBool("isGripping", false);
+        }
+
+        #endregion
+
+        #region Throttling
+        //Throttle is also A key on keyboard and B button on Oculus controller for now
+        //Must be ready to ride = true && not in neutral gear
+        if (isReadyToRide == true && currentGear != 1)
+        {
+
+            if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
+            {
+                rb.AddForce(transform.forward * accelerationSpeed, ForceMode.Acceleration);
+
+                //include wheel rotation
+            }
+
+            //Accelerating by rolling the throttle
+            {
+                rb.AddForce(transform.forward * accelerationSpeed * throttleSpeed.clampedValue, ForceMode.Acceleration);
+            }
         }
         #endregion
 
         #region Braking
         //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
-        if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.IsPressed() || VRInputActions.MotorcycleControls.BackBrakePress.IsPressed())
+        if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() > 0.2f || VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>() > 0.2f)
         {
+
+            //Will adding this multiplier make the braking to jarring for new users?
+            //frontBrakingMultiplier = VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>();
+            // backBrakingMultiplier = VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>();
+
             // Check if the motorcycle is moving forward
             if (rb.velocity.magnitude > 0)
             {
@@ -102,17 +180,17 @@ public class MotorcycleController : MonoBehaviour
 
                 if (rb.velocity.magnitude < 0.1f)
                 {
-                    rb.velocity = Vector3.zero; 
+                    rb.velocity = Vector3.zero;
                 }
             }
 
             //Brake Light
-           brakeLightMaterial.EnableKeyword("_EMISSION");
-           brakeLightMaterial.SetColor("_EmissionColor", Color.red);
+            brakeLightMaterial.EnableKeyword("_EMISSION");
+            brakeLightMaterial.SetColor("_EmissionColor", Color.red);
             brakelight[0].enabled = true;
             brakelight[1].enabled = true;
         }
-        else if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.IsPressed() && VRInputActions.MotorcycleControls.BackBrakePress.IsPressed()) //enhanced braking
+        else if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() > 0.2f && VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>() > 0.2f) //enhanced braking
         {
             //the motorcycle is moving forward
             if (rb.velocity.magnitude > 0)
@@ -147,14 +225,18 @@ public class MotorcycleController : MonoBehaviour
 
         #region Clutch
         //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
-        if (VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() > 0.5f)
+        //Bike must be READY TO RIDE first = true
+        if (isReadyToRide == true)
         {
-            isClutchIn = true;
-            
-        }
-        else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() < 0.5f))
-        {
-            isClutchIn = false;
+            if (VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() > 0.5f)
+            {
+                isClutchIn = true;
+
+            }
+            else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() < 0.5f))
+            {
+                isClutchIn = false;
+            }
         }
         #endregion
 
@@ -188,7 +270,7 @@ public class MotorcycleController : MonoBehaviour
                 break;
             case 1:
                 gearText.text = "N";
-                accelerationSpeed = 0f; 
+                accelerationSpeed = 0f;
                 break;
             case 2:
                 gearText.text = "2";
@@ -216,26 +298,16 @@ public class MotorcycleController : MonoBehaviour
 
         #endregion
 
-        #region KillSwitch & Fuel Injection
-        if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() > 0.5f)
-        {
-            isKillSwitchOn = false;
 
-            killSwitchObject.transform.localEulerAngles = new Vector3(-14.418f,-10.407f, 6.069f);
+        #region Stalling
+        //Stalling the bike when velocity it too low and clutch is not in. 
+        //Maybe a feature in free roam
 
-        }
-        else if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() < -0.5f)
-        {
-            isKillSwitchOn = true;
-            killSwitchObject.transform.localEulerAngles = new Vector3 (16.803f, 2.182f, -6.273f);
-        }   
-
-        if (VRInputActions.MotorcycleControls.FuelInjection1.ReadValue<float>() > 0.5f || isKillSwitchOn == true)
-        {
-            isFuelInjected = true;
-        }
-
-        #endregion
-
+        //if (rb.velocity.magnitude < 0.1f && isClutchIn == false)
+        //{
+        //isReadyToRide = false;
+        //
     }
+    #endregion
 }
+

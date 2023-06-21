@@ -6,13 +6,22 @@
             "id": "bf505325-f42b-4040-8407-4deb3105d717",
             "actions": [
                 {
-                    "name": "Grab Handle Bars",
-                    "type": "Button",
+                    "name": "Grab Handle Bars Right",
+                    "type": "Value",
                     "id": "28d22e18-8ae2-4ebc-9902-bf885ab1cd4a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Grab Handle Bars Left",
+                    "type": "Value",
+                    "id": "cb6ee7e0-90bc-40b1-b7fb-a586a6fcbc90",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Front Brake Grabbing",
@@ -33,7 +42,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fuel Injection1",
+                    "name": "Fuel Injection",
                     "type": "Value",
                     "id": "47fd1a14-a5f4-45f7-a044-bd1461df4a38",
                     "expectedControlType": "Axis",
@@ -121,6 +130,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Kill Switch Keyboard",
+                    "type": "Button",
+                    "id": "195aaa13-5920-4a93-9888-fbf73729df51",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -131,18 +149,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Grab Handle Bars",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "95c267cf-e64a-4cf0-8a8e-1163455530d5",
-                    "path": "<OculusTouchController>{LeftHand}/gripPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grab Handle Bars",
+                    "action": "Grab Handle Bars Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -197,7 +204,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fuel Injection1",
+                    "action": "Fuel Injection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b531e875-d320-467e-8294-44b0b5de4121",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fuel Injection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -341,6 +359,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Kill Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfa08440-8596-4416-96cf-ae21a9a5f5e2",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kill Switch Keyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdd55700-22f6-4ba6-a62e-0af70789eb15",
+                    "path": "<OculusTouchController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab Handle Bars Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

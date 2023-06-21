@@ -10,14 +10,22 @@ public class TiltLeaning : MonoBehaviour
     public GameObject head;
     private float headZRotation;
 
+
+    private Quaternion newHeading;
+
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+
     }
 
     private void Update()
     {
-        float headAngle = GetHeadTiltAngle();
+        float headAngle = head.transform.eulerAngles.z;
 
         if (headAngle > 180)
         {
@@ -26,16 +34,17 @@ public class TiltLeaning : MonoBehaviour
 
         float desiredTiltAngle = Mathf.Clamp(headAngle, -maxTiltAngle, maxTiltAngle);
 
-        
-        Quaternion roll = Quaternion.AngleAxis(desiredTiltAngle, Vector3.forward);
-        Quaternion yaw = Quaternion.AngleAxis(-headAngle*2, Vector3.up);
-
-        // Tilt and lean, yaw ALWAYS come before roll in Quaternions
-        Quaternion rigRotation = yaw * roll;
 
 
         if (rb.velocity.magnitude > 2)
         {
+
+            Quaternion roll = Quaternion.AngleAxis(desiredTiltAngle, Vector3.forward);
+            Quaternion yaw = Quaternion.AngleAxis(-headAngle * 2, Vector3.up);
+
+            // Tilt and lean, yaw ALWAYS come before roll in Quaternions
+            Quaternion rigRotation = yaw * roll;
+
             //Smooth out the rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, rigRotation, rotationSpeed * Time.deltaTime);
             
@@ -48,13 +57,5 @@ public class TiltLeaning : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, upright, rotationSpeed * Time.deltaTime);
 
         }
-    }
-
-    private float GetHeadTiltAngle()
-    {
-        headZRotation = head.transform.eulerAngles.z;
-      
-
-        return headZRotation;
     }
 }

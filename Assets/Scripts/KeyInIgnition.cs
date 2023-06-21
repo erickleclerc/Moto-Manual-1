@@ -5,6 +5,9 @@ public class KeyInIgnition : MonoBehaviour
     private bool isAttached;
     public GameObject ignition;
     public Vector3 offset;
+    public Vector3 rotationOffset;
+
+    [SerializeField] private MotorcycleController motorcycleController;
 
     private void Start()
     {
@@ -15,8 +18,10 @@ public class KeyInIgnition : MonoBehaviour
     {
         if (isAttached)
         {
-
+            //transform.position = Vector3.zero;
             transform.parent = ignition.transform;
+            transform.localPosition = Vector3.zero + offset;
+            transform.localEulerAngles = rotationOffset;
 
         }
     }
@@ -28,6 +33,7 @@ public class KeyInIgnition : MonoBehaviour
             Debug.Log("Key in ignition");
 
             isAttached = true;
+            motorcycleController.isKeyIn = true;
         }
     }
 }
