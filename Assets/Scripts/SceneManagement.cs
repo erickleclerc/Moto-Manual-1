@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,21 +12,38 @@ public class SceneManagement : MonoBehaviour
     /// </summary>
     /// 
 
+   
+
+
+    public void LoadNext()
+    {
+        //stop the coroutine to load next scene
+
+        StartCoroutine(LoadingScreen());
+    }
+
+    IEnumerator LoadingScreen()
+    {
+
+        //start the coroutine for a loading screen
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+    }
+
+
     public void ToMainMenu()
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void ToTrainingScene()
+    public void QuitGame()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene("ParkingLot");
-    }
+        Application.Quit();
 
-    public void ToStreetCourse()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene("Streets");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

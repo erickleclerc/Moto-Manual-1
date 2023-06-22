@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e7a2a83cc3e07d24f9919344e1c996fd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - RACE1 Brannt Plus NCV
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f1be4f94a7255b1409d4b530c648db32, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
