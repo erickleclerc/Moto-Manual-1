@@ -139,6 +139,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Reset Scene",
+                    "type": "Button",
+                    "id": "4b933e4e-7bc5-4e02-9927-8005a23345e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -381,6 +390,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab Handle Bars Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ece5fc1-7eb8-45a7-aa4f-09c41ecb6a3c",
+                    "path": "<OculusTouchController>{LeftHand}/menu",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset Scene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

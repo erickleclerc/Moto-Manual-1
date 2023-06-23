@@ -10,6 +10,8 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
     [SerializeField] private AudioSource bikeAudioSource;
     [SerializeField] private AudioClip hornAudioClip;
 
+    public GameManager gameManager;
+
     private void Awake()
     {
         VRInputActions = new VRInputActions();
@@ -25,10 +27,12 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
         if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() > 0.5f)
         {
            headlight.enabled = false;
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.HeadlightOff);
         }
         else if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() < -0.5f)
         {
             headlight.enabled = true;
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.HeadlightOn);
         }
         #endregion
 
@@ -40,6 +44,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
             turnLights[1].enabled = false;
             turnLights[2].enabled = true;
             turnLights[3].enabled = true;
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.RightTurnSignal);
         }
         else if (VRInputActions.MotorcycleControls.TurnSignals.ReadValue<float>() < -0.5f)
         {
@@ -48,6 +53,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
             turnLights[1].enabled = true;
             turnLights[2].enabled = false;
             turnLights[3].enabled = false;
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.LeftTurnSignal);
         }
         else if (VRInputActions.MotorcycleControls.TurnSignalsOff.IsPressed())
         {
@@ -55,6 +61,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
             {
                 turnLights[i].enabled = false;
             }
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.TurnSignalOff);
         }
         #endregion
 
@@ -70,5 +77,17 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
             bikeAudioSource.Stop();
         }
         #endregion
+    }
+
+
+    private void InputActionStep(GameManager.State state, GameManager.Step step)
+    {
+        if (gameManager.currentState == state)
+        {
+            if (gameManager.currentStep == step)
+            {
+                gameManager.stepIsComplete = true;
+            }
+        }
     }
 }

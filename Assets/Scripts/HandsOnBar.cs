@@ -5,6 +5,24 @@ public class HandsOnBar : MonoBehaviour
     [SerializeField] KeepHandOnHandleBar keepHandOnHandleBarScript;
     [SerializeField] Animator animatorLeftHand, animationRightHand;
 
+    public GameManager gameManager;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "RightHand")
+        {
+            if (gameManager.currentState == GameManager.State.IdentifyComponents)
+            {
+
+                if (gameManager.currentStep == GameManager.Step.Throttle)
+                {
+                    gameManager.stepIsComplete = true;
+                }
+
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         HandsOnBarChecker(other, true);

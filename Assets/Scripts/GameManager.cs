@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// 
     [Serializable]
-    public enum State { DonHelmet, IdentifyComponents, FirstGearRide, FreeRoam }
+    public enum State { DonHelmet, Key, IdentifyComponents, FirstGearRide, FreeRoam }
 
     public State currentState = State.DonHelmet;
 
@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     [Serializable]
     public enum Step { Throttle, KillSwitch, FuelInjector, FrontBrake, BackBrake, Clutch, ShifterUp, ShifterDown, HeadlightOn, HeadlightOff, RightTurnSignal, LeftTurnSignal, TurnSignalOff }
     public Step currentStep = Step.Throttle;
+
+    [SerializeField] private GameObject[] components;
+    private LerpEmission currentEmitter;
+
 
     [SerializeField] private TextMeshProUGUI objectiveText;
     private string objectiveString = "Objective: ";
@@ -44,7 +48,14 @@ public class GameManager : MonoBehaviour
                 //Message in HUD saying to put on helmet. Once contact, change state to IdentifyComponents
                 Debug.Log("Don Helmet");
                 objectiveText.text = objectiveString + "Put On Your Helmet";
+                TransitionToNextState();
+                break;
 
+            case State.Key:
+                //Message in HUD saying to put key in ignition. Once contact, change state to IdentifyComponents
+                Debug.Log("Key");
+                objectiveText.text = objectiveString + "Grab the key and place it in the igniton";
+                HighlightComponent(7);
                 TransitionToNextState();
                 break;
             case State.IdentifyComponents:
@@ -55,36 +66,47 @@ public class GameManager : MonoBehaviour
                 {
                     case Step.Throttle:
                         objectiveText.text = objectiveString + "Touch the Throttle";
+                        HighlightComponent(0);
                         break;
                     case Step.KillSwitch:
                         objectiveText.text = objectiveString + "Touch the Kill Switch";
+                        HighlightComponent(1);
                         break;
                     case Step.FuelInjector:
                         objectiveText.text = objectiveString + "Touch the Fuel Injector";
+                        HighlightComponent(2);
                         break;
                     case Step.FrontBrake:
                         objectiveText.text = objectiveString + "Touch the Front Brake";
+                        HighlightComponent(3);
                         break;
                     case Step.BackBrake:
-                        objectiveText.text = objectiveString + "Touch the Back Brake";
+                        objectiveText.text = objectiveString + "Touch the Back Brake With Your Right Foot";
+                        HighlightComponent(99);
                         break;
                     case Step.Clutch:
                         objectiveText.text = objectiveString + "Touch the Clutch";
+                        HighlightComponent(4);
                         break;
                     case Step.ShifterUp:
-                        objectiveText.text = objectiveString + "Touch the Shifter Up";
+                        objectiveText.text = objectiveString + "While Keeping the clutch IN, hit the Shifter Up With Your Left Foot";
+                        HighlightComponent(99);
                         break;
                     case Step.ShifterDown:
-                        objectiveText.text = objectiveString + "Touch the Shifter Down";
+                        objectiveText.text = objectiveString + "While Keeping the clutch IN, hit the Shifter Down With Your Foot";
+                        HighlightComponent(99);
                         break;
                     case Step.HeadlightOn:
-                        objectiveText.text = objectiveString + "Touch the Headlight On";
+                        objectiveText.text = objectiveString + "Flick the Headlight Up With Your Controller";
+                        HighlightComponent(5);
                         break;
                     case Step.HeadlightOff:
-                        objectiveText.text = objectiveString + "Touch the Headlight Off";
+                        objectiveText.text = objectiveString + "Flick the Headlight Down With Your Controller";
+                        HighlightComponent(5);
                         break;
                     case Step.RightTurnSignal:
                         objectiveText.text = objectiveString + "Touch the Right Turn Signal";
+                        HighlightComponent(6);
                         break;
                     case Step.LeftTurnSignal:
                         objectiveText.text = objectiveString + "Touch the Left Turn Signal";
@@ -117,6 +139,22 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void HighlightComponent(int index)
+    {
+        //skips the first emitter pass because it hasn't been assigned yet. 99 for components that won't be highlighted like the shifter and turn signal
+        if (currentEmitter != null || index == 99)
+        {
+            currentEmitter.isHighlighted = false;
+            
+        }
+
+        if (index != 99)
+        {
+            currentEmitter = components[index].GetComponent<LerpEmission>();
+            currentEmitter.isHighlighted = true;
+        }
+    }
+
     private void TransitionToNextStep()
     {
         if (stepIsComplete)
@@ -131,8 +169,9 @@ public class GameManager : MonoBehaviour
         if (stateIsComplete)
         {
             objectiveText.text = "Excellent!";
-            currentState = currentState + 1;
             stateIsComplete = false;
+            currentState = currentState + 1;
+            
         }
     }
 }

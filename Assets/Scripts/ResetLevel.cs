@@ -4,9 +4,18 @@ using UnityEngine.InputSystem;
 
 public class ResetLevel : MonoBehaviour
 {
+    VRInputActions VRInputActions;
+
+    private void Awake()
+    {
+        VRInputActions = new VRInputActions();
+        VRInputActions.Enable();
+    }
+
+
     void Update()
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        if (VRInputActions.MotorcycleControls.ResetScene.WasPressedThisFrame() || Keyboard.current.rKey.wasPressedThisFrame)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("Resetting level");  

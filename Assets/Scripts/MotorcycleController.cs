@@ -16,6 +16,8 @@ public class MotorcycleController : MonoBehaviour
 
     VRInputActions VRInputActions;
     private Rigidbody rb;
+    public GameManager gameManager;
+
     [SerializeField] Animator animatorLeftHand, animationRightHand;
     
 
@@ -86,10 +88,13 @@ public class MotorcycleController : MonoBehaviour
             killSwitchObject.transform.localEulerAngles = new Vector3(-14.418f, -10.407f, 6.069f);
 
         }
-                                                                                            // also R on keyboard
+        // also R on keyboard
         else if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() < -0.5f || VRInputActions.MotorcycleControls.KillSwitchKeyboard.IsPressed())
         {
             isKillSwitchReady = true;
+
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.KillSwitch);
+
             killSwitchObject.transform.localEulerAngles = new Vector3(16.803f, 2.182f, -6.273f);
         }
 
@@ -100,6 +105,8 @@ public class MotorcycleController : MonoBehaviour
             if (VRInputActions.MotorcycleControls.FuelInjection.ReadValue<float>() > 0.5f && isKillSwitchReady == true)
             {
                 isFuelInjected = true;
+
+                InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FuelInjector);
             }
         }
 
@@ -158,6 +165,17 @@ public class MotorcycleController : MonoBehaviour
 
         #region Braking
         //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
+        if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() > 0.2f)
+        {
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FrontBrake);
+        }
+
+        if (VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>() > 0.2f)
+        {
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.BackBrake);
+        }
+
+        //Actual Braking Deceleration
         if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() > 0.2f || VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>() > 0.2f)
         {
 
@@ -232,6 +250,7 @@ public class MotorcycleController : MonoBehaviour
             {
                 isClutchIn = true;
 
+                InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.Clutch);
             }
             else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() < 0.5f))
             {
@@ -248,6 +267,9 @@ public class MotorcycleController : MonoBehaviour
             {
                 currentGear++;
             }
+
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.ShifterUp);
+
         }
 
         //Shifting Down with Clutch In. Also down arrow on keyboard
@@ -257,6 +279,8 @@ public class MotorcycleController : MonoBehaviour
             {
                 currentGear--;
             }
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.ShifterDown);
+
         }
         Debug.Log($"Clutch is: {isClutchIn} Current gear is {currentGear}");
 
@@ -308,6 +332,19 @@ public class MotorcycleController : MonoBehaviour
         //isReadyToRide = false;
         //
     }
+
     #endregion
+
+    private void InputActionStep(GameManager.State state, GameManager.Step step)
+    {
+        if (gameManager.currentState == state)
+        {
+            if (gameManager.currentStep == step)
+            {
+                gameManager.stepIsComplete = true;
+            }
+        }
+    }
+   
 }
 
