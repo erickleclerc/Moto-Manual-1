@@ -85,7 +85,7 @@ public class MotorcycleController : MonoBehaviour
         {
             isKillSwitchReady = false;
 
-            killSwitchObject.transform.localEulerAngles = new Vector3(-14.418f, -10.407f, 6.069f);
+            killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 52.497f);
 
         }
         // also R on keyboard
@@ -95,7 +95,7 @@ public class MotorcycleController : MonoBehaviour
 
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.KillSwitch);
 
-            killSwitchObject.transform.localEulerAngles = new Vector3(16.803f, 2.182f, -6.273f);
+            killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 10f);
         }
 
         //Kill Switch must be ready first

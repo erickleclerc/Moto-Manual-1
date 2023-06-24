@@ -33367,6 +33367,26 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 704653485}
+    - target: {fileID: 543450652990009657, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.25332084
+      objectReference: {fileID: 0}
+    - target: {fileID: 543450652990009657, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.8368278
+      objectReference: {fileID: 0}
+    - target: {fileID: 543450652990009657, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.06899559
+      objectReference: {fileID: 0}
+    - target: {fileID: 543450652990009657, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.48040336
+      objectReference: {fileID: 0}
+    - target: {fileID: 543450652990009657, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 22.600006
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149277554174, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_Name
       value: Clutch Lever Art
@@ -43704,7 +43724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8f7c73ce689342c4894fb75a6db3c299, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 176.63
+      value: 175.994
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8f7c73ce689342c4894fb75a6db3c299, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43712,7 +43732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8f7c73ce689342c4894fb75a6db3c299, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -311.91
+      value: -312.171
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8f7c73ce689342c4894fb75a6db3c299, type: 3}
       propertyPath: m_LocalRotation.w

@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
         {
             objectiveText.text = "Excellent!";
             stateIsComplete = false;
-            currentState = currentState + 1;
+            currentState++;
             
         }
     }
