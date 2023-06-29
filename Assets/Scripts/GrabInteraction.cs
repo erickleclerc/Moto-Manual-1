@@ -58,16 +58,16 @@ public class GrabInteraction : MonoBehaviour
                     heldObject = rb;
                 }
             }
-            if (rb != null && otherObject.gameObject.CompareTag("HandleBar"))
-            {
-                if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.WasPressedThisFrame())
-                {
-                    otherObject.transform.parent = transform;
-                    rb.isKinematic = true;
+            //if (rb != null && otherObject.gameObject.CompareTag("HandleBar"))
+            //{
+            //    if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.WasPressedThisFrame())
+            //    {
+            //        otherObject.transform.parent = transform;
+            //        rb.isKinematic = true;
 
-                    heldObject = rb;
-                }
-            }
+            //        heldObject = rb;
+            //    }
+            //}
         }
     }
 }
