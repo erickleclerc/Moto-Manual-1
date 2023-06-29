@@ -93,6 +93,7 @@ public class MotorcycleController : MonoBehaviour
         {
             isKillSwitchReady = true;
 
+            //only if the kill switch is ready, FIX THIS
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.KillSwitch);
 
             killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 10f);

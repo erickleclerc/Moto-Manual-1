@@ -30,7 +30,8 @@ public class AttachHelmet : MonoBehaviour
 
             isAttached = true;
 
-            gameManager.stateIsComplete = true;  
+            //gameManager.stateIsComplete = true; 
+            gameManager.currentState = GameManager.State.Key;
         }
     }
 }

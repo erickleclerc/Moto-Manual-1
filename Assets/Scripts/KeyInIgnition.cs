@@ -8,6 +8,8 @@ public class KeyInIgnition : MonoBehaviour
     public Vector3 rotationOffset;
 
     [SerializeField] private MotorcycleController motorcycleController;
+    [SerializeField] private GameManager gameManager;
+
 
     private void Start()
     {
@@ -23,6 +25,8 @@ public class KeyInIgnition : MonoBehaviour
             transform.localPosition = Vector3.zero + offset;
             transform.localEulerAngles = rotationOffset;
 
+
+
         }
     }
 
@@ -34,6 +38,8 @@ public class KeyInIgnition : MonoBehaviour
 
             isAttached = true;
             motorcycleController.isKeyIn = true;
+
+            gameManager.currentState = GameManager.State.IdentifyComponents;
         }
     }
 }
