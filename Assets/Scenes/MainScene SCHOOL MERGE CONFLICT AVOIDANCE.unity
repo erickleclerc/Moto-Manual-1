@@ -16335,7 +16335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201d31378938b1c4593faf87b7169dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
+  currentState: 4
   currentStep: 0
   components:
   - {fileID: 772954183}
@@ -19269,6 +19269,7 @@ MonoBehaviour:
   offset: {x: 0.0004, y: 0.006, z: -0.00387}
   rotationOffset: {x: 115, y: 0, z: 90}
   motorcycleController: {fileID: 2069073568}
+  gameManager: {fileID: 0}
 --- !u!1 &867382022
 GameObject:
   m_ObjectHideFlags: 0
