@@ -12,10 +12,10 @@ public class aiAgent : MonoBehaviour
     [SerializeField]
     private int waitTime = 4;
 
-    public enum State { MoveToPointOne, TravellingToPointTwo, HangAround };
+    public enum State { MoveToPointOne, MoveToPointTwo, MoveToPointThree, MoveToPointFour, TravellingToPointTwo, HangAround };
     public State currentState = State.MoveToPointOne;
 
-    public Transform pointOne;
+    public Transform pointOne,pointTwo, pointThree, pointFour;
     public BoxCollider fieldCollider;
     
     //navemesh component goes on the A.I bot
@@ -26,6 +26,12 @@ public class aiAgent : MonoBehaviour
     private bool canHangAround;
 
 
+
+    public enum Type { Car, Bike, Person };
+
+    [SerializeField] private int type;
+
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();   
@@ -33,15 +39,16 @@ public class aiAgent : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         agent.SetDestination(pointOne.position);
         //isWalking = false;
-        canHangAround = true;
+        //canHangAround = true;
     }
 
     void Update()
     {
         AiLogic();
+
     }
 
     private void AiLogic()
@@ -50,47 +57,82 @@ public class aiAgent : MonoBehaviour
         {
             //isWalking = true;
 
-            anim.SetBool("Walking", true);
-            anim.SetBool("Idle", false);
+            //anim.SetBool("Walking", true);
+            // anim.SetBool("Idle", false);
 
-            if (Vector3.Distance(transform.position, pointOne.position) < 1)
-            {
-                currentState = State.TravellingToPointTwo;
-                Vector3 targetPosition = RandomPointInBounds(fieldCollider.bounds);
-                agent.SetDestination(targetPosition);
-                canHangAround = true;
-            }
+            HeadingThere(pointOne, pointTwo);
         }
 
-        if (currentState == State.TravellingToPointTwo)
+
+        if (currentState == State.MoveToPointTwo)
         {
-           // isWalking = true;
+            HeadingThere(pointTwo, pointThree);
+        }
 
-            anim.SetBool("Walking", true);
-            anim.SetBool("Idle", false);
+        if (currentState == State.MoveToPointThree)
+        {
+            HeadingThere(pointThree, pointFour);
+        }
 
-            if (!agent.pathPending)
-            {
-                //Is the remaining distance very small, implying we've arrived? **Keeping these comments for future reference**
-                if (agent.remainingDistance <= agent.stoppingDistance)
-                {
-                    // Check that we have come to a halt or no longer have a path.
-                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                    {
-                        anim.SetBool("Walking", false);
-                        anim.SetBool("Idle", true);
-                        currentState = State.HangAround;
+        if (currentState == State.MoveToPointFour)
+        {
+            HeadingThere(pointFour, pointOne);
+        }
+
+
+
+
+        //if (currentState == State.TravellingToPointTwo)
+        //{
+        //   // isWalking = true;
+
+        //    //anim.SetBool("Walking", true);
+        //   // anim.SetBool("Idle", false);
+
+        //    if (!agent.pathPending)
+        //    {
+        //        //Is the remaining distance very small, implying we've arrived? **Keeping these comments for future reference**
+        //        if (agent.remainingDistance <= agent.stoppingDistance)
+        //        {
+        //            // Check that we have come to a halt or no longer have a path.
+        //            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+        //            {
+        //                anim.SetBool("Walking", false);
+        //                anim.SetBool("Idle", true);
+        //                currentState = State.HangAround;
                         
-                    }
-                }
-            }
-        }
+        //            }
+        //        }
+        //    }
+        //}
 
-        if (currentState == State.HangAround && canHangAround == true)
+        //if (currentState == State.HangAround && canHangAround == true)
+        //{
+        //    //isWalking = false;
+
+        //    StartCoroutine(RelaxingInPlace());
+        //}
+    }
+
+    private void HeadingThere(Transform currentPoint, Transform nextPoint)
+    {
+
+        //Debug.Log(Vector3.Distance(transform.position, currentPoint.position));
+
+        if (Vector3.Distance(transform.position, currentPoint.position) < 10)
         {
-            //isWalking = false;
-
-            StartCoroutine(RelaxingInPlace());
+            //currentState++;
+           if (currentState == State.MoveToPointFour)
+            {
+                currentState = State.MoveToPointOne;
+            }
+            else
+            {
+                currentState++;
+            }
+            //Vector3 targetPosition = RandomPointInBounds(fieldCollider.bounds);
+            agent.SetDestination(nextPoint.position);
+            //canHangAround = true;
         }
     }
 

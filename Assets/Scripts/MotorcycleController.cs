@@ -356,7 +356,7 @@ public class MotorcycleController : MonoBehaviour
         {
             if (isReadyToRide == true)
             hornSource.PlayOneShot(hornAudioClip);
-            Debug.Log("Horn is pressed");
+            //Debug.Log("Horn is pressed");
         }
         else if (VRInputActions.MotorcycleControls.HornButton.WasReleasedThisFrame())
         {

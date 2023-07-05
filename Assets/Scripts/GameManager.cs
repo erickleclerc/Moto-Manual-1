@@ -35,6 +35,14 @@ public class GameManager : MonoBehaviour
     public bool stateIsComplete = false;
     public bool stepIsComplete = false;
 
+    public GameObject[] otherVehicles;
+
+
+    private void Awake()
+    {
+        
+    }
+
     void Start()
     {
 
@@ -132,6 +140,18 @@ public class GameManager : MonoBehaviour
                 break;
             case State.FreeRoam:
                 //Message in HUD to free roam. Ride around the map, practice shifting, braking, turning, etc. If collision, restart state
+
+
+                //Enable all the AI cars and bikes and if you collide with them, restart the scene with a message saying you crashed. Stay in this state.
+
+                
+
+                
+                foreach (GameObject vehicle in otherVehicles)
+                {
+                    vehicle.SetActive(true);
+                }
+
                 Debug.Log("Free Roam");
                 objectiveText.text = objectiveString + "Start your bike and roam free!";
                 break;
