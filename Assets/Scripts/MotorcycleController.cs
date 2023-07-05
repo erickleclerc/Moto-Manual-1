@@ -29,20 +29,15 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private GameObject killSwitchObject;
 
 
+    [SerializeField] private AudioSource engineAudioSource;
+    [SerializeField] private bool startEngineAudio = false;
+    [SerializeField] private AudioClip[] engineSoundClips;
+
+
     //Moving forward and backward
     [SerializeField] private TextMeshProUGUI speedometerText;
     [SerializeField] private float accelerationSpeed = 10f;
     [SerializeField] private ThrottleSpeed throttleSpeed;
-    private float frontBrakingMultiplier;
-    private float backBrakingMultiplier;
-
-    //Leaning steering
-    [SerializeField] private GameObject head;
-    public float zRotation;
-    public float rotationDifference;
-    public float rotationSensitivity = 1f;
-    private float angularDifference;
-    private float angularSensitivity;
 
 
     //Clutch
@@ -56,12 +51,14 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gearText;
 
 
-    //Headlight + Brake Lights
+    //Headlight + Brake Lights + Horn
     [Header("Lights")]
     [Space(5)]
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] brakelight;
     [SerializeField] private Material brakeLightMaterial;
+    [SerializeField] private AudioSource hornSource;
+    [SerializeField] private AudioClip hornAudioClip;
 
 
     private void Awake()
@@ -107,7 +104,26 @@ public class MotorcycleController : MonoBehaviour
             {
                 isFuelInjected = true;
 
+                //Idle sound
+                engineAudioSource.clip = engineSoundClips[0];
+
+                if (startEngineAudio == false)
+                {
+                    engineAudioSource.Play();
+                    InvokeRepeating("StartEngine", 0f, .2f);
+                }
+                startEngineAudio = true;
+
+
                 InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FuelInjector);
+            }
+
+            //Release control and leave into idle sound loop
+            if (VRInputActions.MotorcycleControls.FuelInjection.ReadValue<float>() < 0.5f && startEngineAudio == true)
+            {
+                CancelInvoke("StartEngine");
+                engineAudioSource.Play();
+                startEngineAudio = false;
             }
         }
 
@@ -158,6 +174,7 @@ public class MotorcycleController : MonoBehaviour
             }
 
             //Accelerating by rolling the throttle
+            if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.ReadValue<float>() > 0.2f)
             {
                 rb.AddForce(transform.forward * accelerationSpeed * throttleSpeed.clampedValue, ForceMode.Acceleration);
             }
@@ -323,7 +340,6 @@ public class MotorcycleController : MonoBehaviour
 
         #endregion
 
-
         #region Stalling
         //Stalling the bike when velocity it too low and clutch is not in. 
         //Maybe a feature in free roam
@@ -332,9 +348,25 @@ public class MotorcycleController : MonoBehaviour
         //{
         //isReadyToRide = false;
         //
-    }
 
-    #endregion
+        #endregion
+
+        #region
+        if (VRInputActions.MotorcycleControls.HornButton.IsPressed())
+        {
+            if (isReadyToRide == true)
+            hornSource.PlayOneShot(hornAudioClip);
+            Debug.Log("Horn is pressed");
+        }
+        else if (VRInputActions.MotorcycleControls.HornButton.WasReleasedThisFrame())
+        {
+            hornSource.Stop();
+        }
+
+
+
+        #endregion
+    }
 
     private void InputActionStep(GameManager.State state, GameManager.Step step)
     {
@@ -345,6 +377,12 @@ public class MotorcycleController : MonoBehaviour
                 gameManager.stepIsComplete = true;
             }
         }
+    }
+
+  private void StartEngine()
+    {
+        engineAudioSource.Stop();
+        engineAudioSource.Play();
     }
    
 }

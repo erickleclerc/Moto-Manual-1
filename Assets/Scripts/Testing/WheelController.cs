@@ -35,6 +35,8 @@ public class WheelController : MonoBehaviour
         Debug.Log($"RPM : { rpm}");
 
         int rpmInt = (int)rpm;
+
+        if (rpmText != null)
         rpmText.text = rpmInt.ToString();
     }
 }

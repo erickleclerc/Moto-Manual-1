@@ -7,8 +7,6 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
 
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] turnLights;
-    [SerializeField] private AudioSource bikeAudioSource;
-    [SerializeField] private AudioClip hornAudioClip;
 
     public GameManager gameManager;
 
@@ -65,18 +63,6 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
         }
         #endregion
 
-        #region Horn
-        //Horn is A button on Oculus Touch, H key on keyboard
-        if (VRInputActions.MotorcycleControls.HornButton.IsPressed())
-        {
-            bikeAudioSource.PlayOneShot(hornAudioClip);
-            Debug.Log("Horn");
-        }
-        else if (VRInputActions.MotorcycleControls.HornButton.WasReleasedThisFrame())
-        {
-            bikeAudioSource.Stop();
-        }
-        #endregion
     }
 
 
