@@ -12,9 +12,6 @@ public class SceneManagement : MonoBehaviour
     /// </summary>
     /// 
 
-   
-
-
     public void LoadNext()
     {
         //stop the coroutine to load next scene
@@ -24,11 +21,9 @@ public class SceneManagement : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-
         //start the coroutine for a loading screen
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 
 
@@ -40,6 +35,13 @@ public class SceneManagement : MonoBehaviour
 
     public void QuitGame()
     {
+        StartCoroutine(QuitGameCoroutine());
+    }
+
+  IEnumerator QuitGameCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+
         Application.Quit();
 
 #if UNITY_EDITOR

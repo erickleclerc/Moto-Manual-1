@@ -148,6 +148,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerMenu",
+                    "type": "Button",
+                    "id": "bd18d1f6-613e-4487-bd62-3f6180cc7d8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -401,6 +410,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reset Scene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0aec02a-1cf8-4916-939f-4bc5046a0bf3",
+                    "path": "<OculusTouchController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -170,6 +170,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TriggerMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd18d1f6-613e-4487-bd62-3f6180cc7d8b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -425,6 +434,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Reset Scene"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0aec02a-1cf8-4916-939f-4bc5046a0bf3"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -449,6 +469,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_KillSwitch = m_MotorcycleControls.FindAction("Kill Switch", throwIfNotFound: true);
         m_MotorcycleControls_KillSwitchKeyboard = m_MotorcycleControls.FindAction("Kill Switch Keyboard", throwIfNotFound: true);
         m_MotorcycleControls_ResetScene = m_MotorcycleControls.FindAction("Reset Scene", throwIfNotFound: true);
+        m_MotorcycleControls_TriggerMenu = m_MotorcycleControls.FindAction("TriggerMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -524,6 +545,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_KillSwitch;
     private readonly InputAction m_MotorcycleControls_KillSwitchKeyboard;
     private readonly InputAction m_MotorcycleControls_ResetScene;
+    private readonly InputAction m_MotorcycleControls_TriggerMenu;
     public struct MotorcycleControlsActions
     {
         private @VRInputActions m_Wrapper;
@@ -544,6 +566,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @KillSwitch => m_Wrapper.m_MotorcycleControls_KillSwitch;
         public InputAction @KillSwitchKeyboard => m_Wrapper.m_MotorcycleControls_KillSwitchKeyboard;
         public InputAction @ResetScene => m_Wrapper.m_MotorcycleControls_ResetScene;
+        public InputAction @TriggerMenu => m_Wrapper.m_MotorcycleControls_TriggerMenu;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -601,6 +624,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @ResetScene.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene;
                 @ResetScene.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene;
                 @ResetScene.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene;
+                @TriggerMenu.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTriggerMenu;
+                @TriggerMenu.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTriggerMenu;
+                @TriggerMenu.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTriggerMenu;
             }
             m_Wrapper.m_MotorcycleControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -653,6 +679,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @ResetScene.started += instance.OnResetScene;
                 @ResetScene.performed += instance.OnResetScene;
                 @ResetScene.canceled += instance.OnResetScene;
+                @TriggerMenu.started += instance.OnTriggerMenu;
+                @TriggerMenu.performed += instance.OnTriggerMenu;
+                @TriggerMenu.canceled += instance.OnTriggerMenu;
             }
         }
     }
@@ -675,5 +704,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnKillSwitch(InputAction.CallbackContext context);
         void OnKillSwitchKeyboard(InputAction.CallbackContext context);
         void OnResetScene(InputAction.CallbackContext context);
+        void OnTriggerMenu(InputAction.CallbackContext context);
     }
 }
