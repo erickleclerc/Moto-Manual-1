@@ -12,15 +12,46 @@ public class SceneManagement : MonoBehaviour
     /// </summary>
     /// 
 
+    [SerializeField] private AudioSource audioSource;
+    private bool canFadeOut = true;
+
+    private float initialVolume = 0.5f;
+        private float targetVolume = 0f;
+        private float volumeDecrement = 0.05f;
+
+   
+
+
     public void LoadNext()
     {
         //stop the coroutine to load next scene
 
+        StartCoroutine(FadeOutAudio());
+
         StartCoroutine(LoadingScreen());
+    }
+
+    IEnumerator FadeOutAudio()
+    {
+        while (audioSource.volume > targetVolume)
+        {
+            audioSource.volume -= volumeDecrement * Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure volume reaches zero
+        audioSource.volume = targetVolume;
+
+        // Stop the audio clip or deactivate the audio object
+        audioSource.Stop(); // Or gameObject.SetActive(false);
+
     }
 
     IEnumerator LoadingScreen()
     {
+       
+
+
         //start the coroutine for a loading screen
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -35,6 +66,8 @@ public class SceneManagement : MonoBehaviour
 
     public void QuitGame()
     {
+        StartCoroutine(FadeOutAudio());
+
         StartCoroutine(QuitGameCoroutine());
     }
 
