@@ -39,6 +39,7 @@ public class KeyInIgnition : MonoBehaviour
             isAttached = true;
             motorcycleController.isKeyIn = true;
 
+            gameManager.canPlayInstruction = true;
             gameManager.currentState = GameManager.State.IdentifyComponents;
         }
     }

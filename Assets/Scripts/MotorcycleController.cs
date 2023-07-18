@@ -169,6 +169,7 @@ public class MotorcycleController : MonoBehaviour
             if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
             {
                 rb.AddForce(transform.forward * accelerationSpeed, ForceMode.Acceleration);
+                engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
 
                 //include wheel rotation
             }
@@ -177,6 +178,7 @@ public class MotorcycleController : MonoBehaviour
             if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.ReadValue<float>() > 0.2f)
             {
                 rb.AddForce(transform.forward * accelerationSpeed * throttleSpeed.clampedValue, ForceMode.Acceleration);
+                engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
             }
         }
         #endregion
@@ -351,12 +353,14 @@ public class MotorcycleController : MonoBehaviour
 
         #endregion
 
-        #region
+        #region Horn
         if (VRInputActions.MotorcycleControls.HornButton.IsPressed())
         {
             if (isReadyToRide == true)
             hornSource.PlayOneShot(hornAudioClip);
             //Debug.Log("Horn is pressed");
+
+            InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.Horn);
         }
         else if (VRInputActions.MotorcycleControls.HornButton.WasReleasedThisFrame())
         {
@@ -375,6 +379,11 @@ public class MotorcycleController : MonoBehaviour
             if (gameManager.currentStep == step)
             {
                 gameManager.stepIsComplete = true;
+            }
+
+            if (gameManager.currentStep == GameManager.Step.Horn)
+            {
+                gameManager.stateIsComplete = true;
             }
         }
     }

@@ -30,7 +30,11 @@ public class AttachHelmet : MonoBehaviour
 
             isAttached = true;
 
+            //This keeps skipping to last state
             //gameManager.stateIsComplete = true; 
+            
+            //temporary fix
+            gameManager.canPlayInstruction = true;
             gameManager.currentState = GameManager.State.Key;
         }
     }
