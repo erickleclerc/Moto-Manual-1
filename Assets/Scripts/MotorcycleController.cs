@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine.XR;
 
 public class MotorcycleController : MonoBehaviour
@@ -61,6 +62,12 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private AudioClip hornAudioClip;
 
 
+    //Display Checklist
+    [SerializeField] private UnityEngine.UI.Toggle keyInToggle;
+    [SerializeField] private UnityEngine.UI.Toggle killSwitchToggle;
+    [SerializeField] private UnityEngine.UI.Toggle pushStartToggle;
+
+
     private void Awake()
     {
         VRInputActions = new VRInputActions();
@@ -81,6 +88,7 @@ public class MotorcycleController : MonoBehaviour
         if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() > 0.5f)
         {
             isKillSwitchReady = false;
+            killSwitchToggle.isOn = false;
 
             killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 52.497f);
 
@@ -89,6 +97,7 @@ public class MotorcycleController : MonoBehaviour
         else if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() < -0.5f || VRInputActions.MotorcycleControls.KillSwitchKeyboard.IsPressed())
         {
             isKillSwitchReady = true;
+            killSwitchToggle.isOn = true;
 
             //only if the kill switch is ready, FIX THIS
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.KillSwitch);
@@ -369,6 +378,22 @@ public class MotorcycleController : MonoBehaviour
 
 
 
+        #endregion
+
+
+        #region Display Checklist
+
+        if (isKeyIn)
+            keyInToggle.isOn = true;
+        else
+            keyInToggle.isOn = false;
+
+
+
+        if (isFuelInjected)
+            pushStartToggle.isOn = true;
+        else
+            pushStartToggle.isOn = false;
         #endregion
     }
 
