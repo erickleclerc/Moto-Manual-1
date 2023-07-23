@@ -10,7 +10,6 @@ public class GrabInteraction : MonoBehaviour
     Vector3 velocity;
 
 
-
     private void Awake()
     {
         VRInputActions = new VRInputActions();
@@ -34,7 +33,6 @@ public class GrabInteraction : MonoBehaviour
             }
         }
     }
-
     
     private void OnTriggerStay(Collider otherObject)
     {
@@ -58,16 +56,6 @@ public class GrabInteraction : MonoBehaviour
                     heldObject = rb;
                 }
             }
-            //if (rb != null && otherObject.gameObject.CompareTag("HandleBar"))
-            //{
-            //    if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.WasPressedThisFrame())
-            //    {
-            //        otherObject.transform.parent = transform;
-            //        rb.isKinematic = true;
-
-            //        heldObject = rb;
-            //    }
-            //}
         }
     }
 }

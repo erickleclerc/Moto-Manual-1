@@ -32,7 +32,7 @@ public class WheelController : MonoBehaviour
         }
 
         rpm = (rb.angularVelocity.magnitude * 60) / (2 * Mathf.PI);
-        Debug.Log($"RPM : { rpm}");
+        //Debug.Log($"RPM : { rpm}");
 
         int rpmInt = (int)rpm;
 

@@ -7,7 +7,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
 
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] turnLights;
-
+    [SerializeField] private GameObject headlightSwitchObject;
     public GameManager gameManager;
 
     private void Awake()
@@ -25,11 +25,15 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
         if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() > 0.5f)
         {
            headlight.enabled = false;
+
+            headlightSwitchObject.transform.localEulerAngles = new Vector3(206.462f, 112.107f, 25.202f);
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.HeadlightOff);
         }
         else if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() < -0.5f)
         {
             headlight.enabled = true;
+
+            headlightSwitchObject.transform.localEulerAngles = new Vector3(206.462f, 112.107f, 55f);
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.HeadlightOn);
         }
         #endregion

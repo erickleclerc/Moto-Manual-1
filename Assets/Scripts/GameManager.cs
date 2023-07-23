@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Toggle killSwitchToggle;
     [SerializeField] private Toggle pushStartToggle;
     [SerializeField] GameObject oculusControllerParentGO;
+
+    [SerializeField] GameObject rightControllerJoystick;
+    [SerializeField] GameObject leftControllerJoystick;
     private float timer = 7f;
 
     void Start()
@@ -52,12 +55,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("can play instruction" + canPlayInstruction);
+        //Debug.Log("can play instruction" + canPlayInstruction);
         switch (currentState)
         {
             case State.DonHelmet:
                 //Message in HUD saying to put on helmet. Once contact, change state to IdentifyComponents
-                Debug.Log("Don Helmet");
+                //Debug.Log("Don Helmet");
                 objectiveText.text = objectiveString + "Put On Your Helmet";
                 CheckCanPlayNextInstruction(0);
                 TransitionToNextState();
@@ -65,7 +68,7 @@ public class GameManager : MonoBehaviour
 
             case State.Key:
                 //Message in HUD saying to put key in ignition. Once contact, change state to IdentifyComponents
-                Debug.Log("Key");
+                //Debug.Log("Key");
                 keyInToggle.gameObject.SetActive(true);
                 objectiveText.text = objectiveString + "Grab the key and place it in the igniton";
                 CheckCanPlayNextInstruction(1);
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.IdentifyComponents:
                 //Message in HUD saying to identify throttle, clutch, brakes, horn, kill switch, turning signals, gear shift. Once all are identified, change state
-                Debug.Log("Identify Components");
+                //Debug.Log("Identify Components");
                 killSwitchToggle.gameObject.SetActive(true);
                 pushStartToggle.gameObject.SetActive(true);
                 oculusControllerParentGO.SetActive(true);
@@ -92,12 +95,19 @@ public class GameManager : MonoBehaviour
                         CheckCanPlayNextInstruction(3);
                         HighlightComponent(1);
                         HighlightOnController(8);
+
+                        //animate the R controller
+                        rightControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", true);
+
+
                         break;
                     case Step.FuelInjector:
                         objectiveText.text = objectiveString + "Tap the Push Start Button";
                         CheckCanPlayNextInstruction(4);
                         HighlightComponent(2);
                         HighlightOnController(9);
+
+                        rightControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", false);
                         break;
                     case Step.FrontBrake:
                         objectiveText.text = objectiveString + "Pull IN the Front Brake";
@@ -134,35 +144,54 @@ public class GameManager : MonoBehaviour
                         CheckCanPlayNextInstruction(10);
                         HighlightComponent(5);
                         HighlightOnController(12);
+
+                        //animate the L controller
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickUp", true);
+
                         break;
                     case Step.HeadlightOff:
                         objectiveText.text = objectiveString + "Flick the Headlight DOWN With Your Controller";
                         CheckCanPlayNextInstruction(11);
                         HighlightComponent(5);
                         HighlightOnController(12);
+
+                        //animate the L controller. Cancel other bool, enable flick down bool
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickUp", false);
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", true);
                         break;
                     case Step.RightTurnSignal:
                         objectiveText.text = objectiveString + "Flick the Turn Signal to the RIGHT";
                         CheckCanPlayNextInstruction(12);
                         HighlightComponent(6);
                         HighlightOnController(12);
+
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", false);
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickRight", true);
                         break;
                     case Step.LeftTurnSignal:
                         objectiveText.text = objectiveString + "Flick the Turn Signal to the LEFT";
                         CheckCanPlayNextInstruction(13);
                         HighlightComponent(6);
                         HighlightOnController(12);
+
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickRight", false);
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickLeft", true);
                         break;
                     case Step.TurnSignalOff:
                         objectiveText.text = objectiveString + "PUSH IN the Turn Signal to turn off";
                         CheckCanPlayNextInstruction(14);
                         HighlightComponent(6);
                         HighlightOnController(12);
+
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("FlickLeft", false);
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("PushIn", true);
                         break;
                     case Step.Horn:
                         objectiveText.text = objectiveString + "Tap the Horn";
                         CheckCanPlayNextInstruction(15);
                         HighlightOnController(13);
+
+                        leftControllerJoystick.GetComponent<Animator>().SetBool("PushIn", false);
                         break;
                         //the turn signal off will change the state to FirstGearRide
                 }

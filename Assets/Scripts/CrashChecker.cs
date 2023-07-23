@@ -41,6 +41,8 @@ public class CrashChecker : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(5f);
 
+        Time.timeScale = 1f;
+
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

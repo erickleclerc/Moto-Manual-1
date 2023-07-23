@@ -43,6 +43,7 @@ public class MotorcycleController : MonoBehaviour
 
     //Clutch
     [SerializeField] private bool isClutchIn = false;
+    [SerializeField] private GameObject clutchLeverObject;
 
 
     //Gears
@@ -60,6 +61,8 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private Material brakeLightMaterial;
     [SerializeField] private AudioSource hornSource;
     [SerializeField] private AudioClip hornAudioClip;
+    [SerializeField] private GameObject brakeLeverObject;
+    
 
 
     //Display Checklist
@@ -67,6 +70,8 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Toggle killSwitchToggle;
     [SerializeField] private UnityEngine.UI.Toggle pushStartToggle;
 
+
+    public bool testButton = false;
 
     private void Awake()
     {
@@ -180,7 +185,6 @@ public class MotorcycleController : MonoBehaviour
                 rb.AddForce(transform.forward * accelerationSpeed, ForceMode.Acceleration);
                 engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
 
-                //include wheel rotation
             }
 
             //Accelerating by rolling the throttle
@@ -196,11 +200,16 @@ public class MotorcycleController : MonoBehaviour
         //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
         if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() > 0.2f)
         {
+            brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.815f, 8.62f, 1.166f), new Vector3(-89.812f, 8.62f, 16.735f), Time.deltaTime * 1f);
+
+
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FrontBrake);
         }
 
         if (VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>() > 0.2f)
         {
+            brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.812f, 8.62f, 16.735f), new Vector3(-89.815f, 8.62f,1.166f), Time.deltaTime * 1f);
+
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.BackBrake);
         }
 
@@ -279,11 +288,15 @@ public class MotorcycleController : MonoBehaviour
             {
                 isClutchIn = true;
 
+                clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, 0), new Vector3(-90f, 0, -22.5f), Time.deltaTime * 1f);
+
                 InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.Clutch);
             }
             else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() < 0.5f))
             {
                 isClutchIn = false;
+
+                clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, -22.5f), new Vector3(-90f, 0, 0), Time.deltaTime * 1f);
             }
         }
         #endregion
@@ -387,7 +400,6 @@ public class MotorcycleController : MonoBehaviour
             keyInToggle.isOn = true;
         else
             keyInToggle.isOn = false;
-
 
 
         if (isFuelInjected)
