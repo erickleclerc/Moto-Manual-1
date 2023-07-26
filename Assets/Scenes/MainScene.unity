@@ -3342,6 +3342,10 @@ PrefabInstance:
       value: Houses.008 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3713,6 +3717,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_Name
       value: Houses.009 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4309,6 +4317,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
     - target: {fileID: 100000, guid: 5040aa18d61033e489ea9265c4f2cca4, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5040aa18d61033e489ea9265c4f2cca4, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4366,6 +4378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -4623,6 +4639,10 @@ PrefabInstance:
       value: Houses.008 (9)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4831,6 +4851,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
       propertyPath: m_Name
       value: Houses.003 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6147,6 +6171,10 @@ PrefabInstance:
       value: Houses.005 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6344,6 +6372,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
       propertyPath: m_Name
       value: Houses.010 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7808,6 +7840,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -9471,6 +9507,10 @@ PrefabInstance:
       value: Houses.009 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10623,6 +10663,10 @@ PrefabInstance:
       value: Houses.013 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10680,6 +10724,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -12556,6 +12604,10 @@ PrefabInstance:
       value: Houses.008 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12621,6 +12673,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -13146,6 +13202,10 @@ PrefabInstance:
       value: Highway Bridge 2 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 172256, guid: 25e5c01865542e449bf00fcc40da6a11, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 172256, guid: 25e5c01865542e449bf00fcc40da6a11, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -13447,6 +13507,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -14026,6 +14090,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
       propertyPath: m_Name
       value: Houses.006 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14667,6 +14735,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_Name
       value: Houses.008 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15500,6 +15572,10 @@ PrefabInstance:
       value: Houses.009 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15898,6 +15974,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_Name
       value: Houses.009 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16995,6 +17075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 704653486}
   - component: {fileID: 704653485}
+  - component: {fileID: 704653487}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -17064,6 +17145,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704653487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704653484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acf441357889f34cbca28b65b0a9931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &707523411
 GameObject:
   m_ObjectHideFlags: 0
@@ -17644,6 +17737,10 @@ PrefabInstance:
       value: Houses.002 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9374469e886d8649b6b92c468834057, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9374469e886d8649b6b92c468834057, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17869,6 +17966,10 @@ PrefabInstance:
       value: Houses.005 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17929,6 +18030,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_Name
       value: Houses.005 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
@@ -19484,6 +19589,10 @@ PrefabInstance:
       value: Houses.004 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -20501,6 +20610,10 @@ PrefabInstance:
       value: Houses.007 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -21166,6 +21279,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
       propertyPath: m_Name
       value: Houses.010 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
       propertyPath: m_NavMeshLayer
@@ -22381,6 +22498,10 @@ PrefabInstance:
       value: Houses.006 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -22632,6 +22753,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: e9374469e886d8649b6b92c468834057, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9374469e886d8649b6b92c468834057, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -22985,6 +23110,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_Name
       value: Houses.007 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_NavMeshLayer
@@ -23646,6 +23775,10 @@ PrefabInstance:
       value: Houses.012 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 51f7d944b367bb94abd599e0af5cf265, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 51f7d944b367bb94abd599e0af5cf265, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -24265,6 +24398,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_Name
       value: Houses.005 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
@@ -25110,6 +25247,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
     - target: {fileID: 100000, guid: 51f7d944b367bb94abd599e0af5cf265, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 51f7d944b367bb94abd599e0af5cf265, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -25797,6 +25938,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_Name
       value: Houses.005 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
@@ -26754,6 +26899,10 @@ PrefabInstance:
       value: Houses.002 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9374469e886d8649b6b92c468834057, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9374469e886d8649b6b92c468834057, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -27236,6 +27385,10 @@ PrefabInstance:
       value: Houses.005 (9)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -27506,6 +27659,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_Name
       value: Houses.005 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
@@ -30450,6 +30607,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
     - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -30685,6 +30846,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_Name
       value: Houses.007 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_NavMeshLayer
@@ -33451,6 +33616,10 @@ PrefabInstance:
       value: Houses.003 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b2458df65032dda41b5421b69f657d9a, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -33676,6 +33845,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: f24e9cf354f004442b97cffbb3bbd911, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f24e9cf354f004442b97cffbb3bbd911, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -34037,6 +34210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42523200, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: outOfBounds
+      value: 
+      objectReference: {fileID: 53265319}
     - target: {fileID: 50002870, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: gameManager
       value: 
@@ -34801,6 +34978,10 @@ PrefabInstance:
       value: Houses.009 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -35235,6 +35416,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441001448}
     m_Modifications:
+    - target: {fileID: 172256, guid: 25e5c01865542e449bf00fcc40da6a11, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 172256, guid: 25e5c01865542e449bf00fcc40da6a11, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -36249,6 +36434,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -37086,6 +37275,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_Name
       value: Houses.008 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
@@ -38162,6 +38355,10 @@ PrefabInstance:
       value: Houses.008 (10)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -38230,6 +38427,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_Name
       value: Houses.009 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
@@ -39480,6 +39681,10 @@ PrefabInstance:
       value: Houses.008 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -39744,6 +39949,10 @@ PrefabInstance:
       value: Houses.008 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -39832,6 +40041,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -40126,6 +40339,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
       propertyPath: m_Name
       value: Houses.004 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
       propertyPath: m_NavMeshLayer
@@ -40702,6 +40919,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_Name
       value: Houses.005 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
@@ -42391,6 +42612,10 @@ PrefabInstance:
       value: Houses.007 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3e00f6b092fa0844290d6e031b6aa3db, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -43036,6 +43261,10 @@ PrefabInstance:
       value: Houses.010 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -43349,6 +43578,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_Name
       value: Houses.005 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9cc9d043ba5c64744aef14901c30eaca, type: 3}
       propertyPath: m_NavMeshLayer
@@ -44164,6 +44397,10 @@ PrefabInstance:
       value: Houses.009 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46908de83c0ca15498206df2dc007ea0, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -44257,6 +44494,10 @@ PrefabInstance:
       value: Houses.008 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -44317,6 +44558,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
       propertyPath: m_Name
       value: Houses.006 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f366ec1535b72a841ac031961d69f6e6, type: 3}
       propertyPath: m_NavMeshLayer
@@ -44410,6 +44655,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_Name
       value: Houses.008 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2296d07369e67c646b2d0d7f242d8449, type: 3}
       propertyPath: m_NavMeshLayer
@@ -44913,6 +45162,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 439344948}
     m_Modifications:
+    - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 960597deba6aae644952d370b3c462a6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -46194,6 +46447,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
       propertyPath: m_Name
       value: Houses.004 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f9b12965751b78e4d807b064d0420bb9, type: 3}
       propertyPath: m_NavMeshLayer
@@ -48964,6 +49221,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
       propertyPath: m_Name
       value: Houses.013 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: facee1ea21c798142b0bbba6183d9d69, type: 3}
       propertyPath: m_NavMeshLayer

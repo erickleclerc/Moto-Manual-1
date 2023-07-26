@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using Unity.VisualScripting;
 
 public class MotorcycleController : MonoBehaviour
 {
@@ -150,6 +151,14 @@ public class MotorcycleController : MonoBehaviour
             isReadyToRide = true;
             gearText.gameObject.SetActive(true);
             speedometerText.gameObject.SetActive(true);
+
+
+            //if free roam mode, then can move the bike
+            if (gameManager.currentState == GameManager.State.FreeRoam)
+            {
+                isReadyToRide = true;
+            }
+
         }
         #endregion
 

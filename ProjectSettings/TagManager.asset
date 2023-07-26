@@ -16,6 +16,7 @@ TagManager:
   - Throttle
   - LeftHand
   - RightHand
+  - Building
   layers:
   - Default
   - TransparentFX

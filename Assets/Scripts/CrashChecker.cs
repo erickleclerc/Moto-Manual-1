@@ -5,7 +5,7 @@ using TMPro;
 
 public class CrashChecker : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI crashMessage, errorMessages, objectiveText;
+    [SerializeField] private TextMeshProUGUI crashMessage, errorMessages, objectiveText, outOfBounds;
     [SerializeField] private bool debug;
 
     void Update()
@@ -21,13 +21,14 @@ public class CrashChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("OtherVehicle"))
+        if (other.CompareTag("OtherVehicle") || other.CompareTag("Building"))
         {
             //Scene scene = SceneManager.GetActiveScene();
             //SceneManager.LoadScene(scene.name);
             errorMessages.gameObject.SetActive(false);
             objectiveText.gameObject.SetActive(false);
             crashMessage.gameObject.SetActive(true);
+            outOfBounds.gameObject.SetActive(false);
             crashMessage.text = "You Crashed! Try Again.";
 
             StartCoroutine(CrashMessage());
