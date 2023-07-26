@@ -2,6 +2,7 @@
 
 <p align="center">
   <img alt="Preview" width="660" alt="preview" src="(https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif)">
+  ![](https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif)
 <p align="center">
 
 ## Summary
@@ -14,7 +15,6 @@ An entirely individually conceived project without the use of prior made package
 
 ## Features
 
-![](https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif)
 
 
 ## Controls
@@ -31,7 +31,8 @@ An entirely individually conceived project without the use of prior made package
 > Example Video
 
 add a real reference pic and the actual case study video
-[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://www.youtube.com/watch?v=G7rzMntNpz4 "Click to play on Vimeo.com")
+
+[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)"Click to play on Vimeo.com")
 
 ## Roadmap / Beyond
 
