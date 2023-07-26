@@ -17,6 +17,7 @@ TagManager:
   - LeftHand
   - RightHand
   - Building
+  - Spectator Cam
   layers:
   - Default
   - TransparentFX

@@ -1245,6 +1245,10 @@ PrefabInstance:
       propertyPath: m_TargetDisplay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5510670441683525142, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.34
+      objectReference: {fileID: 0}
     - target: {fileID: 5692645775719258798, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_Layer
       value: 5
