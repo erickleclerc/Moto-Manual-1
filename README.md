@@ -9,19 +9,21 @@ Rev up your virtual engines with my PCVR motorcycle training simulator! Designed
 
 An entirely individually conceived project without the use of prior made packages.
 
-## Project Aim / Goal / Pillars
+## Project Aim / Goal 
+Moto Manual aims to teach a prospective riders teh intricacies of a two-wheeled vehicle by familiarizing them with the controls and abilities of wrist controlled speeding. Upon completion of a walkthrough identifying the key components of a motorcycle, the rider will be able to practice throttling, braking, and shifting while traffic is in play. As a training simulator designed to be used in-tandem with motorcycle education classes, the rider may practice over and over until they are comfortable taking their skills and muscle memory into the real world.
 
+The goal of this project was to build an entire experience from scratch to expose myself to as many aspects of VR game building as possible. The main objective was to prioritize forming the experience to a functional stage over polishing its design. By attempting to solve nearly all problems within the Unity game engine and using C# scripting, a new level of comfort navigating the engine has been achieved. 
 
 ## Features
-> Here is a brief of the implemented training features
+> Here is a brief of the implemented training features:
 
 * Main Menu
   - [x] Preview of the rideable motorycle
   - [x] Entering the game
-  - [x] Selecting to begin or exit using Racasting
+  - [x] Selecting to begin or exit using Raycasting
 
 * Game Flow
-  - [x] 
+  - [x] A linear game flow leading into a freedom of choice gameplay 
 
 * Animations
   - [x] Gloves and Oculus Controllers animedted using the Animation Controller
@@ -44,8 +46,9 @@ An entirely individually conceived project without the use of prior made package
   - [x] Horn
 
  * Locomotion
-  - [x] Leaning with the user's head while throttling
+  - [x] Turning using the user's head tilt while throttling
   - [x] Auto readjusting the player upright
+  - [x] Understanding positioning with side mirrors
 
 * A.I. Agents
   - [x] Various vehicles that must be avoided to preveent crashing
@@ -76,19 +79,36 @@ PC Controls:
 Oculus Controls + USB Pedals:
 
 <p align="center">
-  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Controllers%20Diagram.jpg">
+  <img alt="Preview" width="500" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Controllers%20Diagram.jpg">
 <p align="center">
 
 <p align="center">
-  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/USB%20Pedal.png">
+  <img alt="Preview" width="300" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/USB%20Pedal.png">
 <p align="center">
 Three pedals were programmed to the PC keyboard bindings
 
 ## Process 
-playtests?
+Playtests
+
+[![](https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Playtest%20Thumbnail.png)](https://vimeo.com/842711348?share=copy)
+
 
 ## Journey
+The project's developement came in two stages:
 
+The Planning Stage:
+PROJECT CHARTER LINK
+
+The Development Stage:
+JIRA, MIRO, CALENDARS EXPLANATION
+
+<p align="center">
+  <img alt="Preview" width="600" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%201.png">
+<p align="center">
+
+<p align="center">
+  <img alt="Preview" width="600" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%202.png">
+<p align="center">
 
 
 ## Case Study Video 
@@ -97,9 +117,8 @@ playtests?
 add a real reference pic and the actual case study video
 
 [![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)
-## Roadmap / Beyond
-Future features, changes 
 
+## Roadmap / Beyond
 * Lessons:
   - Highway traffic
   - Turning + Shoulder checks
@@ -122,12 +141,12 @@ Future features, changes
 ## Essential Tools
 The GameManager Script
 <p align="center">
-  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Game%20Manager%20SC.png">
+  <img alt="Preview" width="300" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Game%20Manager%20SC.png">
 <p align="center">
 
 The Motorcycle Controller Script
 <p align="center">
-  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Moto%20Controller%20SC.png">
+  <img alt="Preview" width="300" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Moto%20Controller%20SC.png">
 <p align="center">
 
 
