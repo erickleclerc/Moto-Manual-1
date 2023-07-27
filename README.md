@@ -1,8 +1,7 @@
 <h1 align="center"> Moto Manual </h1>
 
 <p align="center">
-  <img alt="Preview" width="660" alt="preview" src="(https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif)">
-  ![](https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif)
+  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif">
 <p align="center">
 
 ## Summary
@@ -18,6 +17,14 @@ An entirely individually conceived project without the use of prior made package
 
 
 ## Controls
+PC Controls:
+* **A,S,D**: Throttle, Front Brake, Back Brake
+* **Y,T**: Kill Switch, Push Start
+*  **C,↑,↓**: Clutch, Shift Up, Shift Down
+*  **H,K,L**: Horn, Turn Signals, Headlight
+*  **R,M**: Restart Scene, Main Menu
+
+Oculus Controls + USB Pedals:
 
 
 ## Process 
@@ -32,8 +39,7 @@ An entirely individually conceived project without the use of prior made package
 
 add a real reference pic and the actual case study video
 
-[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)"Click to play on Vimeo.com")
-
+[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)
 ## Roadmap / Beyond
 
 
