@@ -13,8 +13,57 @@ An entirely individually conceived project without the use of prior made package
 
 
 ## Features
+> Here is a brief of the implemented training features
 
+* Main Menu
+ - [x] Preview of the rideable motorycle
+ - [x] Entering the game
+ - [x] Selecting to begin or exit using Racasting
 
+* Game Flow
+  - [x] 
+
+* Animations
+ - [x] Gloves and Oculus Controllers animedted using the Animation Controller
+ - [x] Highlighting animations using C# scripting
+
+* Inputs
+  - [x] Customizable Input Actions with bindings set for PC keyboard and Oculus controllers
+
+* Interactions
+  - [x] Donning a helmet
+  - [x] Placing a key in the igntion
+  - [x] Kill Switch
+  - [x] Push Start
+  - [x] Front & Back Brake
+  - [x] Throttle
+  - [x] Clutch
+  - [x] Shifting
+  - [x] Turn Signals
+  - [x] Headlight
+  - [x] Horn
+
+ * Locomotion
+  - [x] Leaning with the user's head while throttling
+  - [x] Auto readjusting the player upright
+
+* A.I. Agents
+  - [x] Various vehicles that must be avoided to preveent crashing
+ 
+* Collisions
+  - [x] sdfs
+ 
+* UI
+  - [x] Updateable UI based on player progress
+  - [x] Speedometer
+  - [x] Gear level
+  - [x] Hands on the handle bar indicator
+  - [x] Crash indicator
+
+ * Audio
+  - [x] A.I. generated audio instructions
+  - [x] Throttling, Push Starting, and Horn
+  - [x] Main menu music 
 
 ## Controls
 PC Controls:
@@ -28,7 +77,7 @@ Oculus Controls + USB Pedals:
 
 
 ## Process 
-
+pedals on amazon...
 
 ## Journey
 
