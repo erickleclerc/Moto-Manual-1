@@ -1,7 +1,7 @@
 <h1 align="center"> Moto Manual </h1>
 
 <p align="center">
-  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Scenes/Videos/ReadMEGif.gif">
+  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Assets/Videos/ReadMEGif.gif">
 <p align="center">
 
 ## Summary
@@ -16,16 +16,16 @@ An entirely individually conceived project without the use of prior made package
 > Here is a brief of the implemented training features
 
 * Main Menu
- - [x] Preview of the rideable motorycle
- - [x] Entering the game
- - [x] Selecting to begin or exit using Racasting
+  - [x] Preview of the rideable motorycle
+  - [x] Entering the game
+  - [x] Selecting to begin or exit using Racasting
 
 * Game Flow
   - [x] 
 
 * Animations
- - [x] Gloves and Oculus Controllers animedted using the Animation Controller
- - [x] Highlighting animations using C# scripting
+  - [x] Gloves and Oculus Controllers animedted using the Animation Controller
+  - [x] Highlighting animations using C# scripting
 
 * Inputs
   - [x] Customizable Input Actions with bindings set for PC keyboard and Oculus controllers
@@ -51,7 +51,7 @@ An entirely individually conceived project without the use of prior made package
   - [x] Various vehicles that must be avoided to preveent crashing
  
 * Collisions
-  - [x] sdfs
+  - [x] Restarting lesson when colliding with vehicles and buildings
  
 * UI
   - [x] Updateable UI based on player progress
@@ -75,9 +75,17 @@ PC Controls:
 
 Oculus Controls + USB Pedals:
 
+<p align="center">
+  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Controllers%20Diagram.jpg">
+<p align="center">
+
+<p align="center">
+  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/USB%20Pedal.png">
+<p align="center">
+Three pedals were programmed to the PC keyboard bindings
 
 ## Process 
-pedals on amazon...
+playtests?
 
 ## Journey
 
@@ -90,10 +98,37 @@ add a real reference pic and the actual case study video
 
 [![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)
 ## Roadmap / Beyond
+Future features, changes 
+
+* Lessons:
+  - Highway traffic
+  - Turning + Shoulder checks
+  - Riding the clutch
+  - Push Steering
+  - Riding at night
+  - Reading road signs
+
+* Additions:
+  - Multiple motorcycle models
+  - Pedestrians
+  - More environments
+  - A.I. instructor
+ 
+* Refinements
+  - Implement wheel colliders
+  - Bluetooth controls for standalone devices
+  - Motorcycle and A.I. agents at scriptable objets
+
+## Essential Tools
+The GameManager Script
+<p align="center">
+  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Game%20Manager%20SC.png">
+<p align="center">
+
+The Motorcycle Controller Script
+<p align="center">
+  <img alt="Preview" width="660" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Moto%20Controller%20SC.png">
+<p align="center">
 
 
-## Team / Roles
-Erick Leclerc
-
-Players will be using the controllers and USB PC pedals while leaning on a gaming chair to simulate the experience of straddling a sport bike.
 
