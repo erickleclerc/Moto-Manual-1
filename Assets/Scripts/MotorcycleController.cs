@@ -1,14 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
-using UnityEngine.UIElements;
-using UnityEngine.UI;
-using UnityEngine.XR;
-using Unity.VisualScripting;
 
 public class MotorcycleController : MonoBehaviour
 {
@@ -98,6 +89,13 @@ public class MotorcycleController : MonoBehaviour
 
             killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 52.497f);
 
+            //Reset entire motorcycle
+            if (isReadyToRide)
+            {
+                isFuelInjected = false;
+                isReadyToRide = false;
+            }
+
         }
         // also R on keyboard
         else if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() < -0.5f || VRInputActions.MotorcycleControls.KillSwitchKeyboard.IsPressed())
@@ -148,7 +146,6 @@ public class MotorcycleController : MonoBehaviour
         //Ready to ride
         if (isKeyIn == true && isKillSwitchReady == true && isFuelInjected == true)
         {
-            isReadyToRide = true;
             gearText.gameObject.SetActive(true);
             speedometerText.gameObject.SetActive(true);
 
@@ -291,7 +288,7 @@ public class MotorcycleController : MonoBehaviour
         #region Clutch
         //Pulling in the clutch. Change with sensitivity amount/axis threshold. Also C key on keyboard and left trigger on Oculus controller
         //Bike must be READY TO RIDE first = true
-        if (isReadyToRide == true)
+        if (isFuelInjected == true)
         {
             if (VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() > 0.5f)
             {

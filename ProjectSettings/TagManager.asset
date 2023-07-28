@@ -18,6 +18,7 @@ TagManager:
   - RightHand
   - Building
   - Spectator Cam
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX

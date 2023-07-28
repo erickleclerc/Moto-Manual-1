@@ -21,7 +21,7 @@ public class CrashChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("OtherVehicle") || other.CompareTag("Building"))
+        if (other.CompareTag("OtherVehicle") || other.CompareTag("Building") || other.CompareTag("OutOfBounds"))
         {
             //Scene scene = SceneManager.GetActiveScene();
             //SceneManager.LoadScene(scene.name);
