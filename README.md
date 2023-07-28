@@ -44,6 +44,7 @@ The goal of this project was to build an entire experience from scratch to expos
   - [x] Turn Signals
   - [x] Headlight
   - [x] Horn
+  - [x] Haptic feedback
 
  * Locomotion
   - [x] Turning using the user's head tilt while throttling
@@ -89,6 +90,9 @@ Three pedals were programmed to the PC keyboard bindings
 
 ## Process 
 Playtests
+<p align="center">
+  <img alt="Preview" width="500" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Bruno%20In%20Action%20Playtest.png">
+<p align="center">
 
 [![](https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Playtest%20Thumbnail.png)](https://vimeo.com/842711348?share=copy)
 
@@ -117,6 +121,20 @@ JIRA, MIRO, CALENDARS EXPLANATION
 add a real reference pic and the actual case study video
 
 [![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)
+
+## Optimization
+Even though the experience is meant for PCVR, a goal to optimize for standalone would benefit reaching a larger VR audience. 
+
+According to Meta Quest Optimization Guideline, a Medium Simulation intensity for the Quest 2 recommends 200-300 draw calls. The triangle count should be 750k-1.0m. Finally, a comfortable fps for standalone games if over 70fps.
+
+Moto Manual was able to achieve the following: 
+
+<p align="center">
+  <img alt="Preview" width="300" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Statistics.png">
+<p align="center">
+
+
+The vast majority of the tris come from a complex motorcycle model along with the render textures that could be swapped for a simpler yet still effective model.
 
 ## Roadmap / Beyond
 * Lessons:
