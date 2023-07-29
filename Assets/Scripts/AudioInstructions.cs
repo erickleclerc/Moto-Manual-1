@@ -19,7 +19,5 @@ public class AudioInstructions : MonoBehaviour
             }
 
             audioSource.PlayOneShot(audioClipArray[audioSequence]);
-
-            //Debug.Log("audio time" + audioSource.time);
     }
 }

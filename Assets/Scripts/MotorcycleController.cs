@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MotorcycleController : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private AudioSource engineAudioSource;
     [SerializeField] private bool startEngineAudio = false;
     [SerializeField] private AudioClip[] engineSoundClips;
+    private float enginePitch = 1f;
+    private float currentSpeed;
+    public float minVelocity = 0f;
+    public float maxVelocity = 35f;
+    public float minPitch = 1f;
+    public float maxPitch = 3f;
 
 
     //Moving forward and backward
@@ -189,7 +196,7 @@ public class MotorcycleController : MonoBehaviour
             if (VRInputActions.MotorcycleControls.Throttle.IsPressed())
             {
                 rb.AddForce(transform.forward * accelerationSpeed, ForceMode.Acceleration);
-                engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
+               // engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
 
             }
 
@@ -197,9 +204,19 @@ public class MotorcycleController : MonoBehaviour
             if (VRInputActions.MotorcycleControls.GrabHandleBarsRight.ReadValue<float>() > 0.2f)
             {
                 rb.AddForce(transform.forward * accelerationSpeed * throttleSpeed.clampedValue, ForceMode.Acceleration);
-                engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
+               // engineAudioSource.pitch = throttleSpeed.clampedValue * 3f;
             }
         }
+        #endregion
+
+        #region Engine Noise
+        float velocityMagnitude = rb.velocity.magnitude;
+        enginePitch = Mathf.Lerp(minPitch, maxPitch, Mathf.InverseLerp(minVelocity, maxVelocity, velocityMagnitude));
+        enginePitch = Mathf.Clamp(enginePitch, minPitch, maxPitch);
+        engineAudioSource.pitch = enginePitch;
+        Debug.Log(enginePitch);
+
+
         #endregion
 
         #region Braking

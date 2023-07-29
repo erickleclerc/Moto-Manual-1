@@ -15,6 +15,7 @@ public class ResetLevel : MonoBehaviour
 
     void Update()
     {
+        //Right Controller thumbstick clicked
         if (VRInputActions.MotorcycleControls.ResetScene.WasPressedThisFrame() || Keyboard.current.rKey.wasPressedThisFrame)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

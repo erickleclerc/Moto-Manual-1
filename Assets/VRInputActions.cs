@@ -436,7 +436,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3ece5fc1-7eb8-45a7-aa4f-09c41ecb6a3c"",
-                    ""path"": ""<OculusTouchController>{LeftHand}/menu"",
+                    ""path"": ""<OculusTouchController>{RightHand}/thumbstickClicked"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
