@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 71
+  controlID: 74
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 43
+  controlID: 72
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 45
+  controlID: 100
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 44
+  controlID: 73
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 633
     height: 434
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 16}
@@ -381,8 +381,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1920
     y: 73
-    width: 850
-    height: 531
+    width: 899
+    height: 422
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -391,6 +391,7 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 1872285745938178246, guid: c4b847edd95609847a409cd5d05de23b, type: 2}
     - {fileID: 1872285745938178246, guid: 7226ae05a4777984595e79962eb13bbd, type: 2}
+    - {fileID: -5174256788124522076, guid: 24e4eeb3589f72941bc85116780c0d08, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.6663158
       e01: 0
@@ -424,10 +425,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.8613755
+      e01: 0
+      e02: 0
+      e03: -24.205566
+      e10: 0
+      e11: 0.8613755
+      e12: 0
+      e13: 8.489059
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: c4b847edd95609847a409cd5d05de23b, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 24e4eeb3589f72941bc85116780c0d08, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1872285745938178246, guid: c4b847edd95609847a409cd5d05de23b, type: 2}
+  - m_Target: {fileID: -5174256788124522076, guid: 24e4eeb3589f72941bc85116780c0d08, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1442,9 +1459,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c4790000
-      m_LastClickedID: 31172
-      m_ExpandedIDs: e4f2ffff00fbffffc4790000
+      m_SelectedIDs: ce680000
+      m_LastClickedID: 26830
+      m_ExpandedIDs: ccebffff08ecffff36ecffff64ecffff2cefffff00fbffff9a6b0000c06b0000d86e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1550,22 +1567,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\var05erick\Documents\Moto-Manual-1
+  m_LastProjectPath: C:\Users\erick\OneDrive\Desktop\MotoManual\Moto-Manual-1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: cc710000
-    m_LastClickedID: 29132
-    m_ExpandedIDs: 0000000054710000cc71000000ca9a3b
+    m_SelectedIDs: 40830000
+    m_LastClickedID: 33600
+    m_ExpandedIDs: 00000000a6820000328300009283000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1593,7 +1610,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000054710000
+    m_ExpandedIDs: 00000000a6820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1621,21 +1638,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 2e9501001c9f000006560400589a000000000000
+    m_ExpandedInstanceIDs: 2e9501001c9f000006560400589a000000000000f6770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Scripts
+      m_OriginalName: Scripts
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 33600
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 6}
     m_CreateAssetUtility:
@@ -1999,9 +2016,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.2893679, y: 1.1099999, z: -2.9034173}
+    m_Target: {x: 175.27588, y: 0.5521659, z: -308.9408}
     speed: 2
-    m_Value: {x: 1.2893679, y: 1.1099999, z: -2.9034173}
+    m_Value: {x: 175.27588, y: 0.5521659, z: -308.9408}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2048,20 +2065,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.2867378, y: 0.60370845, z: -0.24670847, w: -0.7018126}
+    m_Target: {x: 0.0982305, y: 0.011964181, z: -0.0011448773, w: 0.9951736}
     speed: 2
-    m_Value: {x: -0.2867378, y: 0.60370845, z: -0.24670847, w: -0.7018126}
+    m_Value: {x: 0.09822245, y: 0.0119632, z: -0.0011447833, w: 0.995092}
   m_Size:
-    m_Target: 2.6532
+    m_Target: 1.6545599
     speed: 2
-    m_Value: 2.6532
+    m_Value: 1.6545599
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 2
-    m_SpeedNormalized: 1
+    m_Speed: 0.2488
+    m_SpeedNormalized: 0.12
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1

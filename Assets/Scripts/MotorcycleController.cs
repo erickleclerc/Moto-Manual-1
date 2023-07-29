@@ -78,7 +78,6 @@ public class MotorcycleController : MonoBehaviour
         VRInputActions.Enable();
     }
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -91,17 +90,16 @@ public class MotorcycleController : MonoBehaviour
         #region KillSwitch & Fuel Injection
         if (VRInputActions.MotorcycleControls.KillSwitch.ReadValue<float>() > 0.5f)
         {
-            isKillSwitchReady = false;
             killSwitchToggle.isOn = false;
-
             killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 52.497f);
 
-            //Reset entire motorcycle
-            if (isReadyToRide)
-            {
-                isFuelInjected = false;
-                isReadyToRide = false;
-            }
+            ////Reset entire motorcycle. Save for after the project has been submitted for student learning purposes
+            //isKillSwitchReady = false;
+            //if (isReadyToRide)
+            //{
+            //    isFuelInjected = false;
+            //    isReadyToRide = false;
+            //}
 
         }
         // also R on keyboard
@@ -110,13 +108,10 @@ public class MotorcycleController : MonoBehaviour
             isKillSwitchReady = true;
             killSwitchToggle.isOn = true;
 
-            //only if the kill switch is ready, FIX THIS
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.KillSwitch);
-
             killSwitchObject.transform.localEulerAngles = new Vector3(159.042f, 63.951f, 10f);
         }
 
-        //Kill Switch must be ready first
         if (isKillSwitchReady == true)
         {
             //also T key on keyboard
@@ -130,10 +125,9 @@ public class MotorcycleController : MonoBehaviour
                 if (startEngineAudio == false)
                 {
                     engineAudioSource.Play();
-                    InvokeRepeating("StartEngine", 0f, .2f);
+                    InvokeRepeating("StartEngine", 0f, 0.2f);
                 }
                 startEngineAudio = true;
-
 
                 InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FuelInjector);
             }
@@ -417,19 +411,19 @@ public class MotorcycleController : MonoBehaviour
         #endregion
 
 
-        #region Display Checklist
+        //#region Display Checklist
 
-        if (isKeyIn)
-            keyInToggle.isOn = true;
-        else
-            keyInToggle.isOn = false;
+        //if (isKeyIn)
+        //    keyInToggle.isOn = true;
+        //else
+        //    keyInToggle.isOn = false;
 
 
-        if (isFuelInjected)
-            pushStartToggle.isOn = true;
-        else
-            pushStartToggle.isOn = false;
-        #endregion
+        //if (isFuelInjected)
+        //    pushStartToggle.isOn = true;
+        //else
+        //    pushStartToggle.isOn = false;
+        //#endregion
     }
 
     private void InputActionStep(GameManager.State state, GameManager.Step step)

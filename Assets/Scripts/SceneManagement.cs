@@ -13,14 +13,9 @@ public class SceneManagement : MonoBehaviour
     /// 
 
     [SerializeField] private AudioSource audioSource;
-    private bool canFadeOut = true;
 
-    private float initialVolume = 0.5f;
         private float targetVolume = 0f;
         private float volumeDecrement = 0.05f;
-
-   
-
 
     public void LoadNext()
     {

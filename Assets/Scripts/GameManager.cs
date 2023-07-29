@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] otherVehicles;
 
     //Visual Aides
-    [SerializeField] private Toggle keyInToggle;
-    [SerializeField] private Toggle killSwitchToggle;
-    [SerializeField] private Toggle pushStartToggle;
+    //[SerializeField] private Toggle keyInToggle;
+    //[SerializeField] private Toggle killSwitchToggle;
+    //[SerializeField] private Toggle pushStartToggle;
     [SerializeField] GameObject oculusControllerParentGO;
 
     [SerializeField] GameObject rightControllerJoystick;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             case State.Key:
                 //Message in HUD saying to put key in ignition. Once contact, change state to IdentifyComponents
                 //Debug.Log("Key");
-                keyInToggle.gameObject.SetActive(true);
+                //keyInToggle.gameObject.SetActive(true);
                 objectiveText.text = objectiveString + "Grab the key and place it in the igniton";
                 CheckCanPlayNextInstruction(1);
                 HighlightComponent(7);
@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
             case State.IdentifyComponents:
                 //Message in HUD saying to identify throttle, clutch, brakes, horn, kill switch, turning signals, gear shift. Once all are identified, change state
                 //Debug.Log("Identify Components");
-                killSwitchToggle.gameObject.SetActive(true);
-                pushStartToggle.gameObject.SetActive(true);
+                //killSwitchToggle.gameObject.SetActive(true);
+                //pushStartToggle.gameObject.SetActive(true);
                 oculusControllerParentGO.SetActive(true);
 
                 switch (currentStep)
@@ -189,6 +189,7 @@ public class GameManager : MonoBehaviour
                     case Step.Horn:
                         objectiveText.text = objectiveString + "Tap the Horn";
                         CheckCanPlayNextInstruction(15);
+                        HighlightComponent(99);
                         HighlightOnController(13);
 
                         leftControllerJoystick.GetComponent<Animator>().SetBool("PushIn", false);
@@ -206,9 +207,9 @@ public class GameManager : MonoBehaviour
 
                 oculusControllerParentGO.SetActive(false);
                 CheckCanPlayNextInstruction(16);
-                keyInToggle.gameObject.SetActive(false);
-                killSwitchToggle.gameObject.SetActive(false);
-                pushStartToggle.gameObject.SetActive(false);
+                //keyInToggle.gameObject.SetActive(false);
+               // killSwitchToggle.gameObject.SetActive(false);
+               // pushStartToggle.gameObject.SetActive(false);
                 oculusControllerParentGO.SetActive(false);
 
                 timer -= Time.deltaTime;
