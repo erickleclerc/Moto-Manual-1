@@ -4,9 +4,6 @@ public class RotateWristForInstructions : MonoBehaviour
 {
     [SerializeField] private GameObject controlsImage;
 
-
-    private Quaternion palmUpRotation = Quaternion.Euler(.51f, .44f, -.42f); // Adjust the Euler angles as needed
-
     void Update()
     {
         // Get the wrist rotation as a quaternion
@@ -17,6 +14,6 @@ public class RotateWristForInstructions : MonoBehaviour
             controlsImage.SetActive(true);
         else controlsImage.SetActive(false);
 
-        Debug.Log(wristRotation);
+        //Debug.Log(wristRotation);
     }
 }

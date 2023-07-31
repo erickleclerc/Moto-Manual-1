@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class SpectatorCamera : MonoBehaviour
 {
-
+    //CHANGE SPECTATOR CAMERA FIELD OF VIEW TO 90
     public Transform target;
     public float translateSpeed = 6f;
     public float rotateSpeed = 8f;
 
-
-    //CHANGE SPECTATOR CAMERA FIELD OF VIEW TO 90
-
-    //so that all the logic has finished before executing
+    //So that all the logic has finished before executing
     private void LateUpdate()
     {
         Vector3 targetPosition = target.position;

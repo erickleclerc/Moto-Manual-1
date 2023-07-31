@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
     /// <summary>
-    /// Could be used to preserve data like username and scores.
+    /// Could be used to preserve data like username and scores. Game Manager is a good candidate for this. Singleton Principal for moving across scenes/ lessons.
     /// </summary>
 
     private void Awake()
@@ -14,9 +12,10 @@ public class DontDestroyOnLoad : MonoBehaviour
 
         if (objects.Length > 1)
         {
-            Destroy(this.gameObject);
+
+            Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 }

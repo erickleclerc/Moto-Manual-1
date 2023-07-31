@@ -163,7 +163,16 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Reset Scene"",
+                    ""name"": ""Reset Scene1"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b18e30f-43fa-465c-bb9f-be8402e24345"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset Scene2"",
                     ""type"": ""Button"",
                     ""id"": ""4b933e4e-7bc5-4e02-9927-8005a23345e2"",
                     ""expectedControlType"": ""Button"",
@@ -436,11 +445,11 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3ece5fc1-7eb8-45a7-aa4f-09c41ecb6a3c"",
-                    ""path"": ""<OculusTouchController>{RightHand}/thumbstickClicked"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstickClicked"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Reset Scene"",
+                    ""action"": ""Reset Scene2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -476,6 +485,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""MainMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3c9f0d3-04a0-4dfa-84c6-3cd7a7780b60"",
+                    ""path"": ""<OculusTouchController>{RightHand}/thumbstickClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset Scene1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -499,7 +519,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_Headlight = m_MotorcycleControls.FindAction("Headlight", throwIfNotFound: true);
         m_MotorcycleControls_KillSwitch = m_MotorcycleControls.FindAction("Kill Switch", throwIfNotFound: true);
         m_MotorcycleControls_KillSwitchKeyboard = m_MotorcycleControls.FindAction("Kill Switch Keyboard", throwIfNotFound: true);
-        m_MotorcycleControls_ResetScene = m_MotorcycleControls.FindAction("Reset Scene", throwIfNotFound: true);
+        m_MotorcycleControls_ResetScene1 = m_MotorcycleControls.FindAction("Reset Scene1", throwIfNotFound: true);
+        m_MotorcycleControls_ResetScene2 = m_MotorcycleControls.FindAction("Reset Scene2", throwIfNotFound: true);
         m_MotorcycleControls_TriggerMenu = m_MotorcycleControls.FindAction("TriggerMenu", throwIfNotFound: true);
         m_MotorcycleControls_MainMenu = m_MotorcycleControls.FindAction("MainMenu", throwIfNotFound: true);
     }
@@ -576,7 +597,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_Headlight;
     private readonly InputAction m_MotorcycleControls_KillSwitch;
     private readonly InputAction m_MotorcycleControls_KillSwitchKeyboard;
-    private readonly InputAction m_MotorcycleControls_ResetScene;
+    private readonly InputAction m_MotorcycleControls_ResetScene1;
+    private readonly InputAction m_MotorcycleControls_ResetScene2;
     private readonly InputAction m_MotorcycleControls_TriggerMenu;
     private readonly InputAction m_MotorcycleControls_MainMenu;
     public struct MotorcycleControlsActions
@@ -598,7 +620,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @Headlight => m_Wrapper.m_MotorcycleControls_Headlight;
         public InputAction @KillSwitch => m_Wrapper.m_MotorcycleControls_KillSwitch;
         public InputAction @KillSwitchKeyboard => m_Wrapper.m_MotorcycleControls_KillSwitchKeyboard;
-        public InputAction @ResetScene => m_Wrapper.m_MotorcycleControls_ResetScene;
+        public InputAction @ResetScene1 => m_Wrapper.m_MotorcycleControls_ResetScene1;
+        public InputAction @ResetScene2 => m_Wrapper.m_MotorcycleControls_ResetScene2;
         public InputAction @TriggerMenu => m_Wrapper.m_MotorcycleControls_TriggerMenu;
         public InputAction @MainMenu => m_Wrapper.m_MotorcycleControls_MainMenu;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
@@ -655,9 +678,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @KillSwitchKeyboard.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillSwitchKeyboard;
                 @KillSwitchKeyboard.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillSwitchKeyboard;
                 @KillSwitchKeyboard.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnKillSwitchKeyboard;
-                @ResetScene.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene;
-                @ResetScene.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene;
-                @ResetScene.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene;
+                @ResetScene1.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene1;
+                @ResetScene1.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene1;
+                @ResetScene1.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene1;
+                @ResetScene2.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene2;
+                @ResetScene2.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene2;
+                @ResetScene2.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnResetScene2;
                 @TriggerMenu.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTriggerMenu;
                 @TriggerMenu.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTriggerMenu;
                 @TriggerMenu.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnTriggerMenu;
@@ -713,9 +739,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @KillSwitchKeyboard.started += instance.OnKillSwitchKeyboard;
                 @KillSwitchKeyboard.performed += instance.OnKillSwitchKeyboard;
                 @KillSwitchKeyboard.canceled += instance.OnKillSwitchKeyboard;
-                @ResetScene.started += instance.OnResetScene;
-                @ResetScene.performed += instance.OnResetScene;
-                @ResetScene.canceled += instance.OnResetScene;
+                @ResetScene1.started += instance.OnResetScene1;
+                @ResetScene1.performed += instance.OnResetScene1;
+                @ResetScene1.canceled += instance.OnResetScene1;
+                @ResetScene2.started += instance.OnResetScene2;
+                @ResetScene2.performed += instance.OnResetScene2;
+                @ResetScene2.canceled += instance.OnResetScene2;
                 @TriggerMenu.started += instance.OnTriggerMenu;
                 @TriggerMenu.performed += instance.OnTriggerMenu;
                 @TriggerMenu.canceled += instance.OnTriggerMenu;
@@ -743,7 +772,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnHeadlight(InputAction.CallbackContext context);
         void OnKillSwitch(InputAction.CallbackContext context);
         void OnKillSwitchKeyboard(InputAction.CallbackContext context);
-        void OnResetScene(InputAction.CallbackContext context);
+        void OnResetScene1(InputAction.CallbackContext context);
+        void OnResetScene2(InputAction.CallbackContext context);
         void OnTriggerMenu(InputAction.CallbackContext context);
         void OnMainMenu(InputAction.CallbackContext context);
     }

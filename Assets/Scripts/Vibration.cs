@@ -14,7 +14,6 @@ public class Vibration : MonoBehaviour
         {
             Vibrate(InputSystem.GetDevice<XRController>(CommonUsages.LeftHand));
         }
-        //Debug.Log(other.gameObject.name);
     }
 
     private static void Vibrate(XRController device)

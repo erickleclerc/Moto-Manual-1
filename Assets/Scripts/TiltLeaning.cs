@@ -25,7 +25,7 @@ public class TiltLeaning : MonoBehaviour
 
         if (headAngle > 180)
         {
-            headAngle = headAngle - 360;
+            headAngle -= 360;
         }
 
         float desiredTiltAngle = Mathf.Clamp(headAngle, -maxTiltAngle, maxTiltAngle);
@@ -33,7 +33,6 @@ public class TiltLeaning : MonoBehaviour
 
         if (rb.velocity.magnitude > 2)
         {
-
             Quaternion roll = Quaternion.AngleAxis(desiredTiltAngle, Vector3.forward);
 
             float angularVelocity = -desiredTiltAngle;

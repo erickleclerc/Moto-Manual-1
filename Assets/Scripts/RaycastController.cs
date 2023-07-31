@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class RaycastController : MonoBehaviour
@@ -15,7 +12,6 @@ public class RaycastController : MonoBehaviour
     public LayerMask layerMask;
     private VRInputActions inputActions;
     [SerializeField] private TextMeshProUGUI titleText;
-
     [SerializeField] private Vector3 offset;
 
     private void Awake()
@@ -23,7 +19,6 @@ public class RaycastController : MonoBehaviour
         inputActions = new VRInputActions();
         inputActions.Enable();
     }
-
 
     void Update()
     {
@@ -33,7 +28,6 @@ public class RaycastController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             GameObject hitObject = hit.collider.gameObject;
-
 
             if (inputActions.MotorcycleControls.TriggerMenu.IsPressed())
             {
@@ -47,7 +41,6 @@ public class RaycastController : MonoBehaviour
 
 
             }
-            //Handle the raycast hit
             //Debug.Log("Hit object: " + hit.collider.gameObject.name);
 
             // Update the line renderer positions
@@ -58,8 +51,7 @@ public class RaycastController : MonoBehaviour
             // No hit, update the line renderer positions
             lineRenderer.SetPositions(new Vector3[] { transform.position + offset, transform.position + transform.up * -1 * 10f });
         }
-
-        Debug.DrawRay(transform.position + offset, transform.up * -1 * 10f, Color.yellow);
+        //Debug.DrawRay(transform.position + offset, transform.up * -1 * 10f, Color.yellow);
     }
 }
 

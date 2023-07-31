@@ -219,7 +219,6 @@ public class MotorcycleController : MonoBehaviour
         {
             brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.815f, 8.62f, 1.166f), new Vector3(-89.812f, 8.62f, 16.735f), Time.deltaTime * 1f);
 
-
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FrontBrake);
         }
 
@@ -305,7 +304,9 @@ public class MotorcycleController : MonoBehaviour
             {
                 isClutchIn = true;
 
-                clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, 0), new Vector3(-90f, 0, -22.5f), Time.deltaTime * 1f);
+                //clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, 0), new Vector3(-90f, 0, -22.5f), Time.deltaTime * 1f);
+
+                clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, -22.5f), new Vector3(-90f, 0, 0), Time.deltaTime * 1f);
 
                 InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.Clutch);
             }
@@ -313,7 +314,9 @@ public class MotorcycleController : MonoBehaviour
             {
                 isClutchIn = false;
 
-                clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, -22.5f), new Vector3(-90f, 0, 0), Time.deltaTime * 1f);
+                //clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, -22.5f), new Vector3(-90f, 0, 0), Time.deltaTime * 1f);
+
+                clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, 0), new Vector3(-90f, 0, -22.5f), Time.deltaTime * 1f);
             }
         }
         #endregion

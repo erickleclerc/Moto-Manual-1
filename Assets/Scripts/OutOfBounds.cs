@@ -10,7 +10,6 @@ public class OutOfBounds : MonoBehaviour
         if (other.CompareTag("VRRig"))
         {
             outOfBoundsText.text = "Out of bounds!";
-            //Debug.Log(errorMessageText.text);
         }
     }
 

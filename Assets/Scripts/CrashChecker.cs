@@ -6,35 +6,22 @@ using TMPro;
 public class CrashChecker : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI crashMessage, errorMessages, objectiveText, outOfBounds;
-    [SerializeField] private bool debug;
-
-    void Update()
-    {
-        if (debug)
-        {
-            errorMessages.gameObject.SetActive(false);
-            objectiveText.gameObject.SetActive(false);
-            crashMessage.gameObject.SetActive(true);
-            crashMessage.text = "You Crashed! Try Again.";
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("OtherVehicle") || other.CompareTag("Building") || other.CompareTag("OutOfBounds"))
         {
-            //Scene scene = SceneManager.GetActiveScene();
-            //SceneManager.LoadScene(scene.name);
             errorMessages.gameObject.SetActive(false);
             objectiveText.gameObject.SetActive(false);
             crashMessage.gameObject.SetActive(true);
             outOfBounds.gameObject.SetActive(false);
             crashMessage.text = "You Crashed! Try Again.";
 
+            Destroy(other.gameObject);
+
             StartCoroutine(CrashMessage());
         }
     }
-
 
     IEnumerator CrashMessage()
     {

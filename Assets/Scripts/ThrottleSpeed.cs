@@ -11,9 +11,7 @@ public class ThrottleSpeed : MonoBehaviour
         Quaternion rotation = transform.rotation;
 
         Vector3 eulerAngles = rotation.eulerAngles;
-
         float clampedZRotation = Mathf.Clamp(eulerAngles.z, 70f, 160f);
-
         float normalizedValue = Mathf.InverseLerp(90f, 180f, clampedZRotation);
 
         clampedValue = Mathf.Lerp(0f, 1f, normalizedValue);
@@ -34,7 +32,6 @@ public class ThrottleSpeed : MonoBehaviour
             handZRotation = other.gameObject.transform.rotation.eulerAngles.z;
             gameObject.transform.localEulerAngles = new Vector3(-21.526f, -239.948f, handZRotation);
 
-           // Debug.Log("Clamped" + throttleAngle);
            //Debug.Log("Throttle Speed: " + gameObject.transform.eulerAngles.z);
         }
     }
@@ -46,5 +43,4 @@ public class ThrottleSpeed : MonoBehaviour
             gameObject.transform.localEulerAngles = new Vector3(-21.526f, -239.948f, 0);
         }
     }
-    
 }

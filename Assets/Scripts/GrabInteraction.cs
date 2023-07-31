@@ -6,10 +6,6 @@ public class GrabInteraction : MonoBehaviour
     Rigidbody heldObject;
     bool wasDropped;
 
-    Vector3 previousPosition;
-    Vector3 velocity;
-
-
     private void Awake()
     {
         VRInputActions = new VRInputActions();

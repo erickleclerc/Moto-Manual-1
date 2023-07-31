@@ -3,7 +3,6 @@ using UnityEngine;
 public class TurnSignalsAndHeadlight : MonoBehaviour
 {
     VRInputActions VRInputActions;
-    private float yAxisJoystick;
 
     [SerializeField] private Light headlight;
     [SerializeField] private Light[] turnLights;
@@ -18,10 +17,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
 
     void Update()
     {
-
         #region Headlight
-        //yAxisJoystick = (float)VRInputActions.MotorcycleControls.Headlight.ReadValue<float>();
-        //Debug.Log($"Y Axis is {yAxisJoystick}");
         if (VRInputActions.MotorcycleControls.Headlight.ReadValue<float>() > 0.5f)
         {
            headlight.enabled = false;
@@ -66,9 +62,7 @@ public class TurnSignalsAndHeadlight : MonoBehaviour
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.TurnSignalOff);
         }
         #endregion
-
     }
-
 
     private void InputActionStep(GameManager.State state, GameManager.Step step)
     {

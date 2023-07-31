@@ -13,12 +13,10 @@ public class HandsOnBar : MonoBehaviour
         {
             if (gameManager.currentState == GameManager.State.IdentifyComponents)
             {
-
                 if (gameManager.currentStep == GameManager.Step.Throttle)
                 {
                     gameManager.stepIsComplete = true;
                 }
-
             }
         }
     }
@@ -26,7 +24,6 @@ public class HandsOnBar : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         HandsOnBarChecker(other, true);
-
     }
 
     private void OnTriggerExit(Collider other)

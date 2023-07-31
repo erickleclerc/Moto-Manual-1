@@ -5,12 +5,8 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     /// <summary>
-    /// This is the script that will launch the menu to the training scene (probably attached to a button in the UI)
-    /// 
-    /// Also, a function to go from the training scene to the first course.
-    /// 
+    /// Launch the menu to the training scene (attached to a button in the UI)
     /// </summary>
-    /// 
 
     [SerializeField] private AudioSource audioSource;
 
@@ -19,8 +15,6 @@ public class SceneManagement : MonoBehaviour
 
     public void LoadNext()
     {
-        //stop the coroutine to load next scene
-
         StartCoroutine(FadeOutAudio());
 
         StartCoroutine(LoadingScreen());
@@ -38,15 +32,12 @@ public class SceneManagement : MonoBehaviour
         audioSource.volume = targetVolume;
 
         // Stop the audio clip or deactivate the audio object
-        audioSource.Stop(); // Or gameObject.SetActive(false);
+        audioSource.Stop(); 
 
     }
 
     IEnumerator LoadingScreen()
     {
-       
-
-
         //start the coroutine for a loading screen
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

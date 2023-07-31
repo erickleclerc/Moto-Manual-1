@@ -12,14 +12,13 @@ public class ResetLevel : MonoBehaviour
         VRInputActions.Enable();
     }
 
-
     void Update()
     {
         //Right Controller thumbstick clicked
-        if (VRInputActions.MotorcycleControls.ResetScene.WasPressedThisFrame() || Keyboard.current.rKey.wasPressedThisFrame)
+        if (VRInputActions.MotorcycleControls.ResetScene1.IsPressed() && VRInputActions.MotorcycleControls.ResetScene2.IsPressed() || Keyboard.current.rKey.wasPressedThisFrame)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Debug.Log("Resetting level");  
+            //Debug.Log("Resetting level");  
         }
     }
 }

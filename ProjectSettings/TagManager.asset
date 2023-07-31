@@ -19,6 +19,7 @@ TagManager:
   - Building
   - Spectator Cam
   - OutOfBounds
+  - GameManager
   layers:
   - Default
   - TransparentFX

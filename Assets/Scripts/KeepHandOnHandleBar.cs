@@ -9,8 +9,6 @@ public class KeepHandOnHandleBar : MonoBehaviour
     public bool isRightHandOnHandleBar = false;
     public bool isLeftHandOnHandleBar = false;
 
-
-    // Update is called once per frame
     void Update()
     {
         if (rb.velocity.magnitude > 1 && isLeftHandOnHandleBar == false || rb.velocity.magnitude > 1 && isRightHandOnHandleBar == false)

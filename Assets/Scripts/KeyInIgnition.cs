@@ -10,7 +10,6 @@ public class KeyInIgnition : MonoBehaviour
     [SerializeField] private MotorcycleController motorcycleController;
     [SerializeField] private GameManager gameManager;
 
-
     private void Start()
     {
         isAttached = false;
@@ -20,13 +19,9 @@ public class KeyInIgnition : MonoBehaviour
     {
         if (isAttached)
         {
-            //transform.position = Vector3.zero;
             transform.parent = ignition.transform;
             transform.localPosition = Vector3.zero + offset;
             transform.localEulerAngles = rotationOffset;
-
-
-
         }
     }
 
@@ -34,7 +29,7 @@ public class KeyInIgnition : MonoBehaviour
     {
         if (other.CompareTag("Ignition"))
         {
-            Debug.Log("Key in ignition");
+            //Debug.Log("Key in ignition");
 
             isAttached = true;
             motorcycleController.isKeyIn = true;

@@ -1,23 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     /// <summary>
-    /// Rules of biking: If complete stop/ 0 velocity and the clutch is not engaged, the bike will stall, unless in neutral
-    /// 
-    /// Any Stall resets the current state
+    /// The full lesson plan sequence
     /// </summary>
-    /// 
     [Serializable]
     public enum State { DonHelmet, Key, IdentifyComponents, FreeRoam }
-
     public State currentState = State.DonHelmet;
-
 
     [Serializable]
     public enum Step { Throttle, KillSwitch, FuelInjector, FrontBrake, BackBrake, Clutch, ShifterUp, ShifterDown, HeadlightOn, HeadlightOff, RightTurnSignal, LeftTurnSignal, TurnSignalOff, Horn }
@@ -25,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject[] components;
     private LerpEmission currentEmitterOnBike, currentEmitterOnController;
-   
-
 
     [SerializeField] private TextMeshProUGUI objectiveText;
     private string objectiveString = "Objective: ";
@@ -43,7 +33,6 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Toggle killSwitchToggle;
     //[SerializeField] private Toggle pushStartToggle;
     [SerializeField] GameObject oculusControllerParentGO;
-
     [SerializeField] GameObject rightControllerJoystick;
     [SerializeField] GameObject leftControllerJoystick;
     private float timer = 7f;
@@ -55,7 +44,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("can play instruction" + canPlayInstruction);
         switch (currentState)
         {
             case State.DonHelmet:
@@ -128,13 +116,13 @@ public class GameManager : MonoBehaviour
                         HighlightOnController(11);
                         break;
                     case Step.ShifterUp:
-                        objectiveText.text = objectiveString + "While Keeping the clutch IN... hit the Shifter UP With Your Left Foot";
+                        objectiveText.text = objectiveString + "While Keeping the clutch IN hit the Shifter UP With Your Left Foot";
                         CheckCanPlayNextInstruction(8);
                         HighlightComponent(99);
                         HighlightOnController(99);
                         break;
                     case Step.ShifterDown:
-                        objectiveText.text = objectiveString + "While Keeping the clutch IN... hit the Shifter DOWN With Your Foot";
+                        objectiveText.text = objectiveString + "While Keeping the clutch IN hit the Shifter DOWN With Your Foot";
                         CheckCanPlayNextInstruction(9);
                         HighlightComponent(99);
                         HighlightOnController(99);
@@ -229,7 +217,6 @@ public class GameManager : MonoBehaviour
                 objectiveText.text = objectiveString + "Roam free!";
                 break;
         }
-
     }
 
     private void CheckCanPlayNextInstruction(int audioClip)
@@ -255,7 +242,6 @@ public class GameManager : MonoBehaviour
             currentEmitterOnBike = components[index].GetComponent<LerpEmission>();
             currentEmitterOnBike.isHighlighted = true;
         }
-
     }
 
     private void HighlightOnController(int index)
@@ -289,11 +275,6 @@ public class GameManager : MonoBehaviour
             canPlayInstruction = true;
             stateIsComplete = false;
             currentState++;
-
-            
-
         }
-
-        
     }
 }

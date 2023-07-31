@@ -141,7 +141,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Reset Scene",
+                    "name": "Reset Scene1",
+                    "type": "Button",
+                    "id": "1b18e30f-43fa-465c-bb9f-be8402e24345",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reset Scene2",
                     "type": "Button",
                     "id": "4b933e4e-7bc5-4e02-9927-8005a23345e2",
                     "expectedControlType": "Button",
@@ -414,11 +423,11 @@
                 {
                     "name": "",
                     "id": "3ece5fc1-7eb8-45a7-aa4f-09c41ecb6a3c",
-                    "path": "<OculusTouchController>{RightHand}/thumbstickClicked",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstickClicked",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reset Scene",
+                    "action": "Reset Scene2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -452,6 +461,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MainMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3c9f0d3-04a0-4dfa-84c6-3cd7a7780b60",
+                    "path": "<OculusTouchController>{RightHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset Scene1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

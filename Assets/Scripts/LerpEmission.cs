@@ -9,7 +9,6 @@ public class LerpEmission : MonoBehaviour
 
     private Renderer gameObjectRenderer; // Renderer component to apply color
 
-
     public bool isHighlighted = false;
 
     void Start()
@@ -20,15 +19,7 @@ public class LerpEmission : MonoBehaviour
 
     void Update()
     {
-        // Calculate the normalized time based on sine wave oscillation
-        float normalizedT = Mathf.Sin(Time.time / speed * Mathf.PI);
-
-        float pingPong = Mathf.PingPong(Time.time * speed, 1);
-
         float sine = Mathf.Sin(Time.time / speed);
-
-        // Remap the normalizedT from -1 to 1 to a range of 0 to 1
-        normalizedT = (normalizedT + 1f) / 2f;
 
         if (isHighlighted)
         {
