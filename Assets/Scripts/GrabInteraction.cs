@@ -40,7 +40,7 @@ public class GrabInteraction : MonoBehaviour
         if (heldObject == null)
         {
             Rigidbody rb = otherObject.GetComponent<Rigidbody>();
-            Debug.Log(otherObject.gameObject.name);
+            //Debug.Log(otherObject.gameObject.name);
 
             if (rb != null && otherObject.gameObject.CompareTag("Key") || rb != null && otherObject.gameObject.CompareTag("Helmet"))
             {

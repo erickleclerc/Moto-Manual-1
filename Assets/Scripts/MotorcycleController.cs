@@ -148,7 +148,7 @@ public class MotorcycleController : MonoBehaviour
 
 
             //if free roam mode, then can move the bike
-            if (gameManager.currentState == GameManager.State.FreeRoam)
+            if (gameManager.currentState == GameManager.State.SpeedLesson)
             {
                 isReadyToRide = true;
             }
@@ -204,7 +204,7 @@ public class MotorcycleController : MonoBehaviour
         enginePitch = Mathf.Lerp(minPitch, maxPitch, Mathf.InverseLerp(minVelocity, maxVelocity, velocityMagnitude));
         enginePitch = Mathf.Clamp(enginePitch, minPitch, maxPitch);
         engineAudioSource.pitch = enginePitch;
-        Debug.Log(enginePitch);
+        //Debug.Log(enginePitch);
 
 
         #endregion
@@ -328,7 +328,6 @@ public class MotorcycleController : MonoBehaviour
             }
 
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.ShifterUp);
-
         }
 
         //Shifting Down with Clutch In. Also down arrow on keyboard

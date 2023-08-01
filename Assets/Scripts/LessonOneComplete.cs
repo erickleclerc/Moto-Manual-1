@@ -11,20 +11,28 @@ public class LessonOneComplete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (vrRig.GetComponent<Rigidbody>().velocity.magnitude > 40f)
+        {
+            Reset();
+            gameManager.audioInstructions.PlayInstruction(18);
+        }
     }
+
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (gameManager.currentState == GameManager.State.SpeedLesson)
         {
             gameManager.stateIsComplete = true;
-            vrRig.transform.position = gameManager.startingPosition;
+
+            Reset();
 
             Destroy(gameObject);
         }
@@ -32,4 +40,12 @@ public class LessonOneComplete : MonoBehaviour
 
     //probably do a camer a fade out and in when resetting position for next state
 
+
+
+    private void Reset()
+    {
+        vrRig.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        vrRig.GetComponent<MotorcycleController>().currentGear = 1;
+        vrRig.transform.position = gameManager.startingPosition;
+    }
 }

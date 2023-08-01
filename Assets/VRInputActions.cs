@@ -197,6 +197,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Display Controls Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""a45bd39c-70c3-4d2e-be45-4e1507f062d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -496,6 +505,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Reset Scene1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b6ca4e2-4a37-4a86-a191-b81c4304af93"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Display Controls Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -523,6 +543,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_MotorcycleControls_ResetScene2 = m_MotorcycleControls.FindAction("Reset Scene2", throwIfNotFound: true);
         m_MotorcycleControls_TriggerMenu = m_MotorcycleControls.FindAction("TriggerMenu", throwIfNotFound: true);
         m_MotorcycleControls_MainMenu = m_MotorcycleControls.FindAction("MainMenu", throwIfNotFound: true);
+        m_MotorcycleControls_DisplayControlsMap = m_MotorcycleControls.FindAction("Display Controls Map", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -601,6 +622,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_MotorcycleControls_ResetScene2;
     private readonly InputAction m_MotorcycleControls_TriggerMenu;
     private readonly InputAction m_MotorcycleControls_MainMenu;
+    private readonly InputAction m_MotorcycleControls_DisplayControlsMap;
     public struct MotorcycleControlsActions
     {
         private @VRInputActions m_Wrapper;
@@ -624,6 +646,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @ResetScene2 => m_Wrapper.m_MotorcycleControls_ResetScene2;
         public InputAction @TriggerMenu => m_Wrapper.m_MotorcycleControls_TriggerMenu;
         public InputAction @MainMenu => m_Wrapper.m_MotorcycleControls_MainMenu;
+        public InputAction @DisplayControlsMap => m_Wrapper.m_MotorcycleControls_DisplayControlsMap;
         public InputActionMap Get() { return m_Wrapper.m_MotorcycleControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -690,6 +713,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @MainMenu.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnMainMenu;
                 @MainMenu.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnMainMenu;
                 @MainMenu.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnMainMenu;
+                @DisplayControlsMap.started -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnDisplayControlsMap;
+                @DisplayControlsMap.performed -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnDisplayControlsMap;
+                @DisplayControlsMap.canceled -= m_Wrapper.m_MotorcycleControlsActionsCallbackInterface.OnDisplayControlsMap;
             }
             m_Wrapper.m_MotorcycleControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -751,6 +777,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @MainMenu.started += instance.OnMainMenu;
                 @MainMenu.performed += instance.OnMainMenu;
                 @MainMenu.canceled += instance.OnMainMenu;
+                @DisplayControlsMap.started += instance.OnDisplayControlsMap;
+                @DisplayControlsMap.performed += instance.OnDisplayControlsMap;
+                @DisplayControlsMap.canceled += instance.OnDisplayControlsMap;
             }
         }
     }
@@ -776,5 +805,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnResetScene2(InputAction.CallbackContext context);
         void OnTriggerMenu(InputAction.CallbackContext context);
         void OnMainMenu(InputAction.CallbackContext context);
+        void OnDisplayControlsMap(InputAction.CallbackContext context);
     }
 }

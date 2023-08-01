@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private LerpEmission currentEmitterOnBike, currentEmitterOnController;
 
     [SerializeField] private TextMeshProUGUI objectiveText;
+    [SerializeField] private GameObject panel;
     private string objectiveString = "Objective: ";
     public AudioInstructions audioInstructions; 
     public bool canPlayInstruction = true;
@@ -201,7 +202,7 @@ public class GameManager : MonoBehaviour
 
                 if (timer < 0)
                 {
-                    objectiveText.gameObject.SetActive(false);
+                    panel.SetActive(false);
                 }
 
                 TransitionToNextState();
@@ -209,19 +210,22 @@ public class GameManager : MonoBehaviour
 
             case State.FreeRoam:
 
-                //Enable all the AI cars and bikes and if you collide with them, restart the scene with a message saying you crashed. Stay in this state.
                 oculusControllerParentGO.SetActive(false);
 
                 CheckCanPlayNextInstruction(16);
                 //keyInToggle.gameObject.SetActive(false);
-               // killSwitchToggle.gameObject.SetActive(false);
-               // pushStartToggle.gameObject.SetActive(false);
+                // killSwitchToggle.gameObject.SetActive(false);
+                // pushStartToggle.gameObject.SetActive(false);
 
                 timer2 -= Time.deltaTime;
 
-                if (timer2 < 0)
+                if (timer2 > 0)
                 {
-                    objectiveText.gameObject.SetActive(false);
+                    panel.SetActive(true);
+                }
+                else if (timer2 < 0)
+                {
+                    panel.SetActive(false);
                 }
 
 
@@ -233,8 +237,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Free Roam");
                 objectiveText.text = objectiveString + "Roam free!";
                 break;
-
-            
         }
     }
 

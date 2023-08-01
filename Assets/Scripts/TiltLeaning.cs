@@ -12,8 +12,6 @@ public class TiltLeaning : MonoBehaviour
 
     private float currentYaw;
 
-    private Quaternion newHeading;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

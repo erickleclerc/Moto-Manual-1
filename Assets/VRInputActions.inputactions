@@ -175,6 +175,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Display Controls Map",
+                    "type": "Button",
+                    "id": "a45bd39c-70c3-4d2e-be45-4e1507f062d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -472,6 +481,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reset Scene1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b6ca4e2-4a37-4a86-a191-b81c4304af93",
+                    "path": "<OculusTouchController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Display Controls Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
