@@ -5,6 +5,10 @@ using TMPro;
 
 public class CrashChecker : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject vrRig;
+
+
     [SerializeField] private TextMeshProUGUI crashMessage, errorMessages, objectiveText, outOfBounds;
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +23,17 @@ public class CrashChecker : MonoBehaviour
 
             Destroy(other.gameObject);
 
+            if (gameManager.currentState == GameManager.State.SpeedLesson)
+            {
+                vrRig.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                vrRig.GetComponent<MotorcycleController>().currentGear = 1;
+                vrRig.transform.position = gameManager.startingPosition;
+                gameManager.audioInstructions.PlayInstruction(18);
+            }
+            else
+            {
             StartCoroutine(CrashMessage());
+            }
         }
     }
 

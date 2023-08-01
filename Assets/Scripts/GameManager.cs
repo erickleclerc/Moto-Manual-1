@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     /// The full lesson plan sequence
     /// </summary>
     [Serializable]
-    public enum State { DonHelmet, Key, IdentifyComponents, FreeRoam }
+    public enum State { DonHelmet, Key, IdentifyComponents, SpeedLesson, FreeRoam }
     public State currentState = State.DonHelmet;
 
     [Serializable]
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI objectiveText;
     private string objectiveString = "Objective: ";
-    [SerializeField] AudioInstructions audioInstructions; 
+    public AudioInstructions audioInstructions; 
     public bool canPlayInstruction = true;
 
     public bool stateIsComplete = false;
@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject rightControllerJoystick;
     [SerializeField] GameObject leftControllerJoystick;
     private float timer = 7f;
+    private float timer2 = 7f;
+
+    public Vector3 startingPosition;
 
     void Start()
     {
@@ -189,15 +192,9 @@ public class GameManager : MonoBehaviour
 
                 TransitionToNextState();
                 break;
-            case State.FreeRoam:
-
-                //Enable all the AI cars and bikes and if you collide with them, restart the scene with a message saying you crashed. Stay in this state.
-
-                oculusControllerParentGO.SetActive(false);
-                CheckCanPlayNextInstruction(16);
-                //keyInToggle.gameObject.SetActive(false);
-               // killSwitchToggle.gameObject.SetActive(false);
-               // pushStartToggle.gameObject.SetActive(false);
+            case State.SpeedLesson:
+                objectiveText.text = objectiveString + "Ride straight without crashing or speeding going over the speed limit";
+                CheckCanPlayNextInstruction(17);
                 oculusControllerParentGO.SetActive(false);
 
                 timer -= Time.deltaTime;
@@ -207,7 +204,27 @@ public class GameManager : MonoBehaviour
                     objectiveText.gameObject.SetActive(false);
                 }
 
-                
+                TransitionToNextState();
+                break;
+
+            case State.FreeRoam:
+
+                //Enable all the AI cars and bikes and if you collide with them, restart the scene with a message saying you crashed. Stay in this state.
+                oculusControllerParentGO.SetActive(false);
+
+                CheckCanPlayNextInstruction(16);
+                //keyInToggle.gameObject.SetActive(false);
+               // killSwitchToggle.gameObject.SetActive(false);
+               // pushStartToggle.gameObject.SetActive(false);
+
+                timer2 -= Time.deltaTime;
+
+                if (timer2 < 0)
+                {
+                    objectiveText.gameObject.SetActive(false);
+                }
+
+
                 foreach (GameObject vehicle in otherVehicles)
                 {
                     vehicle.SetActive(true);
@@ -216,6 +233,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Free Roam");
                 objectiveText.text = objectiveString + "Roam free!";
                 break;
+
+            
         }
     }
 
@@ -275,6 +294,8 @@ public class GameManager : MonoBehaviour
             canPlayInstruction = true;
             stateIsComplete = false;
             currentState++;
+            objectiveText.gameObject.SetActive(true);
+
         }
     }
 }

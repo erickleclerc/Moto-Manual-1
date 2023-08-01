@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class MotorcycleController : MonoBehaviour
 {
@@ -46,7 +45,7 @@ public class MotorcycleController : MonoBehaviour
 
 
     //Gears
-    private int currentGear = 1;
+    public int currentGear = 1;
     private int minGear = 0; //0 is first gear, 1 is neutral
     private int maxGear = 6;
     [SerializeField] private TextMeshProUGUI gearText;
@@ -68,9 +67,6 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Toggle keyInToggle;
     [SerializeField] private UnityEngine.UI.Toggle killSwitchToggle;
     [SerializeField] private UnityEngine.UI.Toggle pushStartToggle;
-
-
-    public bool testButton = false;
 
     private void Awake()
     {
@@ -217,15 +213,20 @@ public class MotorcycleController : MonoBehaviour
         //Front Brake = S Key and right trigger on Oculus controller or Back Brake = D key and USB car pedal
         if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() > 0.2f)
         {
-            brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.815f, 8.62f, 1.166f), new Vector3(-89.812f, 8.62f, 16.735f), Time.deltaTime * 1f);
+            //brake lever to lerp localeulerangles between 2 values
+
+            brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.812f, 8.62f, 16.735f), new Vector3(-89.815f, 8.62f, 1.166f), Time.deltaTime * 1f);
 
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.FrontBrake);
         }
 
+        if (VRInputActions.MotorcycleControls.FrontBrakeGrabbing.ReadValue<float>() < 0.2f)
+        {
+            brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.815f, 8.62f, 1.166f), new Vector3(-89.812f, 8.62f, 16.735f), Time.deltaTime * 1f);
+        }
+
         if (VRInputActions.MotorcycleControls.BackBrakePress.ReadValue<float>() > 0.2f)
         {
-            brakeLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-89.812f, 8.62f, 16.735f), new Vector3(-89.815f, 8.62f,1.166f), Time.deltaTime * 1f);
-
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.BackBrake);
         }
 
@@ -304,8 +305,6 @@ public class MotorcycleController : MonoBehaviour
             {
                 isClutchIn = true;
 
-                //clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, 0), new Vector3(-90f, 0, -22.5f), Time.deltaTime * 1f);
-
                 clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, -22.5f), new Vector3(-90f, 0, 0), Time.deltaTime * 1f);
 
                 InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.Clutch);
@@ -313,8 +312,6 @@ public class MotorcycleController : MonoBehaviour
             else if ((VRInputActions.MotorcycleControls.ClutchGrabbing.ReadValue<float>() < 0.5f))
             {
                 isClutchIn = false;
-
-                //clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, -22.5f), new Vector3(-90f, 0, 0), Time.deltaTime * 1f);
 
                 clutchLeverObject.transform.localEulerAngles = Vector3.Lerp(new Vector3(-90f, 0, 0), new Vector3(-90f, 0, -22.5f), Time.deltaTime * 1f);
             }
