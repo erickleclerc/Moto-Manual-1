@@ -22,6 +22,9 @@ public class OutOfBounds : MonoBehaviour
                 vrRig.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 vrRig.GetComponent<MotorcycleController>().currentGear = 1;
 
+                //reset the vrRig rotation to forward
+                vrRig.GetComponent<TiltLeaning>().rigRotation = Quaternion.Euler(0, 0, 0);
+
                 vrRig.transform.position = gameManager.startingPosition;
                 gameManager.audioInstructions.PlayInstruction(18);
             }

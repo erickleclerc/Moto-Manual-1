@@ -8,9 +8,11 @@ public class TiltLeaning : MonoBehaviour
     private Rigidbody rb;
 
     public GameObject head;
-    private float headZRotation;
 
     private float currentYaw;
+
+    public Quaternion rigRotation;
+    public Quaternion yaw;
 
     private void Start()
     {
@@ -20,14 +22,12 @@ public class TiltLeaning : MonoBehaviour
     private void Update()
     {
         float headAngle = head.transform.eulerAngles.z;
-
         if (headAngle > 180)
         {
             headAngle -= 360;
         }
 
         float desiredTiltAngle = Mathf.Clamp(headAngle, -maxTiltAngle, maxTiltAngle);
-
 
         if (rb.velocity.magnitude > 2)
         {
@@ -39,8 +39,8 @@ public class TiltLeaning : MonoBehaviour
 
             Quaternion yaw = Quaternion.AngleAxis(currentYaw, Vector3.up);
 
-            // Tilt and lean, yaw ALWAYS come before roll in Quaternions
-            Quaternion rigRotation = yaw * roll;
+            // Tilt and lean, yaw ALWAYS comes before roll in Quaternions
+            rigRotation = yaw * roll;
 
             //Smooth out the rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, rigRotation, rotationSpeed * Time.deltaTime);
@@ -50,7 +50,13 @@ public class TiltLeaning : MonoBehaviour
         {
             // Keep the bike upright when moving under 2km/h
             Quaternion upright = Quaternion.AngleAxis(0, Vector3.forward);
+            yaw = Quaternion.Euler(0, 0, 0);
+            currentYaw = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, upright, rotationSpeed * Time.deltaTime);
+
+            //face the player forward
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), rotationSpeed * Time.deltaTime);
+
         }
     }
 }

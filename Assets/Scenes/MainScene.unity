@@ -5464,7 +5464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99796b231474d74babe3c4a3fe455b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 4
   currentState: 0
   pointOne: {fileID: 0}
   pointTwo: {fileID: 0}
@@ -24953,7 +24952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99796b231474d74babe3c4a3fe455b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 4
   currentState: 0
   pointOne: {fileID: 503057412}
   pointTwo: {fileID: 350151951}
@@ -36167,6 +36165,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 106128438, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 289674895, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -36823,6 +36825,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5510670441683525137, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_TagString
+      value: Spectator Cam
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510670441683525142, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.34
+      objectReference: {fileID: 0}
     - target: {fileID: 5717884869224082660, guid: 0ca3664693e9d4e4586ab067704116eb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -37329,7 +37339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99796b231474d74babe3c4a3fe455b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 4
   currentState: 0
   pointOne: {fileID: 0}
   pointTwo: {fileID: 0}
@@ -39157,7 +39166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99796b231474d74babe3c4a3fe455b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 4
   currentState: 0
   pointOne: {fileID: 0}
   pointTwo: {fileID: 0}
@@ -48937,7 +48945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99796b231474d74babe3c4a3fe455b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 4
   currentState: 0
   pointOne: {fileID: 0}
   pointTwo: {fileID: 0}
@@ -52088,7 +52095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99796b231474d74babe3c4a3fe455b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 4
   currentState: 0
   pointOne: {fileID: 350151951}
   pointTwo: {fileID: 503057412}

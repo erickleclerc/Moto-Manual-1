@@ -9,8 +9,7 @@ public class aiAgent : MonoBehaviour
     /// Give each object a location to head back and forth, or vehicles to go around a block.
     /// </summary>
 
-    [SerializeField]
-    private int waitTime = 4;
+    //[SerializeField] private int waitTime = 4;
 
     public enum State { MoveToPointOne, MoveToPointTwo, MoveToPointThree, MoveToPointFour, TravellingToPointTwo, HangAround };
     public State currentState = State.MoveToPointOne;
