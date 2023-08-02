@@ -38171,7 +38171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.3
   startColor: {r: 0.7048772, g: 0.9056604, b: 0.7153921, a: 0}
-  endColor: {r: 0, g: 1, b: 0.10835743, a: 1}
+  endColor: {r: 0, g: 1, b: 0.10835743, a: 0.8509804}
   isHighlighted: 1
 --- !u!65 &1517155991
 BoxCollider:
@@ -38244,8 +38244,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517155989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 178.78, y: 2.2, z: -147.4579}
-  m_LocalScale: {x: 9.8166, y: 4.0667, z: 14.09813}
+  m_LocalPosition: {x: 178.78, y: 1.5532, z: -147.4579}
+  m_LocalScale: {x: 9.8166, y: 3.0532784, z: 14.09813}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
