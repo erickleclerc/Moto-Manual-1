@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     /// The full lesson plan sequence
     /// </summary>
     [Serializable]
-    public enum State { DonHelmet, Key, IdentifyComponents, SpeedLesson, GearLesson, FreeRoam }
+    public enum State { DonHelmet, Key, IdentifyComponents, SpeedLesson, GearLesson, DarkLesson, FreeRoam }
     public State currentState = State.DonHelmet;
 
     [Serializable]
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private float timer = 7f;
     private float timer2 = 7f;
     private float timer3 = 7f;
+    private float timer4 = 7f;
 
     public Vector3 startingPosition;
 
@@ -224,7 +225,22 @@ public class GameManager : MonoBehaviour
 
                 TransitionToNextState();
                 break;
+            case State.DarkLesson:
+                objectiveText.text = objectiveString + "Ride to the end and do not hit the cones";
+                CheckCanPlayNextInstruction(20);
 
+                timer4 -= Time.deltaTime;
+                if (timer4 > 0)
+                {
+                    panel.SetActive(true);
+                }
+                else if (timer4 < 0)
+                {
+                    panel.SetActive(false);
+                }
+
+                TransitionToNextState();
+                break;
             case State.FreeRoam:
 
                 oculusControllerParentGO.SetActive(false);

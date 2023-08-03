@@ -1,21 +1,15 @@
 using UnityEngine;
-using TMPro;
 
-public class OutOfBounds : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject vrRig;
 
-
-    [SerializeField] TextMeshProUGUI outOfBoundsText;
-
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("VRRig"))
         {
-            outOfBoundsText.text = "Out of bounds!";
-
-            if (gameManager.currentState == GameManager.State.SpeedLesson || gameManager.currentState == GameManager.State.GearLesson || gameManager.currentState == GameManager.State.DarkLesson)
+            if (gameManager.currentState == GameManager.State.DarkLesson)
             {
 
                 //set the velocity of the vrRig to 0
@@ -28,14 +22,6 @@ public class OutOfBounds : MonoBehaviour
                 vrRig.transform.position = gameManager.startingPosition;
                 gameManager.audioInstructions.PlayInstruction(18);
             }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("VRRig"))
-        {
-            outOfBoundsText.text = "";
         }
     }
 }

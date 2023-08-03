@@ -29,7 +29,7 @@ public class LessonTwoComplete : MonoBehaviour
                 gameManager.stateIsComplete = true;
 
                 Reset();
-                Destroy(gameObject);
+                
             }
         }
         else

@@ -20,6 +20,4 @@ public class AudioInstructions : MonoBehaviour
 
             audioSource.PlayOneShot(audioClipArray[audioSequence]);
     }
-
-    
 }
