@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     /// The full lesson plan sequence
     /// </summary>
     [Serializable]
-    public enum State { DonHelmet, Key, IdentifyComponents, SpeedLesson, FreeRoam }
+    public enum State { DonHelmet, Key, IdentifyComponents, SpeedLesson, GearLesson, FreeRoam }
     public State currentState = State.DonHelmet;
 
     [Serializable]
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject leftControllerJoystick;
     private float timer = 7f;
     private float timer2 = 7f;
+    private float timer3 = 7f;
 
     public Vector3 startingPosition;
 
@@ -207,6 +208,22 @@ public class GameManager : MonoBehaviour
 
                 TransitionToNextState();
                 break;
+            case State.GearLesson:
+                objectiveText.text = objectiveString + "Ride to the end while reaching FOURTH gear";
+                CheckCanPlayNextInstruction(19);
+
+                timer3 -= Time.deltaTime;
+                if (timer3 > 0)
+                {
+                    panel.SetActive(true);
+                }
+                else if (timer3 < 0)
+                {
+                    panel.SetActive(false);
+                }
+
+                TransitionToNextState();
+                break;
 
             case State.FreeRoam:
 
@@ -234,7 +251,7 @@ public class GameManager : MonoBehaviour
                     vehicle.SetActive(true);
                 }
 
-                Debug.Log("Free Roam");
+                //Debug.Log("Free Roam");
                 objectiveText.text = objectiveString + "Roam free!";
                 break;
         }

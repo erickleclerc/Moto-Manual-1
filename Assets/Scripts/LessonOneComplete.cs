@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LessonOneComplete : MonoBehaviour
@@ -8,19 +6,16 @@ public class LessonOneComplete : MonoBehaviour
     [SerializeField] private GameObject vrRig;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (vrRig.GetComponent<Rigidbody>().velocity.magnitude > 40f)
+        if (gameManager.currentState == GameManager.State.SpeedLesson)
         {
-            Reset();
-            gameManager.audioInstructions.PlayInstruction(18);
+            if (vrRig.GetComponent<Rigidbody>().velocity.magnitude > 40f)
+            {
+                Reset();
+                gameManager.audioInstructions.PlayInstruction(18);
+            }
         }
     }
 
@@ -33,12 +28,10 @@ public class LessonOneComplete : MonoBehaviour
             gameManager.stateIsComplete = true;
 
             Reset();
-
-            Destroy(gameObject);
         }
     }
 
-    //probably do a camer a fade out and in when resetting position for next state
+    //probably do a camera fade out and in when resetting position for next state
 
 
 

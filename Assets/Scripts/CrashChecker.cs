@@ -23,7 +23,7 @@ public class CrashChecker : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            if (gameManager.currentState == GameManager.State.SpeedLesson)
+            if (gameManager.currentState == GameManager.State.SpeedLesson || gameManager.currentState == GameManager.State.GearLesson)
             {
                 vrRig.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 vrRig.GetComponent<MotorcycleController>().currentGear = 1;

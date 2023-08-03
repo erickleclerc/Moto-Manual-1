@@ -4,9 +4,7 @@ public class TiltLeaning : MonoBehaviour
 {
     public float maxTiltAngle = 45f;        // Maximum angle the motorcycle can lean
     public float rotationSpeed = .5f;       // Speed of rotation when tilting
-
     private Rigidbody rb;
-
     public GameObject head;
 
     private float currentYaw;
@@ -44,7 +42,6 @@ public class TiltLeaning : MonoBehaviour
 
             //Smooth out the rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, rigRotation, rotationSpeed * Time.deltaTime);
-            
         }
         else
         {
@@ -56,7 +53,6 @@ public class TiltLeaning : MonoBehaviour
 
             //face the player forward
             //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), rotationSpeed * Time.deltaTime);
-
         }
     }
 }

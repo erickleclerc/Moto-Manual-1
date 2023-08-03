@@ -15,7 +15,7 @@ public class OutOfBounds : MonoBehaviour
         {
             outOfBoundsText.text = "Out of bounds!";
 
-            if (gameManager.currentState == GameManager.State.SpeedLesson)
+            if (gameManager.currentState == GameManager.State.SpeedLesson || gameManager.currentState == GameManager.State.GearLesson)
             {
 
                 //set the velocity of the vrRig to 0
