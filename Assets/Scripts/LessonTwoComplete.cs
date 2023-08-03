@@ -14,6 +14,10 @@ public class LessonTwoComplete : MonoBehaviour
         {
             reachedGear = true;
         }
+        else
+        {
+            reachedGear = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
