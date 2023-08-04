@@ -3,7 +3,7 @@ using UnityEngine;
 public class TiltLeaning : MonoBehaviour
 {
     public float maxTiltAngle = 45f;        // Maximum angle the motorcycle can lean
-    public float rotationSpeed = .5f;       // Speed of rotation when tilting
+    public float rotationSpeed = .4f;       // Speed of rotation when tilting
     private Rigidbody rb;
     public GameObject head;
 

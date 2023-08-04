@@ -83,9 +83,7 @@ public class aiAgent : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
 
-
         currentState = State.MoveToPointOne;
         agent.SetDestination(pointOne.position);
-
     }
 }

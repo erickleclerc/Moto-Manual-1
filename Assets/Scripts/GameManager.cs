@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("CAN PLAY AUDIO?: " + canPlayInstruction);
         switch (currentState)
         {
             case State.DonHelmet:
@@ -81,7 +80,7 @@ public class GameManager : MonoBehaviour
                         objectiveText.text = objectiveString + "Touch the Throttle";
                         CheckCanPlayNextInstruction(2);
                         HighlightComponent(0);
-                        //HighlightOnController(99);
+                        HighlightOnController(99);
                         break;
                     case Step.KillSwitch:
                         objectiveText.text = objectiveString + "Flick the Kill Switch DOWN";
@@ -133,9 +132,7 @@ public class GameManager : MonoBehaviour
                         HighlightComponent(5);
                         HighlightOnController(12);
 
-                        //animate the L controller
                         leftControllerJoystick.GetComponent<Animator>().SetBool("FlickUp", true);
-
                         break;
                     case Step.HeadlightOff:
                         objectiveText.text = objectiveString + "Flick the Headlight DOWN With Your Controller";
@@ -143,7 +140,6 @@ public class GameManager : MonoBehaviour
                         HighlightComponent(5);
                         HighlightOnController(12);
 
-                        //animate the L controller. Cancel other bool, enable flick down bool
                         leftControllerJoystick.GetComponent<Animator>().SetBool("FlickUp", false);
                         leftControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", true);
                         break;
@@ -182,7 +178,7 @@ public class GameManager : MonoBehaviour
 
                         leftControllerJoystick.GetComponent<Animator>().SetBool("PushIn", false);
                         break;
-                        //the turn signal off will change the state to FirstGearRide
+                        //the horn will change the state to the speed ride
                 }
 
                 TransitionToNextStep();
