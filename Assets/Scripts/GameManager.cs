@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public State currentState = State.DonHelmet;
 
     [Serializable]
-    public enum Step { Throttle, KillSwitch, FuelInjector, FrontBrake, BackBrake, Clutch, ShifterUp, ShifterDown, HeadlightOn, HeadlightOff, RightTurnSignal, LeftTurnSignal, TurnSignalOff, Horn }
+    public enum Step { ReferenceImages, Throttle, KillSwitch, FuelInjector, FrontBrake, BackBrake, Clutch, ShifterUp, ShifterDown, HeadlightOn, HeadlightOff, RightTurnSignal, LeftTurnSignal, TurnSignalOff, Horn }
     public Step currentStep = Step.Throttle;
 
     [SerializeField] private GameObject[] components;
@@ -30,9 +30,6 @@ public class GameManager : MonoBehaviour
     public GameObject[] otherVehicles;
 
     //Visual Aides
-    //[SerializeField] private Toggle keyInToggle;
-    //[SerializeField] private Toggle killSwitchToggle;
-    //[SerializeField] private Toggle pushStartToggle;
     [SerializeField] GameObject oculusControllerParentGO;
     [SerializeField] GameObject rightControllerJoystick;
     [SerializeField] GameObject leftControllerJoystick;
@@ -52,11 +49,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log("CAN PLAY AUDIO?: " + canPlayInstruction);
         switch (currentState)
         {
             case State.DonHelmet:
                 //Message in HUD saying to put on helmet. Once contact, change state to IdentifyComponents
-                //Debug.Log("Don Helmet");
                 objectiveText.text = objectiveString + "Put On Your Helmet";
                 CheckCanPlayNextInstruction(0);
                 TransitionToNextState();
@@ -64,8 +61,6 @@ public class GameManager : MonoBehaviour
 
             case State.Key:
                 //Message in HUD saying to put key in ignition. Once contact, change state to IdentifyComponents
-                //Debug.Log("Key");
-                //keyInToggle.gameObject.SetActive(true);
                 objectiveText.text = objectiveString + "Grab the key and place it in the igniton";
                 CheckCanPlayNextInstruction(1);
                 HighlightComponent(7);
@@ -73,13 +68,15 @@ public class GameManager : MonoBehaviour
                 break;
             case State.IdentifyComponents:
                 //Message in HUD saying to identify throttle, clutch, brakes, horn, kill switch, turning signals, gear shift. Once all are identified, change state
-                //Debug.Log("Identify Components");
-                //killSwitchToggle.gameObject.SetActive(true);
-                //pushStartToggle.gameObject.SetActive(true);
                 oculusControllerParentGO.SetActive(true);
 
                 switch (currentStep)
                 {
+                    case Step.ReferenceImages:
+                        objectiveText.text = objectiveString + "Hold the Y button with your left palm up";
+                        CheckCanPlayNextInstruction(21);
+                        HighlightOnController(14);
+                        break;
                     case Step.Throttle:
                         objectiveText.text = objectiveString + "Touch the Throttle";
                         CheckCanPlayNextInstruction(2);
@@ -91,18 +88,13 @@ public class GameManager : MonoBehaviour
                         CheckCanPlayNextInstruction(3);
                         HighlightComponent(1);
                         HighlightOnController(8);
-
-                        //animate the R controller
                         rightControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", true);
-
-
                         break;
                     case Step.FuelInjector:
                         objectiveText.text = objectiveString + "Tap the Push Start Button";
                         CheckCanPlayNextInstruction(4);
                         HighlightComponent(2);
                         HighlightOnController(9);
-
                         rightControllerJoystick.GetComponent<Animator>().SetBool("FlickDown", false);
                         break;
                     case Step.FrontBrake:
@@ -251,11 +243,8 @@ public class GameManager : MonoBehaviour
                 break;
             case State.FreeRoam:
                 oculusControllerParentGO.SetActive(false);
-
+                objectiveText.text = objectiveString + "Roam free!";
                 CheckCanPlayNextInstruction(16);
-                //keyInToggle.gameObject.SetActive(false);
-                // killSwitchToggle.gameObject.SetActive(false);
-                // pushStartToggle.gameObject.SetActive(false);
 
                 timer2 -= Time.deltaTime;
 
@@ -274,8 +263,6 @@ public class GameManager : MonoBehaviour
                     vehicle.SetActive(true);
                 }
 
-                //Debug.Log("Free Roam");
-                objectiveText.text = objectiveString + "Roam free!";
                 break;
         }
     }
@@ -284,8 +271,9 @@ public class GameManager : MonoBehaviour
     {
         if (canPlayInstruction)
         {
-            audioInstructions.PlayInstruction(audioClip);
+            Debug.Log("is true man");
             canPlayInstruction = false;
+            audioInstructions.PlayInstruction(audioClip);
         }
     }
 
@@ -337,7 +325,6 @@ public class GameManager : MonoBehaviour
             stateIsComplete = false;
             currentState++;
             objectiveText.gameObject.SetActive(true);
-
         }
     }
 }

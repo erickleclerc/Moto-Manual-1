@@ -27,7 +27,10 @@ public class AttachHelmet : MonoBehaviour
             //This keeps skipping to last state
             //gameManager.stateIsComplete = true; 
             //temporary fix
-            gameManager.canPlayInstruction = true;
+            if (gameManager.currentState == GameManager.State.DonHelmet)
+            {
+                gameManager.canPlayInstruction = true;
+            }
             gameManager.currentState = GameManager.State.Key;
         }
     }

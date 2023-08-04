@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AudioInstructions : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClipArray;
 
     void Start()

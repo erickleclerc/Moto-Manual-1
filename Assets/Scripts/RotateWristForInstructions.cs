@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class RotateWristForInstructions : MonoBehaviour
 {
     [SerializeField] private GameObject[] controlsImage;
+    public GameManager gameManager;
 
     VRInputActions VRInputActions;
 
@@ -14,27 +16,29 @@ public class RotateWristForInstructions : MonoBehaviour
 
     void Update()
     {
-        // Get the wrist rotation as a quaternion
-        Quaternion wristRotation = transform.localRotation;
-
-        // Activate/deactivate the image GameObject based on the wrist rotation
-
-        //NOT CURRENTLY WORKING
-        //if (wristRotation.x > 0.5f && wristRotation.x < 0.7f)
-        //    controlsImage.SetActive(true);
-        //else controlsImage.SetActive(false);
-
-        //Debug.Log(wristRotation);
-
         if (VRInputActions.MotorcycleControls.DisplayControlsMap.IsPressed())
         {
             controlsImage[0].SetActive(true);
             controlsImage[1].SetActive(true);
+            StartCoroutine(InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.ReferenceImages));
         }
         else
         {
             controlsImage[0].SetActive(false);
             controlsImage[1].SetActive(false);
+        }
+    }
+
+    private IEnumerator InputActionStep(GameManager.State state, GameManager.Step step)
+    {
+        yield return new WaitForSeconds(1f);
+
+        if (gameManager.currentState == state)
+        {
+            if (gameManager.currentStep == step)
+            {
+                gameManager.stepIsComplete = true;
+            }
         }
     }
 }
