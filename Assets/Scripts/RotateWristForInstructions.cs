@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RotateWristForInstructions : MonoBehaviour
 {
-    [SerializeField] private GameObject controlsImage;
+    [SerializeField] private GameObject[] controlsImage;
 
     VRInputActions VRInputActions;
 
@@ -28,10 +28,13 @@ public class RotateWristForInstructions : MonoBehaviour
 
         if (VRInputActions.MotorcycleControls.DisplayControlsMap.IsPressed())
         {
-            controlsImage.SetActive(true);
+            controlsImage[0].SetActive(true);
+            controlsImage[1].SetActive(true);
         }
-        else controlsImage.SetActive(false);
-
-
+        else
+        {
+            controlsImage[0].SetActive(false);
+            controlsImage[1].SetActive(false);
+        }
     }
 }

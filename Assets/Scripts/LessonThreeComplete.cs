@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LessonThreeComplete : MonoBehaviour
@@ -6,20 +7,27 @@ public class LessonThreeComplete : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject vrRig;
     [SerializeField] private GameObject headlightGO;
+    [SerializeField] private GameObject conesParentGO;
 
     [SerializeField] private bool headlightIsOn = false;
-   
 
-    // Start is called before the first frame update
+    private float initalIntensity;
+    private float targetIntensity = 0.1f;
+    private float duration = 4f;
+
     void Start()
     {
-        //RenderSettings.skybox.SetFloat("_Exposure", 0.5f);
+        initalIntensity = sunlightIntensity.intensity;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (headlightGO.activeInHierarchy)
+        if (gameManager.currentState == GameManager.State.DarkLesson)
+        {
+            conesParentGO.SetActive(true);
+        }
+
+        if (headlightGO.GetComponent<Light>().enabled == true)
         {
             headlightIsOn = true;
         }
@@ -31,25 +39,25 @@ public class LessonThreeComplete : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameManager.currentState == GameManager.State.GearLesson && headlightIsOn)
+        if (gameManager.currentState == GameManager.State.DarkLesson && headlightIsOn == true)
         {
+            StopAllCoroutines();
+            StartCoroutine(RestoreSunlight());
             gameManager.stateIsComplete = true;
+            conesParentGO.SetActive(false);
 
             Reset();
-
-            //REStore sunlight
-            Destroy(gameObject);
+            Debug.Log("Success");
+            
+            
         }
         else
         {
             Reset();
             gameManager.audioInstructions.PlayInstruction(18);
+            Debug.Log("Failed");
         }
     }
-
-    //probably do a camera fade out and in when resetting position for next state
-
-
 
     private void Reset()
     {
@@ -58,13 +66,50 @@ public class LessonThreeComplete : MonoBehaviour
         vrRig.transform.position = gameManager.startingPosition;
     }
 
-    private void FadeSunlight()
+    public IEnumerator FadeSunlight()
     {
+        float elapsedTime = 0;
 
+        while (elapsedTime < duration)
+        {
+            float time = elapsedTime / duration;
+
+            float newIntensity = Mathf.Lerp(initalIntensity, targetIntensity, time);
+
+            sunlightIntensity.intensity = newIntensity;
+            RenderSettings.skybox.SetFloat("_Exposure", newIntensity);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        sunlightIntensity.intensity = targetIntensity;
+        gameManager.isAllowed = false;
+        yield return null;
     }
 
-    private void RestoreSunlight()
+    public IEnumerator RestoreSunlight()
     {
+        Debug.Log("Restoring Sunlight");
+        float elapsedTime = 0;
+        float currentIntensity = sunlightIntensity.intensity;
 
+        while (elapsedTime < duration)
+        {
+            float time = elapsedTime / duration;
+
+            float newIntensity = Mathf.Lerp(0, 1, time);
+
+            sunlightIntensity.intensity = newIntensity;
+            RenderSettings.skybox.SetFloat("_Exposure", newIntensity);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        sunlightIntensity.intensity = initalIntensity;
+
+        yield return new WaitForSeconds(2f);
+
+        Destroy(gameObject);
     }
 }

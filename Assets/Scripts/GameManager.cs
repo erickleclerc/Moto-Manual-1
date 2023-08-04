@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     public Vector3 startingPosition;
 
+    public bool isAllowed = true;
+
     void Start()
     {
         oculusControllerParentGO.SetActive(false);
@@ -222,12 +224,18 @@ public class GameManager : MonoBehaviour
                 {
                     panel.SetActive(false);
                 }
-
+                
                 TransitionToNextState();
                 break;
             case State.DarkLesson:
                 objectiveText.text = objectiveString + "Ride to the end and do not hit the cones";
                 CheckCanPlayNextInstruction(20);
+
+                if (isAllowed)
+                {
+                    StartCoroutine(GameObject.Find("Lesson 1,2,3 End Point").GetComponent<LessonThreeComplete>().FadeSunlight());
+                }
+                
 
                 timer4 -= Time.deltaTime;
                 if (timer4 > 0)
@@ -242,7 +250,6 @@ public class GameManager : MonoBehaviour
                 TransitionToNextState();
                 break;
             case State.FreeRoam:
-
                 oculusControllerParentGO.SetActive(false);
 
                 CheckCanPlayNextInstruction(16);
