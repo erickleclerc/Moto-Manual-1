@@ -23,7 +23,11 @@ The goal of this project was to build an entire experience from scratch to expos
   - [x] Selecting to begin or exit using Raycasting
 
 * Game Flow
-  - [x] A linear game flow leading into a freedom of choice gameplay 
+  - [x] A linear game flow leading into a freedom of choice gameplay
+  - [x] Mini lessons:
+      - [x] Riding at city speed
+      - [x] Riding at a higher gear
+      - [x] Riding at night while avoiding obstacles    
 
 * Animations
   - [x] Gloves and Oculus Controllers animedted using the Animation Controller
@@ -47,9 +51,9 @@ The goal of this project was to build an entire experience from scratch to expos
   - [x] Haptic feedback
 
  * Locomotion
-  - [x] Turning using the user's head tilt while throttling
-  - [x] Auto readjusting the player upright
-  - [x] Understanding positioning with side mirrors
+    - [x] Turning using the user's head tilt while throttling
+    - [x] Auto readjusting the player upright
+    - [x] Understanding positioning with side mirrors
 
 * A.I. Agents
   - [x] Various vehicles that must be avoided to preveent crashing
@@ -59,15 +63,16 @@ The goal of this project was to build an entire experience from scratch to expos
  
 * UI
   - [x] Updateable UI based on player progress
+  - [x] Controls & shifting references 
   - [x] Speedometer
   - [x] Gear level
   - [x] Hands on the handle bar indicator
   - [x] Crash indicator
 
  * Audio
-  - [x] A.I. generated audio instructions
-  - [x] Throttling, Push Starting, and Horn
-  - [x] Main menu music 
+    - [x] A.I. generated audio instructions
+    - [x] Throttling, Push Starting, and Horn
+    - [x] Main menu music 
 
 ## Controls
 PC Controls:
@@ -86,7 +91,11 @@ Oculus Controls + USB Pedals:
 <p align="center">
   <img alt="Preview" width="300" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/USB%20Pedal.png">
 <p align="center">
-Three pedals were programmed to the PC keyboard bindings
+
+<p align="center">
+  <img alt="Preview" width="300" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Pedal%20Construction.png">
+<p align="center">
+Three pedals were programmed to the PC keyboard bindings, combined with scrap wood to mimic a shifter lever and a brake pedal.  
 
 ## Process 
 Playtests
@@ -101,17 +110,20 @@ Playtests
 The project's developement came in two stages:
 
 The Planning Stage:
-PROJECT CHARTER LINK
+
+https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Moto%20Manual%20-%20Project%20Plan.pdf
 
 The Development Stage:
 JIRA, MIRO, CALENDARS EXPLANATION
 
+
+
 <p align="center">
-  <img alt="Preview" width="600" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%201.png">
+  <img alt="Preview" width="800" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%201.png">
 <p align="center">
 
 <p align="center">
-  <img alt="Preview" width="600" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%202.png">
+  <img alt="Preview" width="800" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%202.png">
 <p align="center">
 
 
@@ -123,7 +135,7 @@ add a real reference pic and the actual case study video
 [![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)
 
 ## Optimization
-Even though the experience is meant for PCVR, a goal to optimize for standalone would benefit reaching a larger VR audience. 
+Even though the experience is meant for PC VR, a goal to optimize for standalone would benefit reaching a larger VR audience. 
 
 According to Meta Quest Optimization Guideline, a Medium Simulation intensity for the Quest 2 recommends 200-300 draw calls. The triangle count should be 750k-1.0m. Finally, a comfortable fps for standalone games if over 70fps.
 
@@ -142,7 +154,6 @@ The vast majority of the tris come from a complex motorcycle model along with th
   - Turning + Shoulder checks
   - Riding the clutch
   - Push Steering
-  - Riding at night
   - Reading road signs
 
 * Additions:
