@@ -8,12 +8,6 @@ public class RigVR : MonoBehaviour
 {
     public Transform head, left, right;
 
-
-    private void Awake()
-    {
-
-    }
-
     private void Update()
     {
 

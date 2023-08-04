@@ -29,6 +29,10 @@ public class KeyInIgnition : MonoBehaviour
     {
         if (other.CompareTag("Ignition"))
         {
+            if (gameManager.currentState == GameManager.State.Key)
+            {
+                gameManager.canPlayInstruction = true;
+            }
             //Debug.Log("Key in ignition");
             if (isAttached == false)
             {
@@ -37,10 +41,6 @@ public class KeyInIgnition : MonoBehaviour
 
             isAttached = true;
             motorcycleController.isKeyIn = true;
-
-            if ( gameManager.currentState == GameManager.State.Key)
-            gameManager.canPlayInstruction = true;
-           
         }
     }
 }

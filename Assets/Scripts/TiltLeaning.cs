@@ -30,6 +30,7 @@ public class TiltLeaning : MonoBehaviour
         if (rb.velocity.magnitude > 2)
         {
             Quaternion roll = Quaternion.AngleAxis(desiredTiltAngle, Vector3.forward);
+            Quaternion pitch = Quaternion.AngleAxis(0, Vector3.right);
 
             float angularVelocity = -desiredTiltAngle;
 
@@ -38,10 +39,14 @@ public class TiltLeaning : MonoBehaviour
             Quaternion yaw = Quaternion.AngleAxis(currentYaw, Vector3.up);
 
             // Tilt and lean, yaw ALWAYS comes before roll in Quaternions
-            rigRotation = yaw * roll;
+            rigRotation = yaw * roll * pitch;
 
             //Smooth out the rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, rigRotation, rotationSpeed * Time.deltaTime);
+
+            //Stop from flying off the ground or running into the ground
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+
         }
         else
         {
@@ -49,10 +54,14 @@ public class TiltLeaning : MonoBehaviour
             Quaternion upright = Quaternion.AngleAxis(0, Vector3.forward);
             yaw = Quaternion.Euler(0, 0, 0);
             currentYaw = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, upright, rotationSpeed * Time.deltaTime);
 
-            //face the player forward
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), rotationSpeed * Time.deltaTime);
+            rigRotation = yaw * upright;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rigRotation, rotationSpeed * Time.deltaTime);
+            
+            
+            //Stop from flying off the ground or running into the ground
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+            //Debug.Log(transform.position.y);
         }
     }
 }

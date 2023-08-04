@@ -21,7 +21,7 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] public bool isReadyToRide = false;
     [SerializeField] private GameObject killSwitchObject;
 
-
+    //Audio
     [SerializeField] private AudioSource engineAudioSource;
     [SerializeField] private bool startEngineAudio = false;
     [SerializeField] private AudioClip[] engineSoundClips;
@@ -61,7 +61,6 @@ public class MotorcycleController : MonoBehaviour
     [SerializeField] private AudioClip hornAudioClip;
     [SerializeField] private GameObject brakeLeverObject;
     
-
 
     //Display Checklist
     [SerializeField] private UnityEngine.UI.Toggle keyInToggle;
@@ -340,7 +339,7 @@ public class MotorcycleController : MonoBehaviour
             InputActionStep(GameManager.State.IdentifyComponents, GameManager.Step.ShifterDown);
 
         }
-        Debug.Log($"Clutch is: {isClutchIn} Current gear is {currentGear}");
+        //Debug.Log($"Clutch is: {isClutchIn} Current gear is {currentGear}");
 
 
         //Display Gear & Change Acceleration Speed
@@ -408,21 +407,6 @@ public class MotorcycleController : MonoBehaviour
 
 
         #endregion
-
-
-        //#region Display Checklist
-
-        //if (isKeyIn)
-        //    keyInToggle.isOn = true;
-        //else
-        //    keyInToggle.isOn = false;
-
-
-        //if (isFuelInjected)
-        //    pushStartToggle.isOn = true;
-        //else
-        //    pushStartToggle.isOn = false;
-        //#endregion
     }
 
     private void InputActionStep(GameManager.State state, GameManager.Step step)
@@ -446,6 +430,5 @@ public class MotorcycleController : MonoBehaviour
         engineAudioSource.Stop();
         engineAudioSource.Play();
     }
-   
 }
 

@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class AvoidFlying : MonoBehaviour
@@ -11,7 +10,6 @@ public class AvoidFlying : MonoBehaviour
     {
         if (transform.position.y > 0.6f || transform.position.y < 0.3f)
         {
-            //transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.5f, transform.position.z), 1f * Time.deltaTime);
         }
     }

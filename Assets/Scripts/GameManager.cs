@@ -195,7 +195,6 @@ public class GameManager : MonoBehaviour
                 oculusControllerParentGO.SetActive(false);
 
                 timer -= Time.deltaTime;
-
                 if (timer < 0)
                 {
                     panel.SetActive(false);
@@ -207,12 +206,12 @@ public class GameManager : MonoBehaviour
                 objectiveText.text = objectiveString + "Ride to the end while reaching FOURTH gear";
                 CheckCanPlayNextInstruction(19);
 
-                timer3 -= Time.deltaTime;
-                if (timer3 > 0)
+                timer2 -= Time.deltaTime;
+                if (timer2 > 0)
                 {
                     panel.SetActive(true);
                 }
-                else if (timer3 < 0)
+                else if (timer2 < 0)
                 {
                     panel.SetActive(false);
                 }
@@ -227,14 +226,13 @@ public class GameManager : MonoBehaviour
                 {
                     StartCoroutine(GameObject.Find("Lesson 1,2,3 End Point").GetComponent<LessonThreeComplete>().FadeSunlight());
                 }
-                
 
-                timer4 -= Time.deltaTime;
-                if (timer4 > 0)
+                timer3 -= Time.deltaTime;
+                if (timer3 > 0)
                 {
                     panel.SetActive(true);
                 }
-                else if (timer4 < 0)
+                else if (timer3 < 0)
                 {
                     panel.SetActive(false);
                 }
@@ -246,17 +244,15 @@ public class GameManager : MonoBehaviour
                 objectiveText.text = objectiveString + "Roam free!";
                 CheckCanPlayNextInstruction(16);
 
-                timer2 -= Time.deltaTime;
-
-                if (timer2 > 0)
+                timer4 -= Time.deltaTime;
+                if (timer4 > 0)
                 {
                     panel.SetActive(true);
                 }
-                else if (timer2 < 0)
+                else if (timer4 < 0)
                 {
                     panel.SetActive(false);
                 }
-
 
                 foreach (GameObject vehicle in otherVehicles)
                 {
@@ -271,7 +267,6 @@ public class GameManager : MonoBehaviour
     {
         if (canPlayInstruction)
         {
-            Debug.Log("is true man");
             canPlayInstruction = false;
             audioInstructions.PlayInstruction(audioClip);
         }

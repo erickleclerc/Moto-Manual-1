@@ -31,7 +31,7 @@ public class VRInputController : MonoBehaviour
 
         if (!debugging)
         {
-            JoystickLeft = actions.MotorcycleControls.TurnSignals.ReadValue<Vector2>();
+            //JoystickLeft = actions.MotorcycleControls.TurnSignals.ReadValue<Vector2>();
             //JoystickRight = actions.Default.JoystickRight.ReadValue<Vector2>();
 
             if (actions.MotorcycleControls.TurnSignals.WasPerformedThisFrame()) ThumbPressedLeft = true;

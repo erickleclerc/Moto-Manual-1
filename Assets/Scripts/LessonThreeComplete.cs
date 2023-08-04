@@ -47,15 +47,11 @@ public class LessonThreeComplete : MonoBehaviour
             conesParentGO.SetActive(false);
 
             Reset();
-            Debug.Log("Success");
-            
-            
         }
         else
         {
             Reset();
             gameManager.audioInstructions.PlayInstruction(18);
-            Debug.Log("Failed");
         }
     }
 

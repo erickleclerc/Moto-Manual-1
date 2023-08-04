@@ -19,8 +19,6 @@ public class LessonOneComplete : MonoBehaviour
         }
     }
 
-    
-
     private void OnTriggerEnter(Collider other)
     {
         if (gameManager.currentState == GameManager.State.SpeedLesson)
@@ -30,9 +28,6 @@ public class LessonOneComplete : MonoBehaviour
             Reset();
         }
     }
-
-    //probably do a camera fade out and in when resetting position for next state
-
 
 
     private void Reset()
