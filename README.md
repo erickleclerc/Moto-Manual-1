@@ -10,7 +10,7 @@ Rev up your virtual engines with my PCVR motorcycle training simulator! Designed
 An entirely individually conceived project without the use of prior made packages.
 
 ## Project Aim / Goal 
-Moto Manual aims to teach a prospective riders teh intricacies of a two-wheeled vehicle by familiarizing them with the controls and abilities of wrist controlled speeding. Upon completion of a walkthrough identifying the key components of a motorcycle, the rider will be able to practice throttling, braking, and shifting while traffic is in play. As a training simulator designed to be used in-tandem with motorcycle education classes, the rider may practice over and over until they are comfortable taking their skills and muscle memory into the real world.
+Moto Manual aims to teach a prospective riders the intricacies of a two-wheeled vehicle by familiarizing them with the controls and abilities of wrist controlled speeding. Upon completion of a walkthrough identifying the key components of a motorcycle, the rider will be able to practice throttling, braking, and shifting while traffic is in play. As a training simulator designed to be used in-tandem with motorcycle education classes, the rider may practice over and over until they are comfortable taking their skills and muscle memory into the real world.
 
 The goal of this project was to build an entire experience from scratch to expose myself to as many aspects of VR game building as possible. The main objective was to prioritize forming the experience to a functional stage over polishing its design. By attempting to solve nearly all problems within the Unity game engine and using C# scripting, a new level of comfort navigating the engine has been achieved. 
 
@@ -25,12 +25,12 @@ The goal of this project was to build an entire experience from scratch to expos
 * Game Flow
   - [x] A linear game flow leading into a freedom of choice gameplay
   - [x] Mini lessons:
-      - [x] Riding at city speed
+      - [x] Riding at city speeds
       - [x] Riding at a higher gear
       - [x] Riding at night while avoiding obstacles    
 
 * Animations
-  - [x] Gloves and Oculus Controllers animedted using the Animation Controller
+  - [x] Gloves and Oculus Controllers animated using the Animation Controller
   - [x] Highlighting animations using C# scripting
 
 * Inputs
@@ -56,7 +56,7 @@ The goal of this project was to build an entire experience from scratch to expos
     - [x] Understanding positioning with side mirrors
 
 * A.I. Agents
-  - [x] Various vehicles that must be avoided to preveent crashing
+  - [x] Various vehicles that must be avoided to prevent crashing
  
 * Collisions
   - [x] Restarting lesson when colliding with vehicles and buildings
@@ -109,14 +109,20 @@ Playtests
 ## Journey
 The project's developement came in two stages:
 
-The Planning Stage:
+**The Planning Stage**
 
 https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Moto%20Manual%20-%20Project%20Plan.pdf
 
-The Development Stage:
-JIRA, MIRO, CALENDARS EXPLANATION
+**The Development Stage** <br>
+Much of keeping the project on track was due to a reliance on Miro and JIRA for loogging progress along the way, highlighting what needed to be prioritized or rescheduled. This provided a learning opportunity to understand unfamiliar tools outside of Unity.
 
+<p align="center">
+  <img alt="Preview" width="800" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/backlog.jpg">
+<p align="center">
 
+<p align="center">
+  <img alt="Preview" width="800" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/Calendar.jpg">
+<p align="center">
 
 <p align="center">
   <img alt="Preview" width="800" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%201.png">
@@ -126,13 +132,12 @@ JIRA, MIRO, CALENDARS EXPLANATION
   <img alt="Preview" width="800" alt="preview" src="https://github.com/erickleclerc/Moto-Manual-1/blob/main/Github%20Resources/jira%202.png">
 <p align="center">
 
+*** Please click on the images to view them in greater detail ***
 
 ## Case Study Video 
 > Example Video
 
-add a real reference pic and the actual case study video
-
-[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/manage/videos/840202116)
+[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/852572254?share=copy)
 
 ## Optimization
 Even though the experience is meant for PC VR, a goal to optimize for standalone would benefit reaching a larger VR audience. 
