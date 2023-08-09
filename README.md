@@ -136,7 +136,7 @@ Much of keeping the project on track was due to a reliance on Miro and JIRA for 
 
 ## Case Study Video 
 
-[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)]([https://vimeo.com/852572254?share=copy](https://vimeo.com/852866190?share=copy))
+[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/852866190?share=copy)
 
 ## Optimization
 Even though the experience is meant for PC VR, a goal to optimize for standalone would benefit reaching a larger VR audience. 
