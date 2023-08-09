@@ -5,7 +5,7 @@
 <p align="center">
 
 ## Summary
-Rev up your virtual engines with my PCVR motorcycle training simulator! Designed to replicate real-world riding scenarios, this immersive experience allows learners to master motorcycle handling, traffic navigation, and road safety without the fear of real-world damage. Feel the thrill of the open road and gain confidence as you progress towards becoming a skilled motorcyclist in a risk-free environment.
+Rev up your virtual engines with my PC VR motorcycle training simulator! Designed to replicate real-world riding scenarios, this immersive experience allows learners to master motorcycle handling, traffic navigation, and road safety without the fear of real-world damage. Feel the thrill of the open road and gain confidence as you progress towards becoming a skilled motorcyclist in a risk-free environment.
 
 An entirely individually conceived project without the use of prior made packages.
 
@@ -135,9 +135,8 @@ Much of keeping the project on track was due to a reliance on Miro and JIRA for 
 *** Please click on the images to view them in greater detail ***
 
 ## Case Study Video 
-> Example Video
 
-[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)](https://vimeo.com/852572254?share=copy)
+[![](http://i3.ytimg.com/vi/G7rzMntNpz4/hqdefault.jpg)]([https://vimeo.com/852572254?share=copy](https://vimeo.com/852866190?share=copy))
 
 ## Optimization
 Even though the experience is meant for PC VR, a goal to optimize for standalone would benefit reaching a larger VR audience. 
