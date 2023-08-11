@@ -10,7 +10,7 @@ Rev up your virtual engines with my PC VR motorcycle training simulator! Designe
 An entirely individually conceived project without the use of prior made packages.
 
 ## Project Aim / Goal 
-Moto Manual aims to teach a prospective riders the intricacies of a two-wheeled vehicle by familiarizing them with the controls and abilities of wrist controlled speeding. Upon completion of a walkthrough identifying the key components of a motorcycle, the rider will be able to practice throttling, braking, and shifting while traffic is in play. As a training simulator designed to be used in-tandem with motorcycle education classes, the rider may practice over and over until they are comfortable taking their skills and muscle memory into the real world.
+Moto Manual aims to teach prospective riders the intricacies of a two-wheeled vehicle by familiarizing them with the controls and abilities of wrist controlled speeding. Upon completion of a walkthrough identifying the key components of a motorcycle, the rider will be able to practice throttling, braking, and shifting while traffic is in play. As a training simulator designed to be used in-tandem with motorcycle education classes, the rider may practice over and over until they are comfortable taking their skills and muscle memory into the real world.
 
 The goal of this project was to build an entire experience from scratch to expose myself to as many aspects of VR game building as possible. The main objective was to prioritize forming the experience to a functional stage over polishing its design. By attempting to solve nearly all problems within the Unity game engine and using C# scripting, a new level of comfort navigating the engine has been achieved. 
 
@@ -18,7 +18,7 @@ The goal of this project was to build an entire experience from scratch to expos
 > Here is a brief of the implemented training features:
 
 * Main Menu
-  - [x] Preview of the rideable motorycle
+  - [x] Preview of the rideable motorcycle
   - [x] Entering the game
   - [x] Selecting to begin or exit using Raycasting
 
@@ -41,8 +41,8 @@ The goal of this project was to build an entire experience from scratch to expos
   - [x] Placing a key in the igntion
   - [x] Kill Switch
   - [x] Push Start
-  - [x] Front & Back Brake
-  - [x] Throttle
+  - [x] Front & Back Braking
+  - [x] Throttling
   - [x] Clutch
   - [x] Shifting
   - [x] Turn Signals
